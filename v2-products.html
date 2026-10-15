@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>제품 — 초월</title>
+<meta name="description" content="초월 6.9, DEEP, DEEP Down, SPKL. 해남 쌀과 누룩, 물로 빚은 초월의 라인업.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="v2.css">
+<style>
+.rows{display:flex;flex-direction:column;gap:clamp(120px,18vh,220px);padding:clamp(40px,6vh,80px) var(--gut) clamp(120px,16vh,200px)}
+.row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px var(--gut);align-items:end}
+.row .mask{grid-column:1/8;aspect-ratio:4/5;background:#ddd8cd}
+.row .mask img{width:100%;height:100%;object-fit:cover}
+.row .txt{grid-column:8/13;display:flex;flex-direction:column;gap:18px;padding-bottom:16px}
+.row:nth-child(even) .mask{grid-column:6/13;grid-row:1}
+.row:nth-child(even) .txt{grid-column:1/6;grid-row:1}
+.row h2{font-size:clamp(48px,6.4vw,108px);font-weight:200;line-height:1;letter-spacing:-.045em}
+.row .tag{font-size:clamp(20px,1.8vw,26px);font-weight:300;letter-spacing:-.02em}
+.row p{font-size:16px;line-height:1.8;color:var(--ink-2);max-width:460px}
+.row .meta{display:flex;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--ink-2)}
+@media (max-width:900px){
+  .rows{gap:96px;padding:24px 24px 96px}
+  .row,.row:nth-child(even){grid-template-columns:1fr;gap:24px}
+  .row .mask,.row .txt,.row:nth-child(even) .mask,.row:nth-child(even) .txt{grid-column:1;grid-row:auto}
+  .row .txt{padding:0}
+}
+</style>
+</head>
+<body>
+<header class="vh" id="vh">
+  <a class="brand" href="chowol_main_v2.html" aria-label="초월 홈"><img src="v2img-mark.png" alt="">초월</a>
+  <nav aria-label="주 메뉴"><a href="v2-about.html">브랜드</a><a href="v2-products.html" aria-current="page">제품</a><a href="v2-brewery.html">양조장 · 예약</a><a href="v2-stockists.html">납품처</a><a href="v2-contact.html">콘택트</a></nav>
+  <a class="cta" href="v2-brewery.html#booking">방문 예약</a>
+  <button class="vburger" id="vBurger" type="button" aria-expanded="false" aria-controls="vMenu" aria-label="메뉴 열기"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg></button>
+</header>
+<div class="vmenu" id="vMenu" hidden><a href="chowol_main_v2.html">홈</a><a href="v2-about.html">브랜드</a><a href="v2-products.html">제품</a><div class="sub"><a href="v2-product-69.html">초월 6.9</a><a href="v2-product-deep.html">DEEP</a><a href="v2-product-deepdown.html">DEEP Down</a><a href="v2-product-spkl.html">SPKL</a></div><a href="v2-brewery.html">양조장 · 예약</a><a href="v2-stockists.html">납품처</a><a href="v2-contact.html">콘택트</a></div>
+<main>
+<section class="ph">
+    <div class="ph-top">
+      <div><span class="label rv"><b>제품</b></span><h1 class="rv">네 가지<br>초월</h1></div>
+      <div class="ph-side rv d2"><p>해남 쌀과 누룩, 물에서 출발한 네 가지 막걸리.</p><p>모든 제품은 냉장 보관(0–10℃)이 필요합니다.</p></div>
+    </div>
+    
+  </section>
+  <section class="rows">
+    <article class="row">
+      <a class="mask rv" href="v2-product-69.html"><img class="px" data-speed="-0.05" src="v2img-p69_single.jpg" alt="초월 6.9" loading="lazy" style="object-position:50% 50%"></a>
+      <div class="txt rv d1"><span class="label">SIGNATURE — 전통 삼양주</span><h2>초월 6.9</h2><p class="tag">가볍지 않은 가벼움</p><p>편하게 즐길 수 있는 접근성과 깊이 있는 질감을 함께. 부드럽게 넘어가면서도 입안에 분명한 존재감을 남기는, 초월의 시그니처입니다.</p>
+        <div class="meta"><span>6.9% · 600 / 750ml</span><span>9,600원부터</span></div><a class="link" href="v2-product-69.html">자세히 보기 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="row">
+      <a class="mask rv" href="v2-product-deep.html"><img class="px" data-speed="-0.05" src="v2img-deep_p.jpg" alt="DEEP" loading="lazy" style="object-position:50% 50%"></a>
+      <div class="txt rv d1"><span class="label">PREMIUM — DEEP SERIES</span><h2>DEEP</h2><p class="tag">“이게 막걸리 맞나요?”</p><p>56일 이상 완전 발효가 끝난 뒤, 원주 중 윗술을 포함시켜 완성합니다. 그래서 소량으로만 생산되며, 일반적인 막걸리보다 훨씬 맑고 깊은 구조를 가지고 있습니다.</p>
+        <div class="meta"><span>18% · 375 / 750ml</span><span>27,000원부터</span></div><a class="link" href="v2-product-deep.html">자세히 보기 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="row">
+      <a class="mask rv" href="v2-product-deepdown.html"><img class="px" data-speed="-0.05" src="v2img-down_p.jpg" alt="DEEP Down" loading="lazy" style="object-position:50% 50%"></a>
+      <div class="txt rv d1"><span class="label">PREMIUM — DEEP SERIES</span><h2>DEEP Down</h2><p class="tag">깊이는 그대로, 도수는 가볍게</p><p>DEEP을 마셔본 분들 중 술이 약한 분들이 하는 말이 있습니다. ‘도수가 좀 부담스럽다.’ 그래서 같은 원주에 가수를 더해 12도로 낮췄습니다.</p>
+        <div class="meta"><span>12% · 375 / 750ml</span><span>19,000원부터</span></div><a class="link" href="v2-product-deepdown.html">자세히 보기 <span aria-hidden="true">→</span></a></div>
+    </article>
+    <article class="row">
+      <a class="mask rv" href="v2-product-spkl.html"><img class="px" data-speed="-0.05" src="v2img-c_spkl.jpg" alt="SPKL" loading="lazy" style="object-position:50% 60%"></a>
+      <div class="txt rv d1"><span class="label">NEW — SPARKLING</span><h2>SPKL</h2><p class="tag">와인 잔에 따르게 되는 술</p><p>찹쌀과 타트체리, 그리고 자연 발효 과정에서 만들어진 은은한 미탄산. 크라운캡을 여는 순간부터 초월 SPKL은 우리가 익숙하게 생각하던 막걸리의 범주를 조금 벗어납니다.</p>
+        <div class="meta"><span>15.6% · 750ml</span><span>28,000원</span></div><a class="link" href="v2-product-spkl.html">자세히 보기 <span aria-hidden="true">→</span></a></div>
+    </article>
+  </section>
+  <section class="sec alt" aria-labelledby="cmp">
+    <div class="sec-head"><div><span class="label rv"><b>비교</b></span><h2 id="cmp" class="rv">나에게 맞는 초월</h2></div></div>
+    <table class="cmp rv"><thead><tr><th scope="col"><span style="position:absolute;left:-9999px">구분</span></th><th scope="col"><a href="v2-product-69.html">초월 6.9</a></th><th scope="col"><a href="v2-product-deepdown.html">DEEP Down</a></th><th scope="col"><a href="v2-product-deep.html">DEEP</a></th><th scope="col"><a href="v2-product-spkl.html">SPKL</a></th></tr></thead><tbody><tr><th scope="row">도수</th><td data-p="초월 6.9">6.9%</td><td data-p="DEEP Down">12%</td><td data-p="DEEP">18%</td><td data-p="SPKL">15.6%</td></tr><tr><th scope="row">원료</th><td data-p="초월 6.9">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP Down">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP">쌀 · 찹쌀 · 누룩</td><td data-p="SPKL">찹쌀 · 누룩 · 타트체리</td></tr><tr><th scope="row">발효</th><td data-p="초월 6.9">48일 · 삼양주</td><td data-p="DEEP Down">56일+ 완전 발효 · 가수</td><td data-p="DEEP">56일+ 완전 발효 · 윗술 포함</td><td data-p="SPKL">자연 발효 · 천연 미탄산</td></tr><tr><th scope="row">바디</th><td data-p="초월 6.9">바디감 있는 담백함</td><td data-p="DEEP Down">풀바디, 묵직하게</td><td data-p="DEEP">6.9보다 가볍게, 밀도 있게</td><td data-p="SPKL">가볍고 산뜻하게</td></tr><tr><th scope="row">마무리</th><td data-p="초월 6.9">부드럽고 균형 잡힌</td><td data-p="DEEP Down">플랫한 드라이</td><td data-p="DEEP">산미 · 은은한 스파이시</td><td data-p="SPKL">타트체리 산미 · 미세한 기포</td></tr><tr><th scope="row">추천 잔</th><td data-p="초월 6.9">전용잔</td><td data-p="DEEP Down">전용잔 · 온더락</td><td data-p="DEEP">노징 글라스</td><td data-p="SPKL">와인 잔</td></tr><tr><th scope="row">이럴 때</th><td data-p="초월 6.9">일상의 저녁, 식사와</td><td data-p="DEEP Down">식사와 함께, 더 자주</td><td data-p="DEEP">천천히, 안주 없이도</td><td data-p="SPKL">치즈 · 튀김 · 파스타와</td></tr></tbody></table>
+  </section>
+</main>
+<footer class="vf">
+  <div class="vf-top">
+    <p>막걸리를<br>초월하다</p>
+    <div class="acts"><a class="cta" href="v2-brewery.html#booking">방문 예약 <span aria-hidden="true">→</span></a><a class="cta line" href="v2-contact.html?type=입점">입점 문의 <span aria-hidden="true">→</span></a></div>
+  </div>
+  <div class="vf-grid">
+    <div><h5>VISIT</h5>서울 마포구 마포대로 49<br>성우빌딩 지하상가 C동</div>
+    <div><h5>HOURS</h5>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</div>
+    <div><h5>CONTACT</h5>0507-1317-3176<br>chowolhada@gmail.com</div>
+    <div><h5>FOLLOW</h5><a href="https://www.instagram.com/chowolhan" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.youtube.com/@chowolhada" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="vf-bot">
+    <div class="vf-row"><span>© 2026 초월 Chowol</span><span><a href="v2-terms.html">이용약관</a> · <a href="v2-privacy.html"><b style="font-weight:500">개인정보처리방침</b></a></span></div>
+    <p>상호 초월 · 대표 최요섭 · 사업자등록번호 121-29-51694<br>서울특별시 마포구 마포대로 49, C동 지층 16호 (도화동, 성우빌딩)</p>
+    <p>경고: 지나친 음주는 뇌졸중, 기억력 손상이나 치매를 유발합니다. 임신 중 음주는 기형아 출생 위험을 높입니다.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="v2.js"></script>
+</body>
+</html>

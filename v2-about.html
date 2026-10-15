@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브랜드 — 초월</title>
+<meta name="description" content="초월(超越), 막걸리를 초월하다. 해남 쌀과 누룩, 물로 빚는 전통 삼양주.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="v2.css">
+<style>
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 var(--gut);padding:0 var(--gut) clamp(120px,16vh,200px)}
+.num{display:flex;flex-direction:column;gap:12px;padding-top:20px;border-top:1px solid var(--line)}
+.num b{font-size:clamp(64px,8vw,132px);font-weight:200;line-height:1;letter-spacing:-.05em}
+.num b small{font-size:.32em;letter-spacing:-.02em;margin-left:6px;color:var(--muted)}
+.num span{font-size:15px;color:var(--ink-2)}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 var(--gut);border-top:1px solid var(--line)}
+.step{display:flex;flex-direction:column;gap:10px;padding:24px 0}
+.step .label{display:block}
+.step b{font-size:26px;font-weight:300;letter-spacing:-.03em}
+.step p{font-size:15px;line-height:1.7;color:var(--ink-2)}
+.next{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut);padding:0 var(--gut) clamp(120px,16vh,200px)}
+.next a{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;color:#F3F1EA}
+.next a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.next a:hover img{transform:scale(1.04)}
+.next a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.6),rgba(20,18,15,0) 55%)}
+.next span{position:absolute;left:28px;right:28px;bottom:24px;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.next b{font-size:clamp(28px,3vw,44px);font-weight:300;letter-spacing:-.03em}
+.next small{font-size:14px;opacity:.85}
+@media (max-width:900px){
+  .nums{grid-template-columns:1fr 1fr;gap:32px 16px;padding:0 24px 96px}
+  .steps{grid-template-columns:1fr}
+  .next{grid-template-columns:1fr;padding:0 24px 96px}
+}
+</style>
+</head>
+<body>
+<header class="vh" id="vh">
+  <a class="brand" href="chowol_main_v2.html" aria-label="초월 홈"><img src="v2img-mark.png" alt="">초월</a>
+  <nav aria-label="주 메뉴"><a href="v2-about.html" aria-current="page">브랜드</a><a href="v2-products.html">제품</a><a href="v2-brewery.html">양조장 · 예약</a><a href="v2-stockists.html">납품처</a><a href="v2-contact.html">콘택트</a></nav>
+  <a class="cta" href="v2-brewery.html#booking">방문 예약</a>
+  <button class="vburger" id="vBurger" type="button" aria-expanded="false" aria-controls="vMenu" aria-label="메뉴 열기"><svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg></button>
+</header>
+<div class="vmenu" id="vMenu" hidden><a href="chowol_main_v2.html">홈</a><a href="v2-about.html">브랜드</a><a href="v2-products.html">제품</a><div class="sub"><a href="v2-product-69.html">초월 6.9</a><a href="v2-product-deep.html">DEEP</a><a href="v2-product-deepdown.html">DEEP Down</a><a href="v2-product-spkl.html">SPKL</a></div><a href="v2-brewery.html">양조장 · 예약</a><a href="v2-stockists.html">납품처</a><a href="v2-contact.html">콘택트</a></div>
+<main>
+<section class="ph">
+    <div class="ph-top">
+      <div><span class="label rv"><b>브랜드</b> — 초월</span><h1 class="rv">초월,<br>넘어서다</h1></div>
+      <div class="ph-side rv d2"><p>초월(超越). 어떠한 한계나 표준을 뛰어넘음.</p><p>막걸리를 초월하다 — 초월의 이름이자 슬로건입니다.</p></div>
+    </div>
+    <div class="ph-img mask rv"><img class="px" data-speed="-0.12" src="v2img-a_label.jpg" alt="나무 테이블 위, 공중을 떠다니는 사람들이 그려진 초월 병" style="object-position:72% 50%"></div>
+  </section>
+  <section class="state">
+    <span class="label rv"><b>재료</b></span>
+    <p class="big rv d1">땅끝 해남에서 자란 쌀과 찹쌀, 국내산 누룩, 그리고 물. <em>감미료를 넣지 않고, 세 번에 걸쳐 빚는 전통 삼양주 방식으로 만듭니다.</em></p>
+  </section>
+  <section class="nums" aria-label="숫자로 보는 초월">
+    <div class="num rv"><b>3<small>번</small></b><span>세 번 빚는 전통 삼양주</span></div>
+    <div class="num rv d1"><b>48<small>일</small></b><span>초월 6.9 발효 · 숙성</span></div>
+    <div class="num rv d2"><b>56<small>일+</small></b><span>DEEP 시리즈 완전 발효</span></div>
+    <div class="num rv d3"><b>0</b><span>감미료</span></div>
+  </section>
+  <section class="collage" aria-label="사진">
+    <figure class="ci c1 rv"><div class="mask"><img class="px" data-speed="-0.06" src="v2img-a_brewer.jpg" alt="양조장 바에 앉아 있는 양조사" loading="lazy"></div><figcaption><span>양조장 바</span><span>01</span></figcaption></figure>
+    <figure class="ci c2 rv"><div class="mask"><img class="px" data-speed="-0.1" src="v2img-a_jar.jpg" alt="양조장 선반 위 항아리" loading="lazy"></div><figcaption><span>오브제</span><span>02</span></figcaption></figure>
+    <figure class="ci c3 rv"><div class="mask"><img class="px" data-speed="-0.04" src="v2img-a_space.jpg" alt="고재 기둥이 선 양조장 공간" loading="lazy"></div><figcaption><span>공간</span><span>03</span></figcaption></figure>
+    <figure class="ci c4 rv"><div class="mask"><img class="px" data-speed="-0.08" src="v2img-a_pillar.jpg" alt="나무 벽과 조명" loading="lazy"></div><figcaption><span>디테일</span><span>04</span></figcaption></figure>
+    <figure class="ci c5 rv"><div class="mask"><img class="px" data-speed="-0.05" src="v2img-a_guest.jpg" alt="양조장을 찾은 손님" loading="lazy"></div><figcaption><span>손님</span><span>05</span></figcaption></figure>
+  </section>
+  <section class="sec alt" aria-labelledby="pr">
+    <div class="sec-head"><div><span class="label rv"><b>만드는 방법</b> — 삼양주</span><h2 id="pr" class="rv">세 번 빚는<br>막걸리</h2></div></div>
+    <div class="steps">
+      <div class="step rv"><span class="label">01</span><b>밑술</b><p>고두밥에 누룩과 물을 더해 첫 술을 빚습니다.</p></div>
+      <div class="step rv d1"><span class="label">02</span><b>덧술</b><p>밑술에 고두밥을 더해 두 번째로 빚습니다.</p></div>
+      <div class="step rv d2"><span class="label">03</span><b>덧술</b><p>한 번 더 덧술해 세 번 빚기를 마칩니다.</p></div>
+      <div class="step rv d3"><span class="label">04</span><b>발효 · 숙성</b><p>초월 6.9는 48일, DEEP 시리즈는 56일 이상.</p></div>
+      <div class="step rv d3"><span class="label">05</span><b>병입</b><p>냉장 상태로 병에 담습니다.</p></div>
+    </div>
+  </section>
+  <div class="split">
+    <div class="mask rv"><img class="px" data-speed="-0.06" src="v2img-c_p69.jpg" alt="라벨에 떠 있는 사람들이 그려진 초월 6.9" loading="lazy"></div>
+    <div class="txt rv d1"><span class="label"><b>라벨</b></span><h3>떠 있는<br>사람들</h3><p>초월 6.9의 라벨에는 공중에 떠 있는 사람들이 그려져 있습니다. 세로로 내려 쓴 ‘초월’ 글자와 함께, 병마다 같은 장면이 담깁니다.</p></div>
+  </div>
+  <section class="next" aria-label="다음">
+    <a class="rv" href="v2-products.html"><img src="v2img-deep_duo.jpg" alt="" loading="lazy"><span><b>제품</b><small>6.9 · DEEP · DEEP Down · SPKL →</small></span></a>
+    <a class="rv d1" href="v2-brewery.html"><img src="v2img-c_bar.jpg" alt="" loading="lazy"><span><b>양조장 · 예약</b><small>테이스팅 세션 →</small></span></a>
+  </section>
+</main>
+<footer class="vf">
+  <div class="vf-top">
+    <p>막걸리를<br>초월하다</p>
+    <div class="acts"><a class="cta" href="v2-brewery.html#booking">방문 예약 <span aria-hidden="true">→</span></a><a class="cta line" href="v2-contact.html?type=입점">입점 문의 <span aria-hidden="true">→</span></a></div>
+  </div>
+  <div class="vf-grid">
+    <div><h5>VISIT</h5>서울 마포구 마포대로 49<br>성우빌딩 지하상가 C동</div>
+    <div><h5>HOURS</h5>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</div>
+    <div><h5>CONTACT</h5>0507-1317-3176<br>chowolhada@gmail.com</div>
+    <div><h5>FOLLOW</h5><a href="https://www.instagram.com/chowolhan" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.youtube.com/@chowolhada" target="_blank" rel="noopener">YouTube</a></div>
+  </div>
+  <div class="vf-bot">
+    <div class="vf-row"><span>© 2026 초월 Chowol</span><span><a href="v2-terms.html">이용약관</a> · <a href="v2-privacy.html"><b style="font-weight:500">개인정보처리방침</b></a></span></div>
+    <p>상호 초월 · 대표 최요섭 · 사업자등록번호 121-29-51694<br>서울특별시 마포구 마포대로 49, C동 지층 16호 (도화동, 성우빌딩)</p>
+    <p>경고: 지나친 음주는 뇌졸중, 기억력 손상이나 치매를 유발합니다. 임신 중 음주는 기형아 출생 위험을 높입니다.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="v2.js"></script>
+</body>
+</html>
