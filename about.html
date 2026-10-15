@@ -191,10 +191,16 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.in{opacity:1;transform:none;transition:none}.p-hero .media img{transform:none;transition:none}.timeline::after{transition:none;width:100%}}
 @media (max-width:960px){
   .nav,.util .lang{display:none}.burger{display:flex}
-  .p-hero{grid-template-columns:1fr;min-height:auto}
-  .p-hero .media{height:56vh;order:-1}
-  .p-hero .copy{padding:48px 24px 72px}
-  .p-hero h1{font-size:84px}
+  /* 모바일 히어로: 메인처럼 사진 전면 + 세로 글자 오른쪽 + 본문 왼쪽 하단 */
+  .p-hero{display:block;position:relative;height:100svh;min-height:640px;overflow:hidden}
+  .p-hero .media{position:absolute;inset:0}
+  .p-hero .media img{object-position:80% 50%}
+  .p-hero .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(244,239,231,.9) 0,rgba(244,239,231,.6) 34%,rgba(244,239,231,0) 60%),linear-gradient(to top,var(--cream) 0,rgba(244,239,231,.92) 26%,rgba(244,239,231,0) 48%)}
+  .p-hero .copy{position:absolute;inset:0;padding:0 24px 56px;gap:20px;z-index:1}
+  .p-hero .crumb{order:2}
+  .p-hero .hanja{position:absolute;top:16vh;right:24px;flex-direction:row-reverse;gap:18px}
+  .p-hero h1{font-size:64px}
+  .p-hero .body{order:3}
   .beyond-grid{grid-template-columns:1fr;gap:56px}
   .b-card:nth-child(n){margin-top:0}
   .b-card .img{aspect-ratio:4/3}
