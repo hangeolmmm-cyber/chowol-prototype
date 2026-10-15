@@ -9,3 +9,7 @@ h1{font-weight:200!important;letter-spacing:-.04em!important}
 input,select,textarea,button{font-family:var(--sans)!important}
 /* 원래 헤더 · 푸터 자리 (스크립트 호환용으로만 남김) */
 .head[hidden],#burger[hidden],#menu[hidden]{display:none!important}
+/* 어두운 사진 히어로(양조장) 위에서는 헤더를 밝게 */
+body:has(.b-hero) .vh:not(.solid){color:#F3F1EA}
+body:has(.b-hero) .vh:not(.solid) .brand img{filter:none}
+body:has(.b-hero) .vh:not(.solid) .cta{background:#F3F1EA;color:#1E1C19;border-color:#F3F1EA}
