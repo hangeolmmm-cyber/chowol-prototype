@@ -1,0 +1,11 @@
+/* 초월 v2 — 기능 페이지(예약 · 납품처 · 문의 · 약관)용 덮어쓰기 */
+:root{--cream:#F3F1EA;--paper:#F3F1EA;--rice:#E9E5DB;--blush:#EFE6DE;--ink:#1E1C19;--ink-2:#55504A;--muted:#8E877D;--line:rgba(30,28,25,.16)}
+html,body{background:var(--bg)!important}
+body,body *:not(svg):not(svg *){font-family:var(--sans)!important}
+body{font-weight:300}
+h1,h2,h3,h4,.h2,.h1,.serif,.lead,.tag,.big,.q,.closing,.sp-close,blockquote,[class*="title"],[class*="head"] h2{font-weight:300!important;letter-spacing:-.025em!important}
+h1{font-weight:200!important;letter-spacing:-.04em!important}
+.eyebrow,.crumb,.spec,.kicker{letter-spacing:.04em!important}
+input,select,textarea,button{font-family:var(--sans)!important}
+/* 원래 헤더 · 푸터 자리 (스크립트 호환용으로만 남김) */
+.head[hidden],#burger[hidden],#menu[hidden]{display:none!important}
