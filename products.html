@@ -411,6 +411,18 @@ p,li,dd,td,.body{text-wrap:pretty}
   .mini .img{aspect-ratio:16/10}
   .sibling{margin:0 24px 72px}
 }
+/* 비교표 — 모바일: 항목별로 4개 제품을 2×2로 (옆으로 밀지 않아도 한눈에) */
+@media (max-width:720px){
+  .cmp-scroll{overflow:visible}
+  .cmp{min-width:0;display:block}
+  .cmp thead{display:none}
+  .cmp tbody{display:block}
+  .cmp tr{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:16px;padding:24px 0;border-bottom:1px solid rgba(133,125,114,.28)}
+  .cmp tr:first-child{border-top:1px solid rgba(133,125,114,.5)}
+  .cmp tbody th{grid-column:1/-1;width:auto;padding:0;border:0}
+  .cmp td{padding:0;border:0;font-size:14px;line-height:1.6}
+  .cmp td::before{content:attr(data-p);display:block;margin-bottom:4px;font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.04em;opacity:.62}
+}
 
 /* toast */
 .toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--cream);padding:16px 24px;font-size:13px;letter-spacing:.06em;z-index:30;transition:all .4s;pointer-events:none;max-width:calc(100% - 32px)}
@@ -513,7 +525,7 @@ p,li,dd,td,.body{text-wrap:pretty}
     <div class="wrap">
       <span class="eyebrow in">COMPARE</span>
       <h3 class="h2 in d1" style="margin:18px 0 40px">나에게 맞는 초월</h3>
-      <div class="cmp-scroll in d2"><table class="cmp light"><thead><tr><th scope="col"><span class="sr">구분</span></th><th scope="col"><a href="product-69.html">초월 6.9</a></th><th scope="col"><a href="product-deepdown.html">DEEP Down</a></th><th scope="col"><a href="product-deep.html">DEEP</a></th><th scope="col"><a href="product-spkl.html">SPKL</a></th></tr></thead><tbody><tr><th scope="row">도수</th><td>6.9%</td><td>12%</td><td>18%</td><td>15.6%</td></tr><tr><th scope="row">원료</th><td>쌀 · 찹쌀 · 누룩</td><td>쌀 · 찹쌀 · 누룩</td><td>쌀 · 찹쌀 · 누룩</td><td>찹쌀 · 누룩 · 타트체리</td></tr><tr><th scope="row">발효</th><td>48일 · 삼양주</td><td>56일+ 완전 발효 · 가수</td><td>56일+ 완전 발효 · 윗술 포함</td><td>자연 발효 · 천연 미탄산</td></tr><tr><th scope="row">바디</th><td>바디감 있는 담백함</td><td>풀바디, 묵직하게</td><td>6.9보다 가볍게, 밀도 있게</td><td>가볍고 산뜻하게</td></tr><tr><th scope="row">마무리</th><td>부드럽고 균형 잡힌</td><td>플랫한 드라이</td><td>산미 · 은은한 스파이시</td><td>타트체리 산미 · 미세한 기포</td></tr><tr><th scope="row">추천 잔</th><td>전용잔</td><td>전용잔 · 온더락</td><td>노징 글라스</td><td>와인 잔</td></tr><tr><th scope="row">이럴 때</th><td>일상의 저녁, 식사와</td><td>식사와 함께, 더 자주</td><td>천천히, 안주 없이도</td><td>치즈 · 튀김 · 파스타와</td></tr></tbody></table></div>
+      <div class="cmp-scroll in d2"><table class="cmp light"><thead><tr><th scope="col"><span class="sr">구분</span></th><th scope="col"><a href="product-69.html">초월 6.9</a></th><th scope="col"><a href="product-deepdown.html">DEEP Down</a></th><th scope="col"><a href="product-deep.html">DEEP</a></th><th scope="col"><a href="product-spkl.html">SPKL</a></th></tr></thead><tbody><tr><th scope="row">도수</th><td data-p="초월 6.9">6.9%</td><td data-p="DEEP Down">12%</td><td data-p="DEEP">18%</td><td data-p="SPKL">15.6%</td></tr><tr><th scope="row">원료</th><td data-p="초월 6.9">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP Down">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP">쌀 · 찹쌀 · 누룩</td><td data-p="SPKL">찹쌀 · 누룩 · 타트체리</td></tr><tr><th scope="row">발효</th><td data-p="초월 6.9">48일 · 삼양주</td><td data-p="DEEP Down">56일+ 완전 발효 · 가수</td><td data-p="DEEP">56일+ 완전 발효 · 윗술 포함</td><td data-p="SPKL">자연 발효 · 천연 미탄산</td></tr><tr><th scope="row">바디</th><td data-p="초월 6.9">바디감 있는 담백함</td><td data-p="DEEP Down">풀바디, 묵직하게</td><td data-p="DEEP">6.9보다 가볍게, 밀도 있게</td><td data-p="SPKL">가볍고 산뜻하게</td></tr><tr><th scope="row">마무리</th><td data-p="초월 6.9">부드럽고 균형 잡힌</td><td data-p="DEEP Down">플랫한 드라이</td><td data-p="DEEP">산미 · 은은한 스파이시</td><td data-p="SPKL">타트체리 산미 · 미세한 기포</td></tr><tr><th scope="row">추천 잔</th><td data-p="초월 6.9">전용잔</td><td data-p="DEEP Down">전용잔 · 온더락</td><td data-p="DEEP">노징 글라스</td><td data-p="SPKL">와인 잔</td></tr><tr><th scope="row">이럴 때</th><td data-p="초월 6.9">일상의 저녁, 식사와</td><td data-p="DEEP Down">식사와 함께, 더 자주</td><td data-p="DEEP">천천히, 안주 없이도</td><td data-p="SPKL">치즈 · 튀김 · 파스타와</td></tr></tbody></table></div>
     </div>
   </section>
 </main>

@@ -401,12 +401,27 @@ p,li,dd,td,.body{text-wrap:pretty}
 .sibling small{display:block;font-size:11px;letter-spacing:.24em;color:#9C958A;margin-bottom:8px}
 .sibling .arr{font-size:22px;color:#D9B36C}
 @media (max-width:960px){
-  .cards{grid-template-columns:1fr;padding:16px 24px 96px}
+  .cards{grid-template-columns:1fr;row-gap:96px;padding:16px 24px 120px}
+  .card .row{flex-wrap:wrap;row-gap:8px}
+  .card h2{white-space:nowrap}
+  .card .abv{white-space:nowrap}
   .card:nth-child(even){margin-top:0}
   .crumbbar{padding:96px 24px 12px}
   .others-row{grid-template-columns:1fr}
   .mini .img{aspect-ratio:16/10}
   .sibling{margin:0 24px 72px}
+}
+/* 비교표 — 모바일: 항목별로 4개 제품을 2×2로 (옆으로 밀지 않아도 한눈에) */
+@media (max-width:720px){
+  .cmp-scroll{overflow:visible}
+  .cmp{min-width:0;display:block}
+  .cmp thead{display:none}
+  .cmp tbody{display:block}
+  .cmp tr{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:16px;padding:24px 0;border-bottom:1px solid rgba(133,125,114,.28)}
+  .cmp tr:first-child{border-top:1px solid rgba(133,125,114,.5)}
+  .cmp tbody th{grid-column:1/-1;width:auto;padding:0;border:0}
+  .cmp td{padding:0;border:0;font-size:14px;line-height:1.6}
+  .cmp td::before{content:attr(data-p);display:block;margin-bottom:4px;font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.04em;opacity:.62}
 }
 
 /* toast */
@@ -469,9 +484,6 @@ p,li,dd,td,.body{text-wrap:pretty}
     <nav aria-label="현재 위치"><a href="products.html">제품</a><span>/</span>초월 6.9</nav>
     <span class="crumb">SIGNATURE — 전통 삼양주</span>
   </div>
-  <nav class="lineup" aria-label="제품 바로가기">
-    <ul><li><a href="product-69.html" aria-current="page"><b>초월 6.9</b><span>6.9%</span></a></li><li><a href="product-deep.html"><b>DEEP</b><span>18%</span></a></li><li><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a></li><li><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a></li></ul>
-  </nav>
   <!-- ================= 초월 6.9 ================= -->
   <article id="p-69">
 
