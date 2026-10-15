@@ -13,3 +13,6 @@ input,select,textarea,button{font-family:var(--sans)!important}
 body:has(.b-hero) .vh:not(.solid){color:#F3F1EA}
 body:has(.b-hero) .vh:not(.solid) .brand img{filter:none}
 body:has(.b-hero) .vh:not(.solid) .cta{background:#F3F1EA;color:#1E1C19;border-color:#F3F1EA}
+/* 납품처: 필터 줄은 따라오지 않게 (헤더가 숨을 때 빈 공간 방지) */
+.filters{position:relative!important;top:auto!important}
+@media (min-width:961px){.st-map{top:24px!important;height:calc(100vh - 48px)!important}}
