@@ -206,10 +206,14 @@ p,li,dd,td,.body{text-wrap:pretty}
 }
 /*@@/KRFOOT*/
 
-/* 라벨 속 사람들: 오른쪽 하단에서 둥둥, 마우스를 피해 다님 */
-.floaters{position:absolute;right:7vw;bottom:14vh;width:min(30vw,380px);height:min(36vw,440px);z-index:2;pointer-events:none}
-.floaters .fl{position:absolute;left:0;top:0;width:84px;height:auto;opacity:.86;will-change:transform;transform-origin:50% 50%}
-@media (max-width:820px){.floaters{right:16px;bottom:120px;width:56vw;height:46vw}.floaters .fl{width:64px}}
+
+/* 첫 화면: 흰 바탕 위에 떠 있는 사람들 (마우스를 피함, 스크롤하면 위로 떠나감) */
+.people{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.people .pp{position:absolute;left:0;top:0;will-change:transform;transform-origin:50% 50%;background-image:url(img/v4-gravity.jpg);background-repeat:no-repeat;filter:grayscale(1) brightness(1.36) contrast(1.12);mix-blend-mode:multiply}
+.drop{position:relative;background:#FFFFFF;overflow:hidden}
+.drop video{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.drop-cap{position:absolute;left:0;right:0;bottom:6vh;margin:0;text-align:center;font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.32em;color:#4A453E}
+@media (max-width:820px){.drop video{aspect-ratio:4/5}}
 
 /* ===== REV5 공통: 흰 배경 · 메뉴 오른쪽 · 심볼 로고 ===== */
 :root{--cream:#FFFFFF;--paper:#FFFFFF;--rice:#FFFFFF;--blush:#FFFFFF;--bg:#FFFFFF}
@@ -257,14 +261,13 @@ html,body{background:#FFFFFF}
   
   <!-- 01 HERO -->
   <section id="s1" class="sec" style="background:#FFFFFF">
-    <img class="cover" src="img/c_hero.jpg" alt="막걸리 방울과 함께 공중에 떠 있는 초월 6.9 병" style="object-position:58% 50%">
-    <div class="hero-veil" aria-hidden="true"></div>
-    <div class="floaters" id="flyer" aria-hidden="true">
-      <img class="fl" data-x="18" data-y="8"  data-s="1"    src="img/d3.png" alt="">
-      <img class="fl" data-x="64" data-y="34" data-s=".78" src="img/d5.png" alt="">
-      <img class="fl" data-x="8"  data-y="58" data-s=".7"  src="img/d2.png" alt="">
-      <img class="fl" data-x="56" data-y="72" data-s=".9"  src="img/d7.png" alt="">
-      <img class="fl" data-x="34" data-y="40" data-s=".6"  src="img/d1.png" alt="">
+    <div class="people" id="flyer" aria-hidden="true">
+      <div class="pp" data-box="200,108,395,335" data-x="0.42" data-y="0.25" data-w="0.28" data-z="1.0"></div>
+      <div class="pp" data-box="512,182,558,272" data-x="0.77" data-y="0.26" data-w="0.066" data-z="0.55"></div>
+      <div class="pp" data-box="212,326,266,390" data-x="0.34" data-y="0.41" data-w="0.077" data-z="0.6"></div>
+      <div class="pp" data-box="478,348,594,476" data-x="0.77" data-y="0.47" data-w="0.166" data-z="0.8"></div>
+      <div class="pp" data-box="254,450,310,518" data-x="0.4" data-y="0.555" data-w="0.08" data-z="0.65"></div>
+      <div class="pp" data-box="68,434,212,740" data-x="0.2" data-y="0.67" data-w="0.206" data-z="0.9"></div>
     </div>
     <div class="hero-title rise">
       <h1>막걸리를 초월하다</h1>
@@ -272,6 +275,12 @@ html,body{background:#FFFFFF}
     </div>
     <div class="hero-cap"><span>BEYOND MAKGEOLLI</span><span>쌀, 누룩, 물</span></div>
     <a class="cue" href="#s2" aria-label="다음 섹션으로"><span>SCROLL</span><span class="track"><span class="run"></span></span></a>
+  </section>
+
+  <!-- 01-B DROP : 사람들이 위로 떠난 자리에 한 방울 -->
+  <section id="s1b" class="sec drop">
+    <video autoplay muted loop playsinline preload="metadata" poster="img/v4-drop.jpg" aria-hidden="true"><source src="img/v4-drop.mp4" type="video/mp4"></video>
+    <p class="drop-cap">초월 • 超越 • Transcendence</p>
   </section>
 
   
@@ -433,39 +442,61 @@ html,body{background:#FFFFFF}
     a.addEventListener('click',function(ev){var t=document.querySelector(a.getAttribute('href'));if(!t)return;ev.preventDefault();goEl(t);closeMenu()});
   });
   window.__goTop=function(){if(lenis)lenis.scrollTo(0);else scrollTo({top:0,behavior:'smooth'})};
-  /* 마우스를 따라오는 사람 → (REV5) 오른쪽 하단에서 둥둥 떠 있다가 마우스를 피해 다님 */
+  /* 마우스를 따라오는 사람 → (REV5-2) 흰 바탕 위 떠 있는 사람들: 둥둥 · 마우스를 피함 · 스크롤하면 위로 떠나감 */
   (function(){
     var hero=document.getElementById('s1'),box=document.getElementById('flyer');
     if(!box)return;
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var F=[].slice.call(box.querySelectorAll('.fl')).map(function(el,i){
-      return{el:el,bx:+el.dataset.x/100,by:+el.dataset.y/100,s:+el.dataset.s||1,ox:0,oy:0,vx:0,vy:0,ph:i*1.7,rot:0}});
+    var F=[].slice.call(box.querySelectorAll('.pp')).map(function(el,i){
+      return{el:el,x:+el.dataset.x,y:+el.dataset.y,w:+el.dataset.w,z:+el.dataset.z,ox:0,oy:0,vx:0,vy:0,ph:i*1.9,rot:0}});
     var px=-9999,py=-9999;
     function pt(x,y){px=x;py=y}
     hero.addEventListener('mousemove',function(e){pt(e.clientX,e.clientY)});
     hero.addEventListener('mouseleave',function(){pt(-9999,-9999)});
+    hero.addEventListener('touchstart',function(e){var t=e.touches[0];pt(t.clientX,t.clientY)},{passive:true});
     hero.addEventListener('touchmove',function(e){var t=e.touches[0];pt(t.clientX,t.clientY)},{passive:true});
-    hero.addEventListener('touchend',function(){pt(-9999,-9999)});
+    hero.addEventListener('touchend',function(){setTimeout(function(){pt(-9999,-9999)},400)});
+    function layout(){
+      var b=hero.getBoundingClientRect(),W=b.width,H=b.height,mob=W<=820;
+      F.forEach(function(f){
+        var cx=mob?(0.02+f.x*0.66):(0.30+f.x*0.66), cy=mob?(0.10+f.y*0.78):(0.04+f.y*0.98);
+        var fw=f.w*(mob?Math.min(W*1.25,H*0.62):Math.min(H*0.95,W*0.55));
+        var bx=f.el.dataset.box.split(',').map(Number), bw=bx[2]-bx[0], bh=bx[3]-bx[1], k=fw/bw;
+        f.el.style.width=fw.toFixed(1)+'px'; f.el.style.height=(bh*k).toFixed(1)+'px';
+        f.el.style.backgroundSize=(700*k).toFixed(1)+'px auto';
+        f.el.style.backgroundPosition=(-bx[0]*k).toFixed(1)+'px '+(-bx[1]*k).toFixed(1)+'px';
+        f.cx=cx*W; f.cy=cy*H; f.fw=fw;
+      });
+    }
+    layout(); addEventListener('resize',layout);
     var t0=performance.now();
     (function tick(now){
-      var b=box.getBoundingClientRect(),W=b.width,H=b.height,t=(now-t0)/1000;
+      var b=hero.getBoundingClientRect(),t=(now-t0)/1000;
       if(b.bottom>0&&b.top<innerHeight){
+        var prog=Math.max(0,Math.min(1,-b.top/b.height));          // 0: 첫 화면 · 1: 다 지나감
         F.forEach(function(f){
-          var w=f.el.offsetWidth*f.s, hx=b.left+f.bx*W+w/2, hy=b.top+f.by*H+w/2;
-          var fx=-f.ox*0.03, fy=-f.oy*0.03;              // 제자리로 돌아오는 힘
+          var h=f.el.offsetHeight||f.fw, hx=b.left+f.cx+f.ox, hy=b.top+f.cy+f.oy;
+          var fx=-f.ox*0.025, fy=-f.oy*0.025;
           if(!reduce){
-            var dx=hx+f.ox-px, dy=hy+f.oy-py, d=Math.sqrt(dx*dx+dy*dy), R=170;
-            if(d<R&&d>0.1){var k=(1-d/R)*3.2;fx+=dx/d*k;fy+=dy/d*k}   // 마우스를 피함
+            var dx=hx-px, dy=hy-py, d=Math.sqrt(dx*dx+dy*dy), R=Math.max(160,f.fw*0.9);
+            if(d<R&&d>0.1){var k=(1-d/R)*(2.6+f.z);fx+=dx/d*k;fy+=dy/d*k}
           }
-          f.vx=(f.vx+fx)*0.86; f.vy=(f.vy+fy)*0.86; f.ox+=f.vx; f.oy+=f.vy;
-          var bobx=reduce?0:Math.sin(t*0.6+f.ph)*6, boby=reduce?0:Math.cos(t*0.8+f.ph)*10;
-          f.rot+=((Math.max(-25,Math.min(25,f.vx*4)))+Math.sin(t*0.5+f.ph)*5-f.rot)*0.08;
-          f.el.style.transform='translate3d('+(f.bx*W+f.ox+bobx).toFixed(1)+'px,'+(f.by*H+f.oy+boby).toFixed(1)+'px,0) rotate('+f.rot.toFixed(1)+'deg) scale('+f.s+')';
+          f.vx=(f.vx+fx)*0.88; f.vy=(f.vy+fy)*0.88; f.ox+=f.vx; f.oy+=f.vy;
+          var bobx=reduce?0:Math.sin(t*0.45+f.ph)*(6+8*f.z), boby=reduce?0:Math.cos(t*0.6+f.ph)*(8+10*f.z);
+          var lift=reduce?0:-prog*b.height*(0.35+f.z*0.9);         // 스크롤하면 위로 떠나감
+          f.rot+=((Math.max(-20,Math.min(20,f.vx*3)))+Math.sin(t*0.4+f.ph)*4-f.rot)*0.06;
+          var X=f.cx-f.fw/2+f.ox+bobx, Y=f.cy-h/2+f.oy+boby+lift;
+          f.el.style.transform='translate3d('+X.toFixed(1)+'px,'+Y.toFixed(1)+'px,0) rotate('+f.rot.toFixed(1)+'deg)';
+          f.el.style.opacity=(1-prog*0.9).toFixed(3);
         });
       }
       requestAnimationFrame(tick);
     })(t0);
   })();
+  /* 영상: 화면 밖에서는 멈춤 */
+  (function(){var vs=[].slice.call(document.querySelectorAll('video'));if(!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.05});
+    vs.forEach(function(v){io.observe(v)})})();
 })();
 </script>
 </body>
