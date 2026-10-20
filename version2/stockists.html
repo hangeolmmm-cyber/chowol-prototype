@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>초월 가이드 — 초월</title>
+<meta name="description" content="다이닝과 바, 라운지, 편집샵까지. 초월 막걸리를 만날 수 있는 곳을 지도에서 찾아보세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
+<style>
+
+:root{
+  --cream:#FFFFFF; --rice:#FFFFFF; --blush:#FFFFFF; --wood:#FFFFFF;
+  --ink:#1F1C18; --ink-2:#4A453E; --muted:#857D72; --line:rgba(31,28,24,.16);
+  --accent:#B0503F; --night:#14120F;
+  --gut:clamp(24px,8vw,128px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.serif{font-family:'Noto Serif KR',serif}
+
+/* header (공통) */
+.head{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 4vw;mix-blend-mode:difference;color:#FFFFFF;pointer-events:none}
+.head>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:26px;height:26px}
+.brand span{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.5em}
+.nav{display:flex;gap:40px;font-size:13px;letter-spacing:.16em}
+.nav a{position:relative;padding:6px 0}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor}
+.util{display:flex;align-items:center;gap:22px;font-size:12px;letter-spacing:.16em}
+.util .lang{opacity:.6}
+.btn-line{border:1px solid currentColor;padding:11px 20px;min-height:44px;display:inline-flex;align-items:center}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;align-items:center;justify-content:center;padding:0;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:15;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:24px;letter-spacing:.24em}
+.menu[hidden]{display:none}
+
+/* 공통 타이포 */
+.eyebrow{font-size:11px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+.eyebrow b{color:var(--accent);font-weight:400}
+.h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(30px,3.4vw,50px);line-height:1.4;letter-spacing:.05em}
+.body{margin:0;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.more{display:inline-flex;align-items:flex-end;min-height:44px;padding:12px 0 6px;border-bottom:1px solid currentColor;font-size:12px;letter-spacing:.24em}
+.more:hover{color:var(--accent)}
+.wrap{padding:0 var(--gut)}
+.sec{padding:clamp(96px,14vh,180px) 0;position:relative}
+.ph{color:var(--accent);font-style:normal;border-bottom:1px dashed var(--accent)}
+
+/* reveal */
+.in{opacity:0;transform:translateY(28px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.in.vis{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* footer */
+.foot{background:var(--night);color:#BDB6AA;padding:72px var(--gut) 40px;font-size:12.5px;line-height:1.9}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(237,231,220,.12)}
+.foot h5{margin:0 0 14px;font-size:11px;letter-spacing:.3em;color:#857D72;font-weight:400}
+.foot .logo{display:flex;align-items:center;gap:14px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.4em;color:#EDE7DC;margin-bottom:18px}
+.foot .logo img{width:30px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot a:hover{color:#EDE7DC}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:28px;font-size:11px;color:#857D72}
+
+
+/* ===== 헤더 서브메뉴 (공통) ===== */
+.has-sub{position:relative;display:flex;align-items:center}
+.has-sub>a::before{content:"";position:absolute;left:-24px;right:-24px;top:100%;height:24px}
+.sub{position:absolute;left:50%;top:calc(100% + 18px);transform:translate(-50%,6px);min-width:240px;padding:10px 0;background:#FFFFFF;color:#1F1C18;border:1px solid rgba(31,28,24,.14);box-shadow:0 18px 40px rgba(31,28,24,.08);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s;z-index:30}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.sub a{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:12px 22px;min-height:44px;letter-spacing:.06em}
+.sub a b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px}
+.sub a span{font-size:10.5px;letter-spacing:.2em;color:#857D72}
+.sub a:hover,.sub a[aria-current="page"]{color:#B0503F}
+.sub .sub-all{font-size:11px;letter-spacing:.24em;color:#857D72;border-bottom:1px solid rgba(31,28,24,.1);margin-bottom:6px}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{mix-blend-mode:normal;background:rgba(255,255,255,.95);color:#1F1C18;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.head:has(.has-sub:hover) .brand img,.head:has(.has-sub:focus-within) .brand img,.head.solid .brand img{filter:invert(1) brightness(.2)}
+.head{transition:background .3s,padding .3s}
+.head.solid{padding-top:22px;padding-bottom:22px}
+.menu .m-sub{font-size:16px;letter-spacing:.14em;color:#857D72;margin-top:-14px}
+
+/* ===== 한글 줄바꿈 규칙 (공통) ===== */
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,h5,.h2,.h-prod,.lead,.tag,.dp-hook,.q,.big,blockquote,.closing,.sp-close,.sf-line{text-wrap:balance}
+p,li,dd,td,.body{text-wrap:pretty}
+
+/* ===== 사이트 푸터 (공통) — 최소 글자 14px ===== */
+.site-foot{position:relative;background:#14120F;color:#BDB6AA;font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;font-size:15px;line-height:1.9;padding:clamp(96px,14vh,160px) clamp(24px,8vw,128px) 48px;scroll-snap-align:end}
+.site-foot a{color:inherit;text-decoration:none;transition:color .3s}
+.site-foot a:hover{color:#FFFFFF}
+.sf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;padding-bottom:80px}
+.sf-line{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(44px,5.6vw,88px);line-height:1.15;letter-spacing:.04em;color:#FFFFFF}
+.sf-line em{font-style:normal;color:#C8634F}
+.sf-cta{display:flex;gap:12px;flex-wrap:wrap}
+.sf-btn{display:inline-flex;align-items:center;gap:20px;min-height:56px;padding:0 28px;border:1px solid rgba(237,231,220,.4);color:#FFFFFF!important;font-size:15px;letter-spacing:.12em}
+.sf-btn:hover{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill:hover{background:#C8634F;border-color:#C8634F;color:#FFFFFF!important}
+.sf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;padding:56px 0 64px;border-top:1px solid rgba(237,231,220,.14)}
+.sf-grid h5{margin:0 0 18px;font-size:14px;font-weight:400;letter-spacing:.24em;color:#857D72}
+.sf-grid p{margin:0}
+.sf-ext{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;letter-spacing:.1em;color:#FFFFFF!important;border-bottom:1px solid rgba(237,231,220,.35);padding-bottom:2px}
+.sf-sns{display:flex;gap:10px;margin-top:20px}
+.sf-sns a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(237,231,220,.22);border-radius:50%}
+.sf-sns a:hover{border-color:#FFFFFF}
+.sf-sns svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.2}
+.sf-bot{display:flex;flex-direction:column;gap:20px;padding-top:36px;border-top:1px solid rgba(237,231,220,.14);font-size:14px;color:#8F887D;line-height:1.8}
+.sf-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.sf-logo{display:flex;align-items:center;gap:12px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.42em;color:#FFFFFF!important}
+.sf-logo img{width:28px;height:28px}
+.sf-legal{display:flex;gap:28px;flex-wrap:wrap}
+.sf-legal a{color:#BDB6AA}
+.sf-legal b{font-weight:500}
+.sf-biz,.sf-warn,.sf-copy{margin:0}
+.sf-top-btn{display:inline-flex;align-items:center;gap:10px;background:none;border:0;color:#BDB6AA;font:inherit;font-size:14px;letter-spacing:.24em;cursor:pointer;min-height:44px;padding:0}
+.sf-top-btn:hover{color:#FFFFFF}
+.sf-top-btn svg{width:14px;height:20px;stroke:currentColor;fill:none;stroke-width:1.2}
+@media (max-width:860px){
+  .site-foot{padding:80px 24px 40px}
+  .sf-top{padding-bottom:56px}
+  .sf-grid{grid-template-columns:1fr;gap:40px;padding:48px 0}
+  .sf-btn{width:100%;justify-content:space-between}
+}
+
+
+/* ===== 납품처 ===== */
+.st-hero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);min-height:78vh}
+.st-hero .copy{display:flex;flex-direction:column;justify-content:flex-end;gap:24px;padding:170px var(--gut) 72px}
+.st-hero h1{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(40px,5vw,76px);line-height:1.25;letter-spacing:.04em}
+.st-hero .media{position:relative;overflow:hidden}
+.st-hero .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:35% 50%}
+.st-stats{display:flex;gap:40px;flex-wrap:wrap;padding-top:22px;border-top:1px solid var(--line);max-width:560px}
+.st-stats div{display:flex;flex-direction:column;gap:4px}
+.st-stats b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:34px;letter-spacing:.02em}
+.st-stats span{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.crumb{font-size:11px;letter-spacing:.3em;color:var(--muted)}
+
+
+.guide-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.guide-btns a{display:inline-flex;align-items:center;gap:14px;min-height:54px;padding:0 26px;border:1px solid var(--ink);font-size:14px;letter-spacing:.1em;color:var(--ink);text-decoration:none}
+.guide-btns a.g-fill{background:var(--ink);color:#fff}
+.guide-btns a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.guide-note{margin:0;font-size:13px;color:var(--muted);letter-spacing:.02em}
+/* 필터 */
+.filters{position:sticky;top:88px;z-index:12;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.filters .in-wrap{padding:14px var(--gut);display:flex;gap:14px 28px;align-items:center;flex-wrap:wrap}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{min-height:40px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:transparent;font:inherit;font-size:13.5px;letter-spacing:.04em;color:var(--ink-2);cursor:pointer;transition:all .25s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--cream)}
+.chip.p[aria-pressed="true"]{background:var(--accent);border-color:var(--accent)}
+.fgroup{display:flex;align-items:center;gap:10px}
+.fgroup>span{font-size:11px;letter-spacing:.24em;color:var(--muted)}
+.sel,.search{min-height:42px;border:1px solid var(--line);background:#FFFFFF;font:inherit;font-size:14px;color:var(--ink);padding:0 14px;border-radius:0}
+.search{min-width:220px;flex:1;max-width:320px;margin-left:auto}
+.sel:focus,.search:focus{outline:none;border-color:var(--ink)}
+
+/* 목록 + 지도 */
+.st-main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:start}
+.st-list{padding:28px var(--gut) 96px;display:flex;flex-direction:column;gap:0}
+.st-count{font-size:13px;letter-spacing:.1em;color:var(--muted);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.st-count b{color:var(--ink);font-weight:500}
+.store{display:grid;grid-template-columns:1fr auto;gap:8px 20px;padding:24px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:background .25s}
+.store:hover{background:rgba(234,226,213,.4)}
+.store[aria-current="true"]{background:var(--rice);box-shadow:inset 3px 0 0 var(--accent);padding-left:18px;margin-left:-18px;padding-right:18px;margin-right:-18px}
+.store .cat{font-size:11px;letter-spacing:.24em;color:var(--accent)}
+.store h3{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:21px;letter-spacing:.03em;grid-column:1}
+.store .area{grid-column:2;grid-row:1/3;align-self:start;font-size:12px;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+.store .addr{grid-column:1/-1;margin:0;font-size:14px;color:var(--ink-2);line-height:1.7}
+.store .carry{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.store .carry small{font-size:11px;letter-spacing:.16em;color:var(--muted);margin-right:4px}
+.store .carry span{font-size:12px;padding:3px 10px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
+.store .acts{grid-column:1/-1;display:flex;gap:18px;flex-wrap:wrap;margin-top:4px}
+.store .acts a{font-size:13px;letter-spacing:.08em;border-bottom:1px solid currentColor;min-height:32px;display:inline-flex;align-items:flex-end;padding-bottom:2px}
+.store .acts a:hover{color:var(--accent)}
+.empty-st{padding:56px 0;text-align:center;color:var(--muted);font-size:15px}
+.empty-st button{margin-top:16px;min-height:44px;padding:0 20px;border:1px solid var(--ink);background:transparent;font:inherit;cursor:pointer}
+
+.st-map{position:sticky;top:calc(88px + var(--fh,70px));height:calc(100vh - 88px - var(--fh,70px));min-height:480px;background:#FFFFFF}
+.st-map iframe{width:100%;height:100%;border:0;filter:saturate(.7) sepia(.08);display:block}
+.map-card{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(255,255,255,.97);padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:16px;box-shadow:0 10px 30px rgba(31,28,24,.14)}
+.map-card b{display:block;font-family:'Noto Serif KR',serif;font-weight:300;font-size:18px}
+.map-card span{font-size:13px;color:var(--muted)}
+.map-card a{flex:none;min-height:44px;display:inline-flex;align-items:center;padding:0 18px;background:var(--ink);color:var(--cream);font-size:13px;letter-spacing:.1em}
+.map-card a:hover{background:var(--accent)}
+.sample-note{margin:0 0 18px;padding:12px 16px;border:1px dashed var(--accent);color:var(--accent);font-size:13px;line-height:1.7}
+
+/* 입점 문의 */
+.b2b{background:var(--night);color:#EDE7DC}
+.b2b .eyebrow{color:#9C958A}
+.b2b .body{color:#C9C2B6}
+.b2b-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
+.b2b .img{aspect-ratio:4/3;overflow:hidden}
+.b2b .img img{width:100%;height:100%;object-fit:cover}
+.b2b-list{list-style:none;margin:8px 0 0;padding:0;border-top:1px solid rgba(237,231,220,.16)}
+.b2b-list li{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:18px 0;border-bottom:1px solid rgba(237,231,220,.16);font-size:15px;line-height:1.8;color:#C9C2B6}
+.b2b-list li span{font-size:12px;letter-spacing:.2em;color:#D9B36C;padding-top:4px}
+.b2b-list li b{display:block;font-family:'Noto Serif KR',serif;font-weight:300;font-size:18px;color:#EDE7DC}
+.b2b-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.b2b-btns a{display:inline-flex;align-items:center;gap:16px;min-height:56px;padding:0 26px;border:1px solid rgba(237,231,220,.5);font-size:14px;letter-spacing:.12em;color:#EDE7DC}
+.b2b-btns a.fill{background:#EDE7DC;color:var(--night);border-color:#EDE7DC}
+.b2b-btns a:hover{background:#D9B36C;border-color:#D9B36C;color:var(--night)}
+
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){.in{opacity:1;transform:none;transition:none}}
+@media (max-width:960px){
+  .nav,.util .lang{display:none}.burger{display:flex}
+  .st-hero{grid-template-columns:1fr;min-height:auto}
+  .st-hero .media{height:42vh;order:-1}
+  .st-hero .copy{padding:48px 24px 48px}
+  .filters .in-wrap{padding:12px 16px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .filters .in-wrap::-webkit-scrollbar{display:none}
+  .chips{flex-wrap:nowrap}
+  .chip{white-space:nowrap}
+  .search{min-width:180px;margin-left:0}
+  .st-main{grid-template-columns:1fr}
+  .st-map{position:relative;top:0;height:46vh;min-height:320px;order:-1}
+  .st-list{padding:20px 24px 72px}
+  .b2b-grid{grid-template-columns:1fr}
+}
+
+/* ===== REV5 공통: 흰 배경 · 메뉴 오른쪽 · 심볼 로고 ===== */
+:root{--cream:#FFFFFF;--paper:#FFFFFF;--rice:#FFFFFF;--blush:#FFFFFF;--bg:#FFFFFF}
+html,body{background:#FFFFFF}
+.head{justify-content:flex-start!important}
+.head .nav{margin-left:auto;gap:34px}
+.head .util{margin-left:40px}
+.head .brand img{width:30px;height:30px}
+.sub{background:#FFFFFF!important}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{background:rgba(255,255,255,.96)!important}
+.sf-logo img.kr{width:auto!important;height:40px!important}
+.menu{background:#FFFFFF}
+@media (max-width:820px){.head .util{margin-left:auto}}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="brand" href="index.html" aria-label="초월 홈"><img src="img/mark.png" alt=""></a>
+  <nav class="nav" aria-label="주 메뉴">
+    <a href="about.html">Chowol</a>
+    <div class="has-sub">
+      <a href="products.html" aria-haspopup="true">제품</a>
+      <div class="sub" role="menu" aria-label="제품">
+        <a class="sub-all" href="products.html">전체 라인업</a><a href="product-69.html"><b>초월 6.9</b><span>6.9%</span></a><a href="product-deep.html"><b>DEEP</b><span>18%</span></a><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a>
+      </div>
+    </div>
+    <a href="brewery.html">양조장 · 예약</a>
+    <a href="stockists.html" aria-current="page">초월 가이드</a>
+    <a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+  </nav>
+  <div class="util">
+    <span class="lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></span>
+    <a class="btn-line" href="brewery.html">방문 예약</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기">
+      <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+</div>
+
+
+<main>
+  <section class="st-hero">
+    <div class="copy">
+      <span class="crumb">CHOWOL GUIDE — 초월 가이드</span>
+      <h1 class="in">즐거운 식사,<br>당신의 여행</h1>
+      <p class="body in d1" style="max-width:480px">가족, 연인, 친구, 비지니스 파트너와의 좋은 시간을 위해 더 이상 고민하실 필요 없습니다.<br>초월이 엄선한 맛집에서 초월을 경험해보세요!</p>
+      <p class="body in d1" lang="en" style="max-width:480px;font-size:14px;color:var(--muted)">Enjoy memorable meals and moments with those who matter — family, friends, and business partners. Discover unique experiences, carefully curated by Chowol.</p>
+      <div class="guide-btns in d2">
+        <a class="g-fill" href="https://maps.app.goo.gl/1NLUo1m743kY51Ve9" target="_blank" rel="noopener">구글 지도에서 보기 <span aria-hidden="true">↗</span></a>
+        <a href="https://naver.me/xktxeZHl" target="_blank" rel="noopener">네이버 지도에서 보기 <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="guide-note in d3">초월 가이드는 구글 지도 저장 목록으로 운영되며, 새로운 공간이 계속 추가됩니다.</p>
+    </div>
+    <div class="media"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌"></div>
+  </section>
+
+<section class="sec b2b">
+    <div class="wrap b2b-grid">
+      <div class="img in"><img src="img/c_bar.jpg" alt="양조장 바에서 초월을 따르는 모습" loading="lazy"></div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <span class="eyebrow in"><b style="color:#D9B36C">FOR BUSINESS</b> — 입점 · 납품</span>
+        <h2 class="h2 in d1">당신의 공간에<br>초월을 들이고 싶다면</h2>
+        <p class="body in d2" style="max-width:460px">공간의 결과 메뉴에 맞는 초월을 함께 고릅니다. 문의를 남겨 주시면 담당자가 연락드립니다.</p>
+        <ul class="b2b-list in d3">
+          <li><span>01</span><div><b>문의 남기기</b>업장 정보와 원하시는 제품을 알려 주세요.</div></li>
+          <li><span>02</span><div><b>시음 · 상담</b>양조장에서 직접 맛보고 메뉴에 맞는 제품을 고릅니다.</div></li>
+          <li><span>03</span><div><b>납품 시작</b>납품 조건은 상담 후 안내드립니다.</div></li>
+        </ul>
+        <div class="b2b-btns in d3">
+          <a class="fill" href="contact.html?type=입점">입점 문의하기 <span aria-hidden="true">→</span></a>
+          <a href="http://pf.kakao.com/_tnxliX" target="_blank" rel="noopener">카카오톡 상담 ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot" id="site-foot">
+  <div class="sf-top">
+    <p class="sf-line">막걸리를<br><em>초월</em>하다</p>
+    <div class="sf-cta">
+      <a class="sf-btn fill" href="brewery.html"><span>방문 예약</span><span aria-hidden="true">→</span></a>
+      <a class="sf-btn" href="contact.html"><span>입점 문의</span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="sf-grid">
+    <div>
+      <h5>VISIT</h5>
+      <p>서울 마포구 마포대로 49<br>성우빌딩 지하상가 C동 B116호</p>
+      <a class="sf-ext" href="https://maps.app.goo.gl/Yny7ArJu2ZSTRH5dA">지도 보기 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h5>HOURS</h5>
+      <p>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</p>
+      <p style="margin-top:6px;color:#8F887D">연중무휴</p>
+    </div>
+    <div>
+      <h5>CONTACT</h5>
+      <p><a href="tel:+821041143176">010-4114-3176</a><br><a href="mailto:chowolhada@gmail.com">chowolhada@gmail.com</a></p>
+      <div class="sf-sns">
+        <a href="https://www.instagram.com/chowolhada" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a>
+        <a href="https://www.youtube.com/@chowolhada" aria-label="유튜브"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></a>
+        <a href="https://blog.naver.com/chowolhan" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10.5a3.5 3.5 0 0 1 3.5 3.5v6.5a3.5 3.5 0 0 1-3.5 3.5H12l-3.5 2.5V18H8.5A3.5 3.5 0 0 1 5 14.5z"/><path d="M9 9h6M9 12.5h4"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sf-bot">
+    <div class="sf-row">
+      <a class="sf-logo" href="index.html" aria-label="초월 홈"><img class="kr" src="img/kr_h_w.svg" alt="초월"></a>
+      <div class="sf-legal"><a href="terms.html">이용약관</a><a href="privacy.html"><b>개인정보처리방침</b></a></div>
+    </div>
+    <p class="sf-biz">상호 초월 · 대표 최요섭 · 사업자등록번호 121-29-51694<br>서울특별시 마포구 마포대로 49, C동 지층 16호 (도화동, 성우빌딩)</p>
+    <p class="sf-warn">경고: 지나친 음주는 뇌졸중, 기억력 손상이나 치매를 유발합니다. 임신 중 음주는 기형아 출생 위험을 높입니다.</p>
+    <div class="sf-row">
+      <p class="sf-copy">© 2026 초월 Chowol</p>
+      <button class="sf-top-btn" type="button" aria-label="맨 위로" onclick="(document.getElementById('root')||window).scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M7 19V1M1 7l6-6 6 6"/></svg>TOP</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.in').forEach(function(el){io.observe(el)});
+  var btn=document.getElementById('burger'),menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){var o=menu.hidden;menu.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+  var hd=document.querySelector('.head');function onS(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onS,{passive:true});onS();
+})();
+</script>
+</body>
+</html>

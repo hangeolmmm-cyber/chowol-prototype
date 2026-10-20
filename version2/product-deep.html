@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEEP — 초월</title>
+<meta name="description" content="56일 이상 완전 발효한 18도 프리미엄 막걸리, 초월 DEEP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
+<style>
+
+:root{
+  --cream:#FFFFFF; --rice:#FFFFFF; --blush:#FFFFFF; --wood:#FFFFFF;
+  --ink:#1F1C18; --ink-2:#4A453E; --muted:#857D72; --line:rgba(31,28,24,.16);
+  --accent:#B0503F; --night:#14120F;
+  --gut:clamp(24px,8vw,128px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.serif{font-family:'Noto Serif KR',serif}
+
+/* header (공통) */
+.head{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 4vw;mix-blend-mode:difference;color:#FFFFFF;pointer-events:none}
+.head>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:26px;height:26px}
+.brand span{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.5em}
+.nav{display:flex;gap:40px;font-size:13px;letter-spacing:.16em}
+.nav a{position:relative;padding:6px 0}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor}
+.util{display:flex;align-items:center;gap:22px;font-size:12px;letter-spacing:.16em}
+.util .lang{opacity:.6}
+.btn-line{border:1px solid currentColor;padding:11px 20px;min-height:44px;display:inline-flex;align-items:center}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;align-items:center;justify-content:center;padding:0;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:15;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:24px;letter-spacing:.24em}
+.menu[hidden]{display:none}
+
+/* 공통 타이포 */
+.eyebrow{font-size:11px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+.eyebrow b{color:var(--accent);font-weight:400}
+.h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(30px,3.4vw,50px);line-height:1.4;letter-spacing:.05em}
+.body{margin:0;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.more{display:inline-flex;align-items:flex-end;min-height:44px;padding:12px 0 6px;border-bottom:1px solid currentColor;font-size:12px;letter-spacing:.24em}
+.more:hover{color:var(--accent)}
+.wrap{padding:0 var(--gut)}
+.sec{padding:clamp(96px,14vh,180px) 0;position:relative}
+.ph{color:var(--accent);font-style:normal;border-bottom:1px dashed var(--accent)}
+
+/* reveal */
+.in{opacity:0;transform:translateY(28px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.in.vis{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* footer */
+.foot{background:var(--night);color:#BDB6AA;padding:72px var(--gut) 40px;font-size:12.5px;line-height:1.9}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(237,231,220,.12)}
+.foot h5{margin:0 0 14px;font-size:11px;letter-spacing:.3em;color:#857D72;font-weight:400}
+.foot .logo{display:flex;align-items:center;gap:14px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.4em;color:#EDE7DC;margin-bottom:18px}
+.foot .logo img{width:30px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot a:hover{color:#EDE7DC}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:28px;font-size:11px;color:#857D72}
+
+
+/* ===== 헤더 서브메뉴 (공통) ===== */
+.has-sub{position:relative;display:flex;align-items:center}
+.has-sub>a::before{content:"";position:absolute;left:-24px;right:-24px;top:100%;height:24px}
+.sub{position:absolute;left:50%;top:calc(100% + 18px);transform:translate(-50%,6px);min-width:240px;padding:10px 0;background:#FFFFFF;color:#1F1C18;border:1px solid rgba(31,28,24,.14);box-shadow:0 18px 40px rgba(31,28,24,.08);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s;z-index:30}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.sub a{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:12px 22px;min-height:44px;letter-spacing:.06em}
+.sub a b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px}
+.sub a span{font-size:10.5px;letter-spacing:.2em;color:#857D72}
+.sub a:hover,.sub a[aria-current="page"]{color:#B0503F}
+.sub .sub-all{font-size:11px;letter-spacing:.24em;color:#857D72;border-bottom:1px solid rgba(31,28,24,.1);margin-bottom:6px}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{mix-blend-mode:normal;background:rgba(255,255,255,.95);color:#1F1C18;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.head:has(.has-sub:hover) .brand img,.head:has(.has-sub:focus-within) .brand img,.head.solid .brand img{filter:invert(1) brightness(.2)}
+.head{transition:background .3s,padding .3s}
+.head.solid{padding-top:22px;padding-bottom:22px}
+.menu .m-sub{font-size:16px;letter-spacing:.14em;color:#857D72;margin-top:-14px}
+
+/* ===== 한글 줄바꿈 규칙 (공통) ===== */
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,h5,.h2,.h-prod,.lead,.tag,.dp-hook,.q,.big,blockquote,.closing,.sp-close,.sf-line{text-wrap:balance}
+p,li,dd,td,.body{text-wrap:pretty}
+
+/* ===== 사이트 푸터 (공통) — 최소 글자 14px ===== */
+.site-foot{position:relative;background:#14120F;color:#BDB6AA;font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;font-size:15px;line-height:1.9;padding:clamp(96px,14vh,160px) clamp(24px,8vw,128px) 48px;scroll-snap-align:end}
+.site-foot a{color:inherit;text-decoration:none;transition:color .3s}
+.site-foot a:hover{color:#FFFFFF}
+.sf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;padding-bottom:80px}
+.sf-line{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(44px,5.6vw,88px);line-height:1.15;letter-spacing:.04em;color:#FFFFFF}
+.sf-line em{font-style:normal;color:#C8634F}
+.sf-cta{display:flex;gap:12px;flex-wrap:wrap}
+.sf-btn{display:inline-flex;align-items:center;gap:20px;min-height:56px;padding:0 28px;border:1px solid rgba(237,231,220,.4);color:#FFFFFF!important;font-size:15px;letter-spacing:.12em}
+.sf-btn:hover{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill:hover{background:#C8634F;border-color:#C8634F;color:#FFFFFF!important}
+.sf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;padding:56px 0 64px;border-top:1px solid rgba(237,231,220,.14)}
+.sf-grid h5{margin:0 0 18px;font-size:14px;font-weight:400;letter-spacing:.24em;color:#857D72}
+.sf-grid p{margin:0}
+.sf-ext{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;letter-spacing:.1em;color:#FFFFFF!important;border-bottom:1px solid rgba(237,231,220,.35);padding-bottom:2px}
+.sf-sns{display:flex;gap:10px;margin-top:20px}
+.sf-sns a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(237,231,220,.22);border-radius:50%}
+.sf-sns a:hover{border-color:#FFFFFF}
+.sf-sns svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.2}
+.sf-bot{display:flex;flex-direction:column;gap:20px;padding-top:36px;border-top:1px solid rgba(237,231,220,.14);font-size:14px;color:#8F887D;line-height:1.8}
+.sf-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.sf-logo{display:flex;align-items:center;gap:12px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.42em;color:#FFFFFF!important}
+.sf-logo img{width:28px;height:28px}
+.sf-legal{display:flex;gap:28px;flex-wrap:wrap}
+.sf-legal a{color:#BDB6AA}
+.sf-legal b{font-weight:500}
+.sf-biz,.sf-warn,.sf-copy{margin:0}
+.sf-top-btn{display:inline-flex;align-items:center;gap:10px;background:none;border:0;color:#BDB6AA;font:inherit;font-size:14px;letter-spacing:.24em;cursor:pointer;min-height:44px;padding:0}
+.sf-top-btn:hover{color:#FFFFFF}
+.sf-top-btn svg{width:14px;height:20px;stroke:currentColor;fill:none;stroke-width:1.2}
+@media (max-width:860px){
+  .site-foot{padding:80px 24px 40px}
+  .sf-top{padding-bottom:56px}
+  .sf-grid{grid-template-columns:1fr;gap:40px;padding:48px 0}
+  .sf-btn{width:100%;justify-content:space-between}
+}
+
+
+/* ===== products ===== */
+.pg-head{padding:180px var(--gut) 56px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.pg-head h1{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(40px,5vw,76px);letter-spacing:.04em;line-height:1.2}
+.crumb{font-size:11px;letter-spacing:.3em;color:var(--muted)}
+
+/* 라인업 탭 */
+.lineup{position:sticky;top:96px;z-index:12;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.lineup ul{list-style:none;margin:0;padding:0 var(--gut);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.lineup a{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:22px 0;min-height:44px;border-right:1px solid var(--line);padding-right:20px;margin-right:20px;transition:color .3s}
+.lineup li:last-child a{border-right:0}
+.lineup a b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:17px;letter-spacing:.06em}
+.lineup a span{font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.lineup a.on b{color:var(--accent)}
+.lineup a:hover{color:var(--accent)}
+
+/* 6.9 — product hero */
+.phero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);min-height:100vh;background:var(--rice)}
+.phero .media{position:relative;overflow:hidden;background:#FFFFFF}
+.phero .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.phero .info{display:flex;flex-direction:column;justify-content:center;gap:26px;padding:120px var(--gut) 96px 6vw}
+.phero h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(56px,6vw,96px);letter-spacing:.02em;line-height:1}
+.phero .tag{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:22px;letter-spacing:.1em}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{font-size:11px;letter-spacing:.16em;padding:7px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2)}
+.badge.red{border-color:var(--accent);color:var(--accent)}
+
+/* 구매 박스 */
+.buy{display:flex;flex-direction:column;gap:18px;padding-top:24px;border-top:1px solid var(--line);max-width:440px}
+.opt{display:flex;gap:10px}
+.opt button{flex:1;min-height:52px;background:transparent;border:1px solid var(--line);color:var(--ink);font:inherit;font-size:13px;letter-spacing:.12em;cursor:pointer;transition:all .3s}
+.opt button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--cream)}
+.qty-row{display:flex;justify-content:flex-end;align-items:center;gap:16px}.buy .qty{display:none}.cta-row .kakao{flex:1;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.qty{display:flex;align-items:center;border:1px solid var(--line)}
+.qty button{width:44px;height:44px;background:none;border:0;font-size:18px;cursor:pointer;color:var(--ink)}
+.qty output{min-width:36px;text-align:center;font-size:14px}
+.price{font-family:'Noto Serif KR',serif;font-weight:300;font-size:26px;letter-spacing:.04em}
+.price small{font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--muted);margin-right:10px}
+.cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{min-height:54px;display:inline-flex;align-items:center;justify-content:center;font-size:12.5px;letter-spacing:.2em;border:1px solid var(--ink);cursor:pointer;font-family:inherit;transition:all .3s}
+.btn.fill{background:var(--ink);color:var(--cream)}
+.btn.fill:hover{background:var(--accent);border-color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{color:var(--accent);border-color:var(--accent)}
+.note{font-size:12px;color:var(--muted);letter-spacing:.04em}
+
+/* intro quote */
+.intro{text-align:center;background:var(--cream)}
+.intro .q{margin:0 auto;max-width:900px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(24px,2.6vw,38px);line-height:1.9;letter-spacing:.03em}
+.intro .q em{font-style:normal;color:var(--accent)}
+.intro .sub{margin:40px auto 0;max-width:520px}
+
+/* 6.9 meaning */
+.meaning{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px);align-items:center}
+.n69{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(140px,20vw,300px);line-height:.8;letter-spacing:-.04em;color:var(--ink)}
+.n69 i{font-style:normal;color:var(--accent)}
+
+/* tasting 3 */
+.notes{background:var(--rice)}
+.notes-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);margin-top:64px}
+.note-card{padding:40px 36px 8px 0;display:flex;flex-direction:column;gap:18px;border-right:1px solid var(--line);margin-right:36px}
+.note-card:last-child{border-right:0;margin-right:0}
+.note-card .k{font-size:11px;letter-spacing:.3em;color:var(--accent)}
+.note-card h3{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:24px;letter-spacing:.05em;line-height:1.5}
+.note-card ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.note-card li{font-size:13.5px;color:var(--ink-2);padding-left:18px;position:relative}
+.note-card li::before{content:"";position:absolute;left:0;top:.8em;width:8px;height:1px;background:var(--accent)}
+
+/* balance */
+.balance{background:var(--night);color:#EDE7DC}
+.balance .eyebrow{color:#9C958A}
+.balance .body{color:#C9C2B6}
+.bal-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
+.bars{display:flex;flex-direction:column;gap:30px}.taste{display:grid;grid-template-columns:52px minmax(0,220px);row-gap:12px;column-gap:16px;align-items:center;font-size:12px;letter-spacing:.16em}.taste span{opacity:.75}.taste i{position:relative;display:block;height:1px;background:rgba(140,140,140,.45)}.taste i b{position:absolute;left:0;top:-1px;height:3px;background:currentColor}
+.bar-row{display:grid;grid-template-columns:120px 1fr 60px;gap:20px;align-items:center;font-size:13px;letter-spacing:.12em}
+.bar-row .lab{font-family:'Noto Serif KR',serif;font-weight:300;font-size:16px}
+.bar-row .track{position:relative;height:1px;background:rgba(237,231,220,.2)}
+.bar-row .fill{position:absolute;left:0;top:-1px;height:3px;width:0;background:#D9B36C;transition:width 1.8s cubic-bezier(.2,.7,.2,1)}
+.bar-row .val{color:#9C958A;font-size:12px;text-align:right}
+.bars.vis .fill{width:var(--w)}
+.bal-words{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(237,231,220,.14);margin-top:36px;border:1px solid rgba(237,231,220,.14)}
+.bal-words div{background:var(--night);padding:22px 20px;font-family:'Noto Serif KR',serif;font-weight:300;font-size:16px;letter-spacing:.06em}
+.bal-words small{display:block;font-family:'IBM Plex Sans KR',sans-serif;font-size:10.5px;letter-spacing:.24em;color:#857D72;margin-bottom:8px}
+
+/* for you */
+.foryou-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,48px);margin-top:64px}
+.fy{background:var(--rice);padding:48px clamp(28px,3.4vw,52px);display:flex;flex-direction:column;gap:22px}
+.fy .who{font-size:11px;letter-spacing:.3em;color:var(--accent)}
+.fy blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(20px,1.8vw,26px);line-height:1.7;letter-spacing:.02em}
+
+/* moments */
+.moments{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);background:var(--cream)}
+.moments .media{position:relative;min-height:70vh;overflow:hidden}
+.moments .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.moments .copy{display:flex;flex-direction:column;justify-content:center;gap:26px;padding:96px var(--gut) 96px 6vw}
+.m-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.m-list li{display:flex;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line);font-family:'Noto Serif KR',serif;font-weight:300;font-size:18px;letter-spacing:.04em}
+.m-list li span{font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.2em;color:var(--accent);min-width:24px}
+.closing{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(18px,1.6vw,22px);line-height:1.9;letter-spacing:.03em}
+.closing em{font-style:normal;color:var(--accent)}
+
+/* spec + serve */
+.spec-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,96px)}
+.spec{margin:0;display:grid;grid-template-columns:120px 1fr;border-top:1px solid var(--line)}
+.spec dt,.spec dd{margin:0;padding:16px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.spec dt{font-size:11px;letter-spacing:.24em;color:var(--muted);padding-top:18px}
+.spec dd{color:var(--ink-2)}
+.serve{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.serve div{border:1px solid var(--line);padding:26px 20px;display:flex;flex-direction:column;gap:14px;min-height:180px}
+.serve svg{width:34px;height:34px;stroke:var(--ink);fill:none;stroke-width:1}
+.serve b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:17px;letter-spacing:.06em}
+.serve p{margin:0;font-size:12.5px;line-height:1.8;color:var(--ink-2)}
+
+/* other products */
+.others{background:var(--rice)}
+.prod{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center;padding:clamp(72px,10vh,120px) 0;border-top:1px solid var(--line)}
+.prod:first-of-type{border-top:0}
+.prod.rev .pimg{order:2}
+.pimg{aspect-ratio:4/5;overflow:hidden}
+.pimg img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.prod:hover .pimg img{transform:scale(1.03)}
+.pinfo{display:flex;flex-direction:column;gap:22px}
+.pinfo h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(44px,4.6vw,68px);letter-spacing:.02em;line-height:1}
+.mini-meter{display:grid;grid-template-columns:56px 1fr;row-gap:10px;column-gap:16px;align-items:center;max-width:280px;font-size:11.5px;letter-spacing:.16em;color:var(--muted)}
+.mini-meter .m{display:flex;gap:6px}
+.mini-meter i{width:20px;height:2px;background:var(--line);display:block}
+.mini-meter i.f{background:var(--accent)}
+.price-line{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;letter-spacing:.06em;color:var(--ink-2)}
+.price-line b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:20px;color:var(--ink);margin-left:8px}
+.pending{font-size:11px;letter-spacing:.16em;color:var(--accent)}
+
+/* ===== DEEP series (dark) ===== */
+.deep-series{background:var(--night);color:#EDE7DC}
+.deep-series .body{color:#C9C2B6}
+.deep-series .body em,.dp-texture em{font-style:normal;color:#EDE7DC;border-bottom:1px solid rgba(217,179,108,.6)}
+.ds-intro{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+.ds-intro>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.ds-intro::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.92) 0,rgba(20,18,15,.25) 45%,rgba(20,18,15,0) 70%)}
+.ds-intro-copy{position:relative;z-index:1;display:flex;flex-direction:column;gap:22px;padding-bottom:12vh}
+.dp{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);padding:clamp(96px,14vh,160px) var(--gut);align-items:start}
+.dp.rev .dp-media{order:2}
+.dp-media{position:sticky;top:110px;aspect-ratio:4/5;overflow:hidden;background:#0B0A09}
+.dp-media img{width:100%;height:100%;object-fit:cover}
+.dp-info{display:flex;flex-direction:column;gap:26px;max-width:600px}
+.dp-name{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(56px,6vw,96px);letter-spacing:.02em;line-height:1}
+.dp-hook{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(20px,1.9vw,26px);letter-spacing:.06em;line-height:1.6;color:#EDE7DC}
+.flow{list-style:none;margin:6px 0 0;padding:0;border-top:1px solid rgba(237,231,220,.16)}
+.flow li{display:grid;grid-template-columns:90px 1fr;column-gap:20px;row-gap:4px;padding:18px 0;border-bottom:1px solid rgba(237,231,220,.16)}
+.flow li span{grid-row:span 2;font-size:10.5px;letter-spacing:.26em;color:#D9B36C;padding-top:5px}
+.flow li b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:17px;letter-spacing:.04em}
+.flow li em{font-style:normal;font-size:13px;color:#9C958A}
+.flow.light{border-color:var(--line)}.flow.light li{border-color:var(--line)}.flow.light li span{color:var(--accent)}.flow.light li em{color:var(--muted)}
+.dp-texture{display:flex;flex-direction:column;gap:12px;padding:24px 26px;border:1px solid rgba(237,231,220,.16)}
+.dp-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px}
+.ticks{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:13.5px;line-height:1.7;color:#C9C2B6}
+.ticks li{padding-left:22px;position:relative}
+.ticks li::before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:5px;border-left:1px solid #D9B36C;border-bottom:1px solid #D9B36C;transform:rotate(-45deg)}
+.ticks.dark-tick{color:var(--ink-2)}.ticks.dark-tick li::before{border-color:var(--accent)}
+.buy.dark{border-top-color:rgba(237,231,220,.16)}
+.buy.dark .opt button{color:#EDE7DC;border-color:rgba(237,231,220,.24)}
+.buy.dark .opt button[aria-pressed="true"]{background:#EDE7DC;color:var(--night);border-color:#EDE7DC}
+.buy.dark .qty{border-color:rgba(237,231,220,.24)}.buy.dark .qty button{color:#EDE7DC}
+.buy.dark .btn{border-color:#EDE7DC}
+.buy.dark .btn.fill{background:#EDE7DC;color:var(--night)}
+.buy.dark .btn.fill:hover{background:#D9B36C;border-color:#D9B36C}
+.buy.dark .btn.ghost{color:#EDE7DC}
+.buy.dark .btn.ghost:hover{color:#D9B36C;border-color:#D9B36C}
+.compare{padding-bottom:clamp(96px,14vh,160px)}
+.cmp-scroll{overflow-x:auto}
+.cmp{width:100%;min-width:640px;border-collapse:collapse;font-size:13.5px}
+.cmp th,.cmp td{text-align:left;padding:18px 16px;border-bottom:1px solid rgba(237,231,220,.14);vertical-align:top}
+.cmp thead th{font-family:'Noto Serif KR',serif;font-weight:300;font-size:18px;letter-spacing:.04em;color:#EDE7DC;border-bottom-color:rgba(237,231,220,.4)}
+.cmp tbody th{font-size:11px;letter-spacing:.24em;color:#9C958A;font-weight:400;width:120px}
+.cmp td{color:#C9C2B6}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* ===== SPKL ===== */
+.spkl{background:var(--blush)}
+.sp-hero{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);min-height:100vh}
+.sp-media{position:relative;overflow:hidden;background:#EEF0F4}
+.sp-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.sp-info{display:flex;flex-direction:column;justify-content:center;gap:26px;padding:120px var(--gut) 96px 6vw}
+.sp-color{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center;padding:clamp(96px,14vh,160px) var(--gut) 0}
+.sp-color-img{aspect-ratio:4/5;overflow:hidden}
+.sp-color-img img{width:100%;height:100%;object-fit:cover}
+.sp-color-copy{display:flex;flex-direction:column;gap:22px}
+.shake{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:center;padding-top:clamp(96px,14vh,160px);padding-bottom:clamp(72px,10vh,120px)}
+.shake-copy{display:flex;flex-direction:column;gap:22px}
+.seg{display:inline-flex;border:1px solid var(--ink);align-self:flex-start}
+.seg button{min-height:48px;padding:0 22px;background:transparent;border:0;font:inherit;font-size:13px;letter-spacing:.12em;color:var(--ink);cursor:pointer;transition:all .3s}
+.seg button[aria-selected="true"]{background:var(--ink);color:var(--blush)}
+.pour-panel{display:flex;flex-direction:column;gap:8px;min-height:96px;max-width:420px}
+.pour-panel b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:19px;letter-spacing:.06em;color:var(--accent)}
+.pour-panel p{margin:0;font-size:14.5px;line-height:1.9;color:var(--ink-2)}
+.glass-wrap{display:flex;justify-content:center}
+.glass{width:min(320px,70%);height:auto;overflow:visible}
+.glass .liq{transition:opacity .9s ease}
+.glass .cloud{opacity:0}
+.glass.shaken .cloud{opacity:1}.glass.shaken .clear{opacity:0}
+.glass .bubbles circle{fill:#fff;opacity:.85;animation:bub 3.2s linear infinite}
+.glass .bubbles circle:nth-child(2n){animation-duration:2.4s;animation-delay:-1s}
+.glass .bubbles circle:nth-child(3n){animation-duration:3.8s;animation-delay:-2s}
+.glass.shaken .bubbles circle{opacity:.5}
+.glass.wobble{animation:wob .8s ease}
+@keyframes bub{from{transform:translateY(0);opacity:0}15%{opacity:.85}to{transform:translateY(-110px);opacity:0}}
+@keyframes wob{0%,100%{transform:rotate(0)}20%{transform:rotate(-7deg)}40%{transform:rotate(6deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(2deg)}}
+.glass{transform-origin:50% 90%}
+.sp-more{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px);padding-top:56px;padding-bottom:clamp(72px,10vh,120px);border-top:1px solid var(--line)}
+.sp-col{display:flex;flex-direction:column;gap:16px}
+.sp-col h4{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:21px;letter-spacing:.04em}
+.pair-tags{display:flex;gap:8px;flex-wrap:wrap}
+.pair-tags span{padding:9px 16px;border:1px solid var(--accent);color:var(--accent);border-radius:999px;font-size:12.5px;letter-spacing:.12em}
+.sp-close{margin:0;padding-bottom:clamp(96px,14vh,160px);text-align:center;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(22px,2.4vw,34px);line-height:1.8;letter-spacing:.03em}
+.sp-close em{font-style:normal;color:var(--accent)}
+@media (prefers-reduced-motion:reduce){.glass .bubbles circle,.glass.wobble{animation:none}}
+@media (max-width:960px){
+  .dp,.sp-hero,.sp-color,.shake,.sp-more{grid-template-columns:1fr}
+  .dp{padding:72px 24px}
+  .dp.rev .dp-media{order:0}
+  .dp-media{position:relative;top:0;aspect-ratio:4/3}
+  .sp-media{height:62vh;position:relative}
+  .sp-info{padding:48px 24px 72px}
+  .sp-color{padding:72px 24px 0}
+  .ds-intro{min-height:70vh}
+}
+
+/* 제품 페이지: 스크롤 시 헤더를 단색으로 */
+.head.solid{mix-blend-mode:normal;background:rgba(255,255,255,.95);color:var(--ink);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding-top:22px;padding-bottom:22px;transition:padding .3s}
+.head.solid .brand img{filter:invert(1) brightness(.2)}
+.lineup{top:88px!important}
+.glass .specks circle{fill:#FBEFE6;opacity:0;transition:opacity .9s}
+.glass.shaken .specks circle{opacity:.9}
+
+/* ===== 제품 하위 페이지 ===== */
+.crumbbar{padding:112px var(--gut) 18px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.crumbbar nav{font-size:11px;letter-spacing:.24em;color:var(--muted)}
+.crumbbar nav a:hover{color:var(--accent)}
+.crumbbar nav span{margin:0 10px;opacity:.5}
+.lineup a[aria-current="page"] b{color:var(--accent)}
+.lineup a[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--accent)}
+.lineup{top:88px!important}
+/* 개요 카드 */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,48px);padding:24px var(--gut) clamp(96px,14vh,160px)}
+.card{display:flex;flex-direction:column;gap:18px}
+.card .img{aspect-ratio:4/5;overflow:hidden;background:var(--rice)}
+.card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.card:hover .img img{transform:scale(1.035)}
+.card:nth-child(even){margin-top:120px}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.card h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(36px,3.6vw,54px);letter-spacing:.02em;line-height:1}
+.card .abv{font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.card .tag{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:19px;letter-spacing:.05em}
+.card .meta{display:flex;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px;letter-spacing:.08em;color:var(--ink-2)}
+.card .go{color:var(--ink);letter-spacing:.2em;font-size:12px}
+.card:hover .go,.card:hover h2{color:var(--accent)}
+.cmp.light th,.cmp.light td{border-bottom-color:var(--line)}
+.cmp.light thead th{color:var(--ink);border-bottom-color:rgba(31,28,24,.4)}
+.cmp.light tbody th{color:var(--muted)}
+.cmp.light td{color:var(--ink-2)}
+.cmp a:hover{color:var(--accent)}
+/* 다른 제품 */
+.others-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,32px)}
+.mini{display:flex;flex-direction:column;gap:12px}
+.mini .img{aspect-ratio:1/1;overflow:hidden;background:var(--rice)}
+.mini img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.mini:hover img{transform:scale(1.04)}
+.mini b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:20px;letter-spacing:.04em}
+.mini span{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.mini:hover b{color:var(--accent)}
+.sibling{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;margin:0 var(--gut) clamp(72px,10vh,120px);padding:28px 32px;border:1px solid rgba(237,231,220,.2);color:#EDE7DC}
+.sibling:hover{border-color:#D9B36C}
+.sibling b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:20px;letter-spacing:.04em}
+.sibling small{display:block;font-size:11px;letter-spacing:.24em;color:#9C958A;margin-bottom:8px}
+.sibling .arr{font-size:22px;color:#D9B36C}
+@media (max-width:960px){
+  .cards{grid-template-columns:1fr;row-gap:96px;padding:16px 24px 120px}
+  .card .row{flex-wrap:wrap;row-gap:8px}
+  .card h2{white-space:nowrap}
+  .card .abv{white-space:nowrap}
+  .card:nth-child(even){margin-top:0}
+  .crumbbar{padding:96px 24px 12px}
+  .others-row{grid-template-columns:1fr}
+  .mini .img{aspect-ratio:16/10}
+  .sibling{margin:0 24px 72px}
+}
+/* 비교표 — 모바일: 항목별로 4개 제품을 2×2로 (옆으로 밀지 않아도 한눈에) */
+@media (max-width:720px){
+  .cmp-scroll{overflow:visible}
+  .cmp{min-width:0;display:block}
+  .cmp thead{display:none}
+  .cmp tbody{display:block}
+  .cmp tr{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:16px;padding:24px 0;border-bottom:1px solid rgba(133,125,114,.28)}
+  .cmp tr:first-child{border-top:1px solid rgba(133,125,114,.5)}
+  .cmp tbody th{grid-column:1/-1;width:auto;padding:0;border:0}
+  .cmp td{padding:0;border:0;font-size:14px;line-height:1.6}
+  .cmp td::before{content:attr(data-p);display:block;margin-bottom:4px;font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.04em;opacity:.62}
+}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--cream);padding:16px 24px;font-size:13px;letter-spacing:.06em;z-index:30;transition:all .4s;pointer-events:none;max-width:calc(100% - 32px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.in{opacity:1;transform:none;transition:none}.bar-row .fill{transition:none}}
+@media (max-width:960px){
+  .nav,.util .lang{display:none}.burger{display:flex}
+  .pg-head{padding:130px 24px 36px}
+  .lineup{top:88px}
+  .lineup ul{grid-template-columns:repeat(4,auto);overflow-x:auto;gap:0;padding:0 16px}
+  .lineup a{flex-direction:column;gap:2px;padding:14px 0;margin-right:16px;padding-right:16px;white-space:nowrap}
+  .lineup a b{font-size:15px}
+  .phero,.meaning,.bal-grid,.moments,.spec-grid,.prod{grid-template-columns:1fr}
+  .phero .media{height:62vh;position:relative}
+  .phero .info{padding:48px 24px 72px}
+  .notes-grid,.foryou-grid,.serve{grid-template-columns:1fr}
+  .note-card{border-right:0;margin-right:0;border-bottom:1px solid var(--line);padding:32px 0}
+  .moments .media{min-height:50vh}
+  .moments .copy{padding:56px 24px 72px}
+  .prod.rev .pimg{order:0}
+  .pimg{aspect-ratio:4/3}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .bar-row{grid-template-columns:90px 1fr 44px}
+}
+
+/* ===== REV5 공통: 흰 배경 · 메뉴 오른쪽 · 심볼 로고 ===== */
+:root{--cream:#FFFFFF;--paper:#FFFFFF;--rice:#FFFFFF;--blush:#FFFFFF;--bg:#FFFFFF}
+html,body{background:#FFFFFF}
+.head{justify-content:flex-start!important}
+.head .nav{margin-left:auto;gap:34px}
+.head .util{margin-left:40px}
+.head .brand img{width:30px;height:30px}
+.sub{background:#FFFFFF!important}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{background:rgba(255,255,255,.96)!important}
+.sf-logo img.kr{width:auto!important;height:40px!important}
+.menu{background:#FFFFFF}
+@media (max-width:820px){.head .util{margin-left:auto}}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="brand" href="index.html" aria-label="초월 홈"><img src="img/mark.png" alt=""></a>
+  <nav class="nav" aria-label="주 메뉴">
+    <a href="about.html">Chowol</a>
+    <div class="has-sub">
+      <a href="products.html" aria-current="page" aria-haspopup="true">제품</a>
+      <div class="sub" role="menu" aria-label="제품">
+        <a class="sub-all" href="products.html">전체 라인업</a><a href="product-69.html"><b>초월 6.9</b><span>6.9%</span></a><a href="product-deep.html" aria-current="page"><b>DEEP</b><span>18%</span></a><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a>
+      </div>
+    </div>
+    <a href="brewery.html">양조장 · 예약</a>
+    <a href="stockists.html">초월 가이드</a>
+    <a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+  </nav>
+  <div class="util">
+    <span class="lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></span>
+    <a class="btn-line" href="brewery.html">방문 예약</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기">
+      <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+</div>
+
+<main>
+  <div class="crumbbar">
+    <nav aria-label="현재 위치"><a href="products.html">제품</a><span>/</span>DEEP</nav>
+    <span class="crumb">PREMIUM — DEEP SERIES</span>
+  </div>
+  <!-- ================= DEEP SERIES ================= -->
+  <section class="deep-series" aria-labelledby="ds-title">
+    <div class="ds-intro">
+      <img src="img/deep_duo.jpg" alt="빛이 비스듬히 떨어지는 흰 바닥 위의 초월 DEEP" loading="lazy">
+      <div class="ds-intro-copy wrap">
+        <span class="eyebrow in" style="color:#A39C91"><b style="color:#D9B36C">PREMIUM</b> — DEEP SERIES</span>
+        <h2 class="h2 in d1" id="ds-title">56일이 만드는<br>맑고 깊은 구조</h2>
+        <p class="body in d2" style="max-width:460px;color:#CFC9BF">최소 56일 이상의 장기 발효. 일반 막걸리보다 훨씬 긴 시간 동안 쌀과 누룩이 만들어내는 향과 풍미가 천천히 쌓입니다. 그 원주에서 DEEP과 DEEP Down이 태어납니다.</p>
+      </div>
+    </div>
+    <!-- DEEP -->
+    <article class="dp" id="p-deep">
+      <div class="dp-media"><img src="img/deep_p.jpg" alt="스포트라이트 아래 금색 라벨의 초월 DEEP" loading="lazy"></div>
+      <div class="dp-info">
+        <span class="eyebrow in" style="color:#A39C91"><b style="color:#D9B36C">18%</b> — 375 / 750ml · 소비기한 5개월</span>
+        <h2 class="dp-name in d1">DEEP</h2>
+        <p class="dp-hook in d1">“이게 막걸리 맞나요?”</p>
+        <p class="body in d2">56일 이상 완전 발효가 끝난 뒤, 원주의 윗술만 엄선해 완성합니다. 그래서 소량으로만 생산되며, 일반적인 막걸리보다 훨씬 맑고 깊은 구조에 프루티함과 복합적인 아로마를 지녔습니다. 도수 18%, 하지만 강한 술이라는 느낌보다 풍미의 구조가 먼저 느껴집니다.</p>
+
+        <div class="taste in d2" style="color:#D9B36C" role="img" aria-label="DEEP 맛 지표: 바디 64%, 당도 18%, 산미 32%"><span>바디</span><i><b style="width:64%"></b></i><span>당도</span><i><b style="width:18%"></b></i><span>산미</span><i><b style="width:32%"></b></i></div><ol class="flow in d2" aria-label="DEEP의 맛 흐름">
+          <li><span>NOSE</span><b>핵과실류의 과육 향</b><em>곡물만 썼지만 잔에 따르는 순간 올라오는 향</em></li>
+          <li><span>PALATE</span><b>과하지 않은 단맛, 이어지는 드라이</b><em>달지 않게, 담백하게 이어지는 흐름</em></li>
+          <li><span>FINISH</span><b>산뜻한 산미, 은은한 스파이시</b><em>위스키나 증류식 소주를 닮은 여운</em></li>
+        </ol>
+
+        <div class="dp-texture in d3">
+          <span class="eyebrow" style="color:#A39C91">TEXTURE</span>
+          <p class="body">6.9보다 바디는 가볍게, 대신 차분하게 밀도 있는 구조. 거칠지 않고, 부드럽지만 얇지 않습니다. 천천히 마실수록 향과 질감이 조금씩 열리는 — <em>빠르게 마시기보다 천천히 경험하는 술</em>입니다.</p>
+        </div>
+
+        <div class="dp-two in d3">
+          <div>
+            <span class="eyebrow" style="color:#A39C91">HOW TO ENJOY</span>
+            <ul class="ticks"><li>노징 글라스로 향을 먼저</li><li>온더락으로 천천히</li><li>탄산수와 3 : 1로 가볍게</li><li>안주 없이도 충분합니다</li></ul>
+          </div>
+          <div>
+            <span class="eyebrow" style="color:#A39C91">RECOMMENDED FOR</span>
+            <ul class="ticks"><li>프리미엄 막걸리를 찾는 분</li><li>기존 막걸리와 다른 술을 원하는 분</li><li>위스키 · 증류식 소주를 좋아하는 분</li><li>전통주 테이스팅에 관심 있는 분</li></ul>
+          </div>
+        </div>
+
+        <div class="buy dark in d3" data-name="초월 DEEP">
+          <div class="opt" role="group" aria-label="DEEP 용량 선택">
+            <button type="button" aria-pressed="true" data-price="27000" data-label="375ml">375ml · 27,000원</button>
+            <button type="button" aria-pressed="false" data-price="52000" data-label="750ml">750ml · 52,000원</button>
+          </div>
+          <div class="qty-row">
+            <div class="qty"><button type="button" data-q="-1" aria-label="수량 빼기">−</button><output aria-live="polite">1</output><button type="button" data-q="1" aria-label="수량 더하기">+</button></div>
+            <span class="price"><small>가격</small><span data-total>27,000원</span></span>
+          </div>
+          <div class="cta-row"><a class="btn fill kakao" href="http://pf.kakao.com/_tnxliX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor;margin-right:10px;vertical-align:-3px"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7l-.9 3.4c-.1.3.3.6.6.4l4-2.6c.6.1 1.1.1 1.7.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg>카카오톡으로 구매 문의</a></div>
+        </div>
+      </div>
+    </article>
+    <a class="sibling in" href="product-deepdown.html"><span><small>같은 원주, 12도 버전</small><b>도수가 부담스럽다면, DEEP Down</b></span><span class="arr">→</span></a>
+    <div class="compare wrap">
+      <span class="eyebrow in" style="color:#A39C91">COMPARE</span>
+      <h3 class="h2 in d1" style="margin:18px 0 40px">나에게 맞는 깊이</h3>
+      <div class="cmp-scroll in d2"><table class="cmp"><thead><tr><th scope="col"><span class="sr">구분</span></th><th scope="col"><a href="product-69.html">초월 6.9</a></th><th scope="col"><a href="product-deepdown.html">DEEP Down</a></th><th scope="col"><a href="product-deep.html">DEEP</a></th><th scope="col"><a href="product-spkl.html">SPKL</a></th></tr></thead><tbody><tr><th scope="row">도수</th><td data-p="초월 6.9">6.9%</td><td data-p="DEEP Down">12%</td><td data-p="DEEP">18%</td><td data-p="SPKL">15.6%</td></tr><tr><th scope="row">소비기한</th><td data-p="초월 6.9">45일 / 70일</td><td data-p="DEEP Down">5개월</td><td data-p="DEEP">5개월</td><td data-p="SPKL">3개월</td></tr><tr><th scope="row">원료</th><td data-p="초월 6.9">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP Down">쌀 · 찹쌀 · 누룩</td><td data-p="DEEP">쌀 · 찹쌀 · 누룩</td><td data-p="SPKL">찹쌀 · 누룩 · 타트체리</td></tr><tr><th scope="row">발효</th><td data-p="초월 6.9">48일 · 삼양주</td><td data-p="DEEP Down">56일+ 완전 발효 · 가수</td><td data-p="DEEP">56일+ 완전 발효 · 윗술 엄선</td><td data-p="SPKL">자연 발효 · 천연 미탄산</td></tr><tr><th scope="row">바디</th><td data-p="초월 6.9">바디감 있는 담백함</td><td data-p="DEEP Down">풀바디, 묵직하게</td><td data-p="DEEP">6.9보다 가볍게, 밀도 있게</td><td data-p="SPKL">가볍고 산뜻하게</td></tr><tr><th scope="row">마무리</th><td data-p="초월 6.9">부드럽고 균형 잡힌</td><td data-p="DEEP Down">플랫한 드라이</td><td data-p="DEEP">산미 · 은은한 스파이시</td><td data-p="SPKL">타트체리 산미 · 미세한 기포</td></tr><tr><th scope="row">추천 잔</th><td data-p="초월 6.9">전용잔</td><td data-p="DEEP Down">전용잔 · 온더락</td><td data-p="DEEP">노징 글라스</td><td data-p="SPKL">와인 잔</td></tr><tr><th scope="row">이럴 때</th><td data-p="초월 6.9">일상의 저녁, 식사와</td><td data-p="DEEP Down">식사와 함께, 더 자주</td><td data-p="DEEP">천천히, 안주 없이도</td><td data-p="SPKL">치즈 · 튀김 · 파스타와</td></tr></tbody></table></div>
+    </div>
+  </section>
+  <section class="sec" style="background:var(--cream)">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px">
+        <div style="display:flex;flex-direction:column;gap:18px"><span class="eyebrow in">MORE</span><h3 class="h2 in d1">다른 초월</h3></div>
+        <a class="more in" href="products.html">전체 라인업 보기</a>
+      </div>
+      <div class="others-row"><a class="mini in" href="product-69.html"><div class="img"><img src="img/p69_single.jpg" alt="초월 6.9" loading="lazy" style="object-position:50% 55%"></div><b>초월 6.9</b><span>6.9% · 가볍지 않은 가벼움</span></a><a class="mini in" href="product-deepdown.html"><div class="img"><img src="img/down_p.jpg" alt="DEEP Down" loading="lazy" style="object-position:50% 50%"></div><b>DEEP Down</b><span>12% · 깊이는 그대로, 도수는 가볍게</span></a><a class="mini in" href="product-spkl.html"><div class="img"><img src="img/c_spkl.jpg" alt="SPKL" loading="lazy" style="object-position:50% 60%"></div><b>SPKL</b><span>15.6% · 와인 잔에 따르게 되는 술</span></a></div>
+    </div>
+  </section>
+</main>
+
+
+<footer class="site-foot" id="site-foot">
+  <div class="sf-top">
+    <p class="sf-line">막걸리를<br><em>초월</em>하다</p>
+    <div class="sf-cta">
+      <a class="sf-btn fill" href="brewery.html"><span>방문 예약</span><span aria-hidden="true">→</span></a>
+      <a class="sf-btn" href="contact.html"><span>입점 문의</span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="sf-grid">
+    <div>
+      <h5>VISIT</h5>
+      <p>서울 마포구 마포대로 49<br>성우빌딩 지하상가 C동 B116호</p>
+      <a class="sf-ext" href="https://maps.app.goo.gl/Yny7ArJu2ZSTRH5dA">지도 보기 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h5>HOURS</h5>
+      <p>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</p>
+      <p style="margin-top:6px;color:#8F887D">연중무휴</p>
+    </div>
+    <div>
+      <h5>CONTACT</h5>
+      <p><a href="tel:+821041143176">010-4114-3176</a><br><a href="mailto:chowolhada@gmail.com">chowolhada@gmail.com</a></p>
+      <div class="sf-sns">
+        <a href="https://www.instagram.com/chowolhada" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a>
+        <a href="https://www.youtube.com/@chowolhada" aria-label="유튜브"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></a>
+        <a href="https://blog.naver.com/chowolhan" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10.5a3.5 3.5 0 0 1 3.5 3.5v6.5a3.5 3.5 0 0 1-3.5 3.5H12l-3.5 2.5V18H8.5A3.5 3.5 0 0 1 5 14.5z"/><path d="M9 9h6M9 12.5h4"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sf-bot">
+    <div class="sf-row">
+      <a class="sf-logo" href="index.html" aria-label="초월 홈"><img class="kr" src="img/kr_h_w.svg" alt="초월"></a>
+      <div class="sf-legal"><a href="terms.html">이용약관</a><a href="privacy.html"><b>개인정보처리방침</b></a></div>
+    </div>
+    <p class="sf-biz">상호 초월 · 대표 최요섭 · 사업자등록번호 121-29-51694<br>서울특별시 마포구 마포대로 49, C동 지층 16호 (도화동, 성우빌딩)</p>
+    <p class="sf-warn">경고: 지나친 음주는 뇌졸중, 기억력 손상이나 치매를 유발합니다. 임신 중 음주는 기형아 출생 위험을 높입니다.</p>
+    <div class="sf-row">
+      <p class="sf-copy">© 2026 초월 Chowol</p>
+      <button class="sf-top-btn" type="button" aria-label="맨 위로" onclick="(document.getElementById('root')||window).scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M7 19V1M1 7l6-6 6 6"/></svg>TOP</button>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.18});
+  document.querySelectorAll('.in').forEach(function(el){io.observe(el)});
+  var btn=document.getElementById('burger'),menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){var o=menu.hidden;menu.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+
+  // 헤더 단색 전환
+  var hd=document.querySelector('.head');function onS(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onS,{passive:true});onS();
+
+  // 구매 박스 (제품별)
+  var toast=document.getElementById('toast'),tt;
+  document.querySelectorAll('.buy').forEach(function(box){
+    var opts=[].slice.call(box.querySelectorAll('.opt button')),out=box.querySelector('output'),total=box.querySelector('[data-total]'),q=1;
+    function cur(){return opts.filter(function(b){return b.getAttribute('aria-pressed')==='true'})[0]}
+    function render(){out.textContent=q;total.textContent=(parseInt(cur().dataset.price,10)*q).toLocaleString('ko-KR')+'원'}
+    opts.forEach(function(b){b.addEventListener('click',function(){opts.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});render()})});
+    box.querySelectorAll('[data-q]').forEach(function(b){b.addEventListener('click',function(){q=Math.max(1,Math.min(24,q+parseInt(b.dataset.q,10)));render()})});
+    box.querySelectorAll('[data-act]').forEach(function(b){b.addEventListener('click',function(){
+      toast.textContent=(b.dataset.act==='cart'?'장바구니에 담았습니다 · ':'픽업 주문 단계로 이동합니다 · ')+box.dataset.name+' '+cur().dataset.label+' × '+q+' (시안)';
+      toast.classList.add('show');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('show')},2600);
+    })});
+  });
+
+  // SPKL — 흔들거나, 흔들지 않거나
+  var glass=document.getElementById('glass'),seg=[].slice.call(document.querySelectorAll('.seg button'));
+  var panel=document.getElementById('pour-panel');
+  var copy={clear:['흔들지 않고, 맑게','병을 세워둔 채 맑게 따르면, 가볍고 드라이한 산미가 먼저 느껴집니다.'],
+            shake:['충분히 흔들어서','가라앉아 있던 효모와 쌀 입자가 섞이며, 더 진하고 풍부한 질감이 살아납니다.']};
+  seg.forEach(function(b){b.addEventListener('click',function(){
+    var m=b.dataset.mode; seg.forEach(function(x){x.setAttribute('aria-selected',String(x===b))});
+    panel.querySelector('[data-t]').textContent=copy[m][0]; panel.querySelector('[data-d]').textContent=copy[m][1];
+    glass.classList.toggle('shaken',m==='shake');
+    if(m==='shake'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){glass.classList.remove('wobble');void glass.getBoundingClientRect();glass.classList.add('wobble')}
+  })});
+})();
+</script>
+</body>
+</html>

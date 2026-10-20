@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>브랜드 소개 — 초월</title>
+<meta name="description" content="초월(超越), 막걸리를 넘어서다. 해남쌀과 누룩, 물로 48일 동안 빚는 무감미료 전통 삼양주와 마포 도심 속 양조장 이야기.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;500&family=IBM+Plex+Sans+KR:wght@300;400;500&display=swap">
+<style>
+:root{
+  --cream:#FFFFFF; --rice:#FFFFFF; --blush:#FFFFFF; --wood:#FFFFFF;
+  --ink:#1F1C18; --ink-2:#4A453E; --muted:#857D72; --line:rgba(31,28,24,.16);
+  --accent:#B0503F; --night:#14120F;
+  --gut:clamp(24px,8vw,128px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;background:var(--cream)}
+body{color:var(--ink);font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.serif{font-family:'Noto Serif KR',serif}
+
+/* header (공통) */
+.head{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 4vw;mix-blend-mode:difference;color:#FFFFFF;pointer-events:none}
+.head>*{pointer-events:auto}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{width:26px;height:26px}
+.brand span{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.5em}
+.nav{display:flex;gap:40px;font-size:13px;letter-spacing:.16em}
+.nav a{position:relative;padding:6px 0}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:currentColor}
+.util{display:flex;align-items:center;gap:22px;font-size:12px;letter-spacing:.16em}
+.util .lang{opacity:.6}
+.btn-line{border:1px solid currentColor;padding:11px 20px;min-height:44px;display:inline-flex;align-items:center}
+.burger{display:none;background:none;border:0;color:inherit;width:44px;height:44px;align-items:center;justify-content:center;padding:0;cursor:pointer}
+.menu{position:fixed;inset:0;z-index:15;background:var(--cream);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:26px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:24px;letter-spacing:.24em}
+.menu[hidden]{display:none}
+
+/* 공통 타이포 */
+.eyebrow{font-size:11px;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+.eyebrow b{color:var(--accent);font-weight:400}
+.h2{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(30px,3.4vw,50px);line-height:1.4;letter-spacing:.05em}
+.body{margin:0;font-size:15px;line-height:2.05;color:var(--ink-2)}
+.more{display:inline-flex;align-items:flex-end;min-height:44px;padding:12px 0 6px;border-bottom:1px solid currentColor;font-size:12px;letter-spacing:.24em}
+.more:hover{color:var(--accent)}
+.wrap{padding:0 var(--gut)}
+.sec{padding:clamp(96px,14vh,180px) 0;position:relative}
+.ph{color:var(--accent);font-style:normal;border-bottom:1px dashed var(--accent)}
+
+/* reveal */
+.in{opacity:0;transform:translateY(28px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.in.vis{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
+
+/* 01 page hero */
+.p-hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:stretch}
+.p-hero .copy{display:flex;flex-direction:column;justify-content:flex-end;gap:36px;padding:160px var(--gut) 12vh}
+.p-hero .hanja{display:flex;gap:28px;align-items:flex-start}
+.p-hero h1{margin:0;display:flex;flex-direction:column;gap:.08em;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(72px,9vw,150px);line-height:1;letter-spacing:.08em}
+.p-hero .gloss{writing-mode:vertical-rl;display:flex;gap:16px;font-family:'Noto Serif KR',serif;font-size:15px;letter-spacing:.4em;color:var(--ink-2)}
+.p-hero .gloss span:last-child{color:var(--muted);font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.3em}
+.p-hero .media{position:relative;overflow:hidden}
+.p-hero .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.06);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.p-hero.vis .media img{transform:none}
+.crumb{font-size:11px;letter-spacing:.3em;color:var(--muted)}
+
+/* 02 manifesto */
+.manifesto{text-align:center;background:var(--cream)}
+.manifesto p.big{margin:0 auto;max-width:980px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(26px,3vw,44px);line-height:1.8;letter-spacing:.04em}
+.manifesto p.big em{font-style:normal;color:var(--accent)}
+.manifesto .sig{margin-top:48px;font-size:12px;letter-spacing:.3em;color:var(--muted)}
+
+/* 03 three beyonds */
+.beyond{background:var(--rice)}
+.beyond-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:72px}
+.beyond-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px)}
+.b-card{display:flex;flex-direction:column;gap:22px}
+.b-card .img{aspect-ratio:4/5;overflow:hidden;background:var(--wood)}
+.b-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.b-card:hover .img img{transform:scale(1.04)}
+.b-card .num{font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.3em;color:var(--accent)}
+.b-card h3{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:24px;letter-spacing:.06em}
+.b-card h3 small{display:block;margin-top:8px;font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--muted);font-weight:300}
+.b-card:nth-child(2){margin-top:80px}
+.b-card:nth-child(3){margin-top:160px}
+
+/* 04 48 days */
+.days{background:var(--cream)}
+.days-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:88px}
+.big48{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(120px,16vw,240px);line-height:.85;letter-spacing:-.02em}
+.big48 span{font-size:.18em;letter-spacing:.2em;margin-left:12px;color:var(--muted)}
+.timeline{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;padding-top:40px}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:6px;height:1px;background:var(--line)}
+.timeline::after{content:"";position:absolute;left:0;top:6px;height:1px;width:0;background:var(--accent);transition:width 2.4s cubic-bezier(.2,.7,.2,1) .3s}
+.timeline.vis::after{width:100%}
+.step{position:relative;display:flex;flex-direction:column;gap:12px}
+.step::before{content:"";position:absolute;top:-40px;left:0;width:13px;height:13px;border-radius:50%;background:var(--cream);border:1px solid var(--accent)}
+.step.key::before{background:var(--accent)}
+.step .day{font-size:11px;letter-spacing:.24em;color:var(--accent)}
+.step h4{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:19px;letter-spacing:.06em}
+.step p{margin:0;font-size:13.5px;line-height:1.9;color:var(--ink-2)}
+
+/* 05 taste trinity */
+.taste{background:var(--night);color:#EDE7DC}
+.taste .eyebrow{color:#9C958A}
+.taste-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.venn{width:100%;max-width:520px;margin:0 auto}
+.venn circle{fill:none;stroke:#EDE7DC;stroke-width:1;opacity:.55;transition:opacity .5s,stroke .5s}
+.venn text{fill:#EDE7DC;font-family:'Noto Serif KR',serif;font-weight:300;font-size:17px;letter-spacing:.2em}
+.venn text.c{fill:var(--accent);font-size:13px;letter-spacing:.3em}
+.venn g:hover circle{opacity:1;stroke:#D9B36C}
+.taste .body{color:#C9C2B6}
+.taste-list{margin:36px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(237,231,220,.16)}
+.taste-list li{display:grid;grid-template-columns:110px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid rgba(237,231,220,.16);font-size:14px;line-height:1.8;color:#C9C2B6}
+.taste-list b{font-family:'Noto Serif KR',serif;font-weight:300;color:#EDE7DC;letter-spacing:.12em}
+
+/* 06 label / gravity */
+.gravity{background:var(--wood);overflow:hidden;min-height:100vh;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);padding:0}
+.gravity .media{position:relative;min-height:60vh}
+.gravity .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% 40%}
+.gravity .copy{display:flex;flex-direction:column;justify-content:center;gap:28px;padding:120px var(--gut) 120px 6vw}
+.gravity .figs{position:absolute;inset:0;pointer-events:none}
+.gravity .fig{position:absolute;will-change:transform}
+
+/* 07 brewer */
+.brewer{background:var(--cream)}
+.brewer-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:center}
+.brewer .img{aspect-ratio:3/2;overflow:hidden}
+.brewer .img img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.creds{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.creds li{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink-2)}
+.creds li span:first-child{font-size:11px;letter-spacing:.24em;color:var(--muted);padding-top:2px}
+blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(20px,1.8vw,26px);line-height:1.8;letter-spacing:.03em}
+
+/* 08 space */
+.space{background:var(--rice)}
+.space-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2vw,28px);margin-top:72px}
+.space-grid figure{margin:0;overflow:hidden;position:relative}
+.space-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.space-grid figure:hover img{transform:scale(1.03)}
+.space-grid figcaption{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.24em;color:#FFFFFF;text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.g1{grid-column:1/8;aspect-ratio:3/2}
+.g2{grid-column:8/13;aspect-ratio:4/5;align-self:end}
+.g3{grid-column:3/7;aspect-ratio:3/2}
+.g4{grid-column:7/12;aspect-ratio:3/2;margin-top:-12vh!important}
+.space-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end}
+
+/* 09 CTA */
+.cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));min-height:70vh}
+.cta a{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;padding:56px var(--gut) 64px;color:#FFFFFF;min-height:420px}
+.cta a img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.8s cubic-bezier(.2,.7,.2,1)}
+.cta a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.72),rgba(20,18,15,.05) 60%)}
+.cta a>*:not(img){position:relative;z-index:1}
+.cta a:hover img{transform:scale(1.04)}
+.cta .t{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(28px,3vw,44px);letter-spacing:.06em}
+.cta .s{font-size:12px;letter-spacing:.24em;opacity:.85}
+.cta .arrow{display:inline-block;transition:transform .5s}
+.cta a:hover .arrow{transform:translateX(8px)}
+
+/* footer */
+.foot{background:var(--night);color:#BDB6AA;padding:72px var(--gut) 40px;font-size:12.5px;line-height:1.9}
+.foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(237,231,220,.12)}
+.foot h5{margin:0 0 14px;font-size:11px;letter-spacing:.3em;color:#857D72;font-weight:400}
+.foot .logo{display:flex;align-items:center;gap:14px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.4em;color:#EDE7DC;margin-bottom:18px}
+.foot .logo img{width:30px}
+.foot ul{list-style:none;margin:0;padding:0}
+.foot a:hover{color:#EDE7DC}
+.foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-top:28px;font-size:11px;color:#857D72}
+
+
+/* ===== 헤더 서브메뉴 (공통) ===== */
+.has-sub{position:relative;display:flex;align-items:center}
+.has-sub>a::before{content:"";position:absolute;left:-24px;right:-24px;top:100%;height:24px}
+.sub{position:absolute;left:50%;top:calc(100% + 18px);transform:translate(-50%,6px);min-width:240px;padding:10px 0;background:#FFFFFF;color:#1F1C18;border:1px solid rgba(31,28,24,.14);box-shadow:0 18px 40px rgba(31,28,24,.08);opacity:0;visibility:hidden;transition:opacity .3s,transform .3s,visibility .3s;z-index:30}
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.sub a{display:flex;justify-content:space-between;align-items:baseline;gap:18px;padding:12px 22px;min-height:44px;letter-spacing:.06em}
+.sub a b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px}
+.sub a span{font-size:10.5px;letter-spacing:.2em;color:#857D72}
+.sub a:hover,.sub a[aria-current="page"]{color:#B0503F}
+.sub .sub-all{font-size:11px;letter-spacing:.24em;color:#857D72;border-bottom:1px solid rgba(31,28,24,.1);margin-bottom:6px}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{mix-blend-mode:normal;background:rgba(255,255,255,.95);color:#1F1C18;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.head:has(.has-sub:hover) .brand img,.head:has(.has-sub:focus-within) .brand img,.head.solid .brand img{filter:invert(1) brightness(.2)}
+.head{transition:background .3s,padding .3s}
+.head.solid{padding-top:22px;padding-bottom:22px}
+.menu .m-sub{font-size:16px;letter-spacing:.14em;color:#857D72;margin-top:-14px}
+
+:focus-visible{outline:1px solid var(--accent);outline-offset:4px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.in{opacity:1;transform:none;transition:none}.p-hero .media img{transform:none;transition:none}.timeline::after{transition:none;width:100%}}
+@media (max-width:960px){
+  .nav,.util .lang{display:none}.burger{display:flex}
+  /* 모바일 히어로: 메인처럼 사진 전면 + 세로 글자 오른쪽 + 본문 왼쪽 하단 */
+  .p-hero{display:block;position:relative;height:100svh;min-height:640px;overflow:hidden}
+  .p-hero .media{position:absolute;inset:0}
+  .p-hero .media img{object-position:80% 50%}
+  .p-hero .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(255,255,255,.9) 0,rgba(255,255,255,.6) 34%,rgba(255,255,255,0) 60%),linear-gradient(to top,var(--cream) 0,rgba(255,255,255,.92) 26%,rgba(255,255,255,0) 48%)}
+  .p-hero .copy{position:absolute;inset:0;padding:0 24px 56px;gap:20px;z-index:1}
+  .p-hero .crumb{order:2}
+  .p-hero .hanja{position:absolute;top:16vh;right:24px;flex-direction:row-reverse;gap:18px}
+  .p-hero h1{font-size:64px}
+  .p-hero .body{order:3}
+  .beyond-grid{grid-template-columns:1fr;gap:56px}
+  .b-card:nth-child(n){margin-top:0}
+  .b-card .img{aspect-ratio:4/3}
+  .days-top,.taste-grid,.brewer-grid,.space-head{grid-template-columns:1fr;gap:40px}
+  .timeline{grid-template-columns:1fr;gap:36px;padding-top:0;padding-left:36px}
+  .timeline::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .timeline::after{left:6px;top:0;width:1px!important;height:0;transition:height 2.4s cubic-bezier(.2,.7,.2,1) .3s}
+  .timeline.vis::after{height:100%}
+  .step::before{top:4px;left:-36px}
+  .gravity{grid-template-columns:1fr}
+  .gravity .copy{padding:64px 24px 88px}
+  .space-grid{grid-template-columns:1fr 1fr}
+  .g1,.g2,.g3,.g4{grid-column:auto;margin-top:0!important}
+  .g1{grid-column:1/3}
+  .cta{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+
+/*@@KRFOOT*/
+/* ===== 한글 줄바꿈 규칙 (공통) ===== */
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,h5,.h2,.h-prod,.lead,.tag,.dp-hook,.q,.big,blockquote,.closing,.sp-close,.sf-line{text-wrap:balance}
+p,li,dd,td,.body{text-wrap:pretty}
+
+/* ===== 사이트 푸터 (공통) — 최소 글자 14px ===== */
+.site-foot{position:relative;background:#14120F;color:#BDB6AA;font-family:'IBM Plex Sans KR',sans-serif;font-weight:300;font-size:15px;line-height:1.9;padding:clamp(96px,14vh,160px) clamp(24px,8vw,128px) 48px;scroll-snap-align:end}
+.site-foot a{color:inherit;text-decoration:none;transition:color .3s}
+.site-foot a:hover{color:#FFFFFF}
+.sf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;flex-wrap:wrap;padding-bottom:80px}
+.sf-line{margin:0;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(44px,5.6vw,88px);line-height:1.15;letter-spacing:.04em;color:#FFFFFF}
+.sf-line em{font-style:normal;color:#C8634F}
+.sf-cta{display:flex;gap:12px;flex-wrap:wrap}
+.sf-btn{display:inline-flex;align-items:center;gap:20px;min-height:56px;padding:0 28px;border:1px solid rgba(237,231,220,.4);color:#FFFFFF!important;font-size:15px;letter-spacing:.12em}
+.sf-btn:hover{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill{background:#FFFFFF;color:#14120F!important;border-color:#FFFFFF}
+.sf-btn.fill:hover{background:#C8634F;border-color:#C8634F;color:#FFFFFF!important}
+.sf-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px;padding:56px 0 64px;border-top:1px solid rgba(237,231,220,.14)}
+.sf-grid h5{margin:0 0 18px;font-size:14px;font-weight:400;letter-spacing:.24em;color:#857D72}
+.sf-grid p{margin:0}
+.sf-ext{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:14px;letter-spacing:.1em;color:#FFFFFF!important;border-bottom:1px solid rgba(237,231,220,.35);padding-bottom:2px}
+.sf-sns{display:flex;gap:10px;margin-top:20px}
+.sf-sns a{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid rgba(237,231,220,.22);border-radius:50%}
+.sf-sns a:hover{border-color:#FFFFFF}
+.sf-sns svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.2}
+.sf-bot{display:flex;flex-direction:column;gap:20px;padding-top:36px;border-top:1px solid rgba(237,231,220,.14);font-size:14px;color:#8F887D;line-height:1.8}
+.sf-row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.sf-logo{display:flex;align-items:center;gap:12px;font-family:'Noto Serif KR',serif;font-size:18px;letter-spacing:.42em;color:#FFFFFF!important}
+.sf-logo img{width:28px;height:28px}
+.sf-legal{display:flex;gap:28px;flex-wrap:wrap}
+.sf-legal a{color:#BDB6AA}
+.sf-legal b{font-weight:500}
+.sf-biz,.sf-warn,.sf-copy{margin:0}
+.sf-top-btn{display:inline-flex;align-items:center;gap:10px;background:none;border:0;color:#BDB6AA;font:inherit;font-size:14px;letter-spacing:.24em;cursor:pointer;min-height:44px;padding:0}
+.sf-top-btn:hover{color:#FFFFFF}
+.sf-top-btn svg{width:14px;height:20px;stroke:currentColor;fill:none;stroke-width:1.2}
+@media (max-width:860px){
+  .site-foot{padding:80px 24px 40px}
+  .sf-top{padding-bottom:56px}
+  .sf-grid{grid-template-columns:1fr;gap:40px;padding:48px 0}
+  .sf-btn{width:100%;justify-content:space-between}
+}
+/*@@/KRFOOT*/
+
+.hanja h1.kr-h1{display:block}
+.hanja h1.kr-h1 img{display:block;height:clamp(220px,34vh,380px);width:auto}
+@media (max-width:960px){.hanja h1.kr-h1 img{height:200px}}
+
+/* ===== REV5 공통: 흰 배경 · 메뉴 오른쪽 · 심볼 로고 ===== */
+:root{--cream:#FFFFFF;--paper:#FFFFFF;--rice:#FFFFFF;--blush:#FFFFFF;--bg:#FFFFFF}
+html,body{background:#FFFFFF}
+.head{justify-content:flex-start!important}
+.head .nav{margin-left:auto;gap:34px}
+.head .util{margin-left:40px}
+.head .brand img{width:30px;height:30px}
+.sub{background:#FFFFFF!important}
+.head:has(.has-sub:hover),.head:has(.has-sub:focus-within),.head.solid{background:rgba(255,255,255,.96)!important}
+.sf-logo img.kr{width:auto!important;height:40px!important}
+.menu{background:#FFFFFF}
+@media (max-width:820px){.head .util{margin-left:auto}}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <a class="brand" href="index.html" aria-label="초월 홈"><img src="img/mark.png" alt=""></a>
+  <nav class="nav" aria-label="주 메뉴">
+    <a href="about.html" aria-current="page">Chowol</a>
+    <div class="has-sub">
+      <a href="products.html" aria-haspopup="true">제품</a>
+      <div class="sub" role="menu" aria-label="제품">
+        <a class="sub-all" href="products.html">전체 라인업</a><a href="product-69.html"><b>초월 6.9</b><span>6.9%</span></a><a href="product-deep.html"><b>DEEP</b><span>18%</span></a><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a>
+      </div>
+    </div>
+    <a href="brewery.html">양조장 · 예약</a>
+    <a href="stockists.html">초월 가이드</a>
+    <a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+  </nav>
+  <div class="util">
+    <span class="lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></span>
+    <a class="btn-line" href="brewery.html">방문 예약</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기">
+      <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg>
+    </button>
+  </div>
+</header>
+<div class="menu" id="menu" hidden>
+  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+</div>
+
+<main>
+
+  <!-- 01 PAGE HERO -->
+  <section class="p-hero" id="hero">
+    <div class="copy">
+      <span class="crumb">BRAND — 브랜드 소개</span>
+      <div class="hanja">
+        <h1 aria-label="초월" class="kr-h1"><img src="img/kr_v_k.svg" alt="초월"></h1>
+        <p class="gloss"><span>超越 · 넘어서다</span><span>TRANSCENDENCE</span></p>
+      </div>
+      <p class="body" style="max-width:420px">대한민국 최남단, 너른 평야에서 해풍이 기른<br>전라남도 해남쌀, 누룩, 물만을 이용한<br>크래프트 막걸리</p>
+    </div>
+    <div class="media"><img src="img/a_label.jpg" alt="나무 테이블 위, 공중을 떠다니는 사람들이 그려진 초월 병"></div>
+  </section>
+
+  <!-- 02 MANIFESTO -->
+  <section class="sec manifesto">
+    <div class="wrap">
+      <p class="big in">감미료 없이, 첨가물 없이.<br>오직 <em>쌀과 누룩과 물</em>, 그리고 기다림으로.<br>막걸리 한 잔이 <em>미식</em>이 되는 순간을 빚습니다.</p>
+      <p class="sig in d1">막걸리를 초월하다 · Beyond Makgeolli</p>
+    </div>
+  </section>
+
+  <!-- 03 THREE BEYONDS -->
+  <section class="sec beyond">
+    <div class="wrap">
+      <div class="beyond-head">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span class="eyebrow in"><b>01</b> — Philosophy</span>
+          <h2 class="h2 in d1">세 가지를 넘어섭니다</h2>
+        </div>
+        <p class="body in d2" style="max-width:380px">재료와 방식, 그리고 막걸리가 놓이는 자리까지. 초월이 넘어서려는 세 개의 경계입니다.</p>
+      </div>
+      <div class="beyond-grid">
+        <article class="b-card in">
+          <div class="img"><img src="img/c_rice.jpg" alt="시험관에 담긴 해남쌀과 누룩" loading="lazy"></div>
+          <span class="num">I</span>
+          <h3>재료를 넘어<small>BEYOND MAKGEOLLI</small></h3>
+          <p class="body">맛의 본질은 좋은 재료 입니다. 초월은 풍부한 햇살과 해풍 속에서 자란 저단백 품종으로 양조에 적합한 땅끝 해남의 떼루아가 담긴 쌀이 막걸리의 깊은 감칠맛을 완성합니다.</p>
+        </article>
+        <article class="b-card in d1">
+          <div class="img"><img src="img/a_tasting.jpg" alt="전용잔과 나무 트레이에 차려진 초월 시음 세트" loading="lazy"></div>
+          <span class="num">II</span>
+          <h3>전통을 넘어<small>BEYOND TRADITION</small></h3>
+          <p class="body">경험되지 않은 전통, 오래됨이 아닌 새로움. 감미료나 첨가제를 전혀 사용하지 않은 전통방식 제조법에 초월만의 발효, 숙성 방법을 통하여 전에 없던 막걸리의 균형을 찾아 막걸리를 미식의 경험으로 승화시켰습니다.</p>
+        </article>
+        <article class="b-card in d2">
+          <div class="img"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌" loading="lazy"></div>
+          <span class="num">III</span>
+          <h3>경계를 넘어<small>BEYOND LIMITS</small></h3>
+          <p class="body">막걸리의 한계를 초월하여 미식의 경험이 되고, 막걸리 경험을 초월하여 한식 뿐만 아니라 양식, 다이닝, 전시장, 공연장, 디저트, 바, 라운지, 편집샵, 클럽 등 다양한 공간에서 만나보실 수 있습니다. 좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 48 DAYS -->
+  <section class="sec days">
+    <div class="wrap">
+      <div class="days-top">
+        <div class="big48 in" aria-label="48일">48<span>DAYS</span></div>
+        <div style="display:flex;flex-direction:column;gap:22px">
+          <span class="eyebrow in"><b>02</b> — Process</span>
+          <h2 class="h2 in d1">서두르지 않는<br>48일의 기다림</h2>
+          <p class="body in d2" style="max-width:440px">세 번에 걸쳐 술을 빚는 전통 삼양주. 밑술에 두 번 덧술을 더하고, 48일 동안 발효와 숙성을 거쳐 비로소 초월이 됩니다. DEEP 시리즈는 56일 이상 완전 발효합니다.</p>
+        </div>
+      </div>
+      <ol class="timeline in" style="list-style:none;margin:0">
+        <li class="step"><span class="day">STEP 01</span><h4>쌀</h4><p>해남산 쌀과 찹쌀을 씻고 불려 고두밥을 짓습니다.</p></li>
+        <li class="step"><span class="day">STEP 02</span><h4>밑술</h4><p>고두밥에 국내산 누룩과 물을 더해 첫 술을 앉힙니다.</p></li>
+        <li class="step"><span class="day">STEP 03</span><h4>덧술, 두 번</h4><p>밑술 위에 두 차례 덧술을 더해 깊이와 향을 쌓아 올립니다.</p></li>
+        <li class="step key"><span class="day">DAY 48</span><h4>발효와 숙성</h4><p>오래 발효하고 낮은 온도에서 숙성하는 48일. 바디와 단맛, 산미가 균형을 찾을 때까지 기다립니다.</p></li>
+        <li class="step"><span class="day">FINISH</span><h4>병입</h4><p>완성된 술을 병에 담아 냉장 상태로 선보입니다.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 05 TASTE -->
+  <section class="sec taste">
+    <div class="wrap taste-grid">
+      <svg class="venn in" viewBox="0 0 520 480" role="img" aria-label="풍미, 단맛, 산미 세 원이 겹치는 가운데에 초월">
+        <g><circle cx="260" cy="170" r="130"/><text x="260" y="105" text-anchor="middle">풍미</text></g>
+        <g><circle cx="185" cy="300" r="130"/><text x="130" y="350" text-anchor="middle">단맛</text></g>
+        <g><circle cx="335" cy="300" r="130"/><text x="390" y="350" text-anchor="middle">산미</text></g>
+        <text class="c" x="260" y="262" text-anchor="middle">초월</text>
+      </svg>
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <span class="eyebrow in"><b style="color:#D9B36C">03</b> — Taste</span>
+        <h2 class="h2 in d1">다채로운 풍미, 섬세한 단맛과<br>새초롬한 산미의 삼박자</h2>
+        <p class="body in d2" style="max-width:460px">전에 없던 막걸리의 균형을 찾아 막걸리를 미식의 경험으로 승화시켰습니다.</p>
+        <ul class="taste-list in d3"><li><b>해남</b><span>저단백쌀</span></li><li><b>전통방식</b><span>자연효모</span></li><li><b>장기발효</b><span>저온숙성</span></li><li><b>섬세한</b><span>미각설계</span></li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 GRAVITY / LABEL -->
+  <section class="gravity" id="gravity">
+    <div class="media">
+      <img src="img/c_p69.jpg" alt="떠다니는 사람들이 그려진 초월 6.9 라벨" loading="lazy">
+      <div class="figs" id="figs" aria-hidden="true">
+        <span class="fig" data-depth="0.9" style="left:12%;top:18%"><img src="img/d1.png" alt="" style="width:56px;opacity:.5"></span>
+        <span class="fig" data-depth="0.5" style="left:70%;top:12%"><img src="img/d2.png" alt="" style="width:20px;opacity:.45"></span>
+        <span class="fig" data-depth="0.7" style="left:76%;top:70%"><img src="img/d3.png" alt="" style="width:48px;opacity:.45"></span>
+        <span class="fig" data-depth="0.4" style="left:18%;top:76%"><img src="img/d7.png" alt="" style="width:30px;opacity:.4"></span>
+      </div>
+    </div>
+    <div class="copy">
+      <span class="eyebrow in"><b>04</b> — Label Story</span>
+      <h2 class="h2 in d1">한 모금,<br>중력을 잊다</h2>
+      <p class="body in d2" style="max-width:420px">라벨 속 사람들은 모두 떠 있습니다. 한 잔을 기울이는 순간 일상의 무게가 조금 가벼워지는 감각, 초월이 병 위에 그려 넣은 것은 바로 그 순간입니다.</p>
+      <p class="body in d3" style="font-size:13px;color:var(--muted)">세로로 내려 쓴 '초월' 로고와 원 안에 갈래가 나뉜 심볼은, 한 곳에 머무르지 않고 여러 방향으로 넘어가는 브랜드의 태도를 담았습니다. <i class="ph">[로고 의도 클라이언트 확인]</i></p>
+    </div>
+  </section>
+
+  <!-- 07 BREWER -->
+  <section class="sec brewer">
+    <div class="wrap brewer-grid">
+      <div class="img in"><img src="img/a_brewer.jpg" alt="초월 양조장 바에 앉아 있는 양조사" loading="lazy"></div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <span class="eyebrow in"><b>05</b> — Brewer</span>
+        <h2 class="h2 in d1">막걸리를 초월한다는<br>목표 하나로</h2>
+        <p class="body in d2">오랜 기간 가양주 연구를 통해 초월의 막걸리를 완성했으며, 한국의 전통주 소믈리에 자격을 가진 대표이자 양조사로써 초월 막걸리의 탄생 배경과 양조, 더불어 한국의 전통주에 관한 이야기를 직접 들을 수 있습니다.</p>
+        <ul class="creds in d3">
+          <li><span>CEO · BREWER</span><span>최요섭</span></li>
+          <li><span>CERTIFIED</span><span>전통주 소믈리에</span></li>
+          <li><span>BREWERY</span><span>서울 마포 · 공덕</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 SPACE -->
+  <section class="sec space">
+    <div class="wrap">
+      <div class="space-head">
+        <div style="display:flex;flex-direction:column;gap:20px">
+          <span class="eyebrow in"><b>06</b> — Space</span>
+          <h2 class="h2 in d1">도심 속 양조장</h2>
+        </div>
+        <p class="body in d2" style="max-width:460px">서울의 중심인 마포, 공덕에 위치한 양조장은 매일 열려 있으며, 직접 시음, 구매 가능합니다. 한국의 전통, 현대적인 해석으로 탄생한 초월의 마포 양조장은 현장주의 건축을 추구하며 한국적인 디테일 묘사로 주목받고 있는 인테리어 그룹 'Morpho'와 함께 만든 공간입니다. 한국에서 전통적으로 사용되어 온 건축 소재들과 고재 기둥, 병풍을 형상화 한 벽 뒤로는 초월적인 막걸리가 만들어지고 있습니다.</p>
+      </div>
+      <div class="space-grid">
+        <figure class="g1 in"><img src="img/a_space.jpg" alt="나무 벽과 고재 기둥이 있는 양조장 내부" loading="lazy"><figcaption>BAR & BREWERY</figcaption></figure>
+        <figure class="g2 in d1"><img src="img/a_pillar.jpg" alt="고재 기둥과 펜던트 조명" loading="lazy" style="object-position:30% 50%"><figcaption>OLD TIMBER</figcaption></figure>
+        <figure class="g3 in"><img src="img/a_jar.jpg" alt="선반 위 산수화 백자 항아리" loading="lazy"><figcaption>OBJET</figcaption></figure>
+        <figure class="g4 in d1"><img src="img/c_bar.jpg" alt="바에서 초월을 시음하는 손님들" loading="lazy"><figcaption>TASTING</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 09 CTA -->
+  <section class="cta" aria-label="다음 이야기">
+    <a href="products.html">
+      <img src="img/c_hero.jpg" alt="" loading="lazy" style="object-position:55% 50%">
+      <span class="s">PRODUCTS</span>
+      <span class="t">초월의 막걸리 <span class="arrow">→</span></span>
+      <span class="s">6.9 · DEEP · DEEP Down · SPKL</span>
+    </a>
+    <a href="brewery.html">
+      <img src="img/a_tasting.jpg" alt="" loading="lazy">
+      <span class="s">BREWERY · BOOKING</span>
+      <span class="t">양조장 방문 예약 <span class="arrow">→</span></span>
+      <span class="s">테이스팅 세션 · 온라인 결제</span>
+    </a>
+  </section>
+</main>
+
+<footer class="site-foot" id="site-foot">
+  <div class="sf-top">
+    <p class="sf-line">막걸리를<br><em>초월</em>하다</p>
+    <div class="sf-cta">
+      <a class="sf-btn fill" href="brewery.html"><span>방문 예약</span><span aria-hidden="true">→</span></a>
+      <a class="sf-btn" href="contact.html"><span>입점 문의</span><span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+
+  <div class="sf-grid">
+    <div>
+      <h5>VISIT</h5>
+      <p>서울 마포구 마포대로 49<br>성우빌딩 지하상가 C동 B116호</p>
+      <a class="sf-ext" href="https://maps.app.goo.gl/Yny7ArJu2ZSTRH5dA">지도 보기 <span aria-hidden="true">↗</span></a>
+    </div>
+    <div>
+      <h5>HOURS</h5>
+      <p>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</p>
+      <p style="margin-top:6px;color:#8F887D">연중무휴</p>
+    </div>
+    <div>
+      <h5>CONTACT</h5>
+      <p><a href="tel:+821041143176">010-4114-3176</a><br><a href="mailto:chowolhada@gmail.com">chowolhada@gmail.com</a></p>
+      <div class="sf-sns">
+        <a href="https://www.instagram.com/chowolhada" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></svg></a>
+        <a href="https://www.youtube.com/@chowolhada" aria-label="유튜브"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10 9.2v5.6l4.8-2.8z"/></svg></a>
+        <a href="https://blog.naver.com/chowolhan" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10.5a3.5 3.5 0 0 1 3.5 3.5v6.5a3.5 3.5 0 0 1-3.5 3.5H12l-3.5 2.5V18H8.5A3.5 3.5 0 0 1 5 14.5z"/><path d="M9 9h6M9 12.5h4"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sf-bot">
+    <div class="sf-row">
+      <a class="sf-logo" href="index.html" aria-label="초월 홈"><img class="kr" src="img/kr_h_w.svg" alt="초월"></a>
+      <div class="sf-legal"><a href="terms.html">이용약관</a><a href="privacy.html"><b>개인정보처리방침</b></a></div>
+    </div>
+    <p class="sf-biz">상호 초월 · 대표 최요섭 · 사업자등록번호 121-29-51694<br>서울특별시 마포구 마포대로 49, C동 지층 16호 (도화동, 성우빌딩)</p>
+    <p class="sf-warn">경고: 지나친 음주는 뇌졸중, 기억력 손상이나 치매를 유발합니다. 임신 중 음주는 기형아 출생 위험을 높입니다.</p>
+    <div class="sf-row">
+      <p class="sf-copy">© 2026 초월 Chowol</p>
+      <button class="sf-top-btn" type="button" aria-label="맨 위로" onclick="(document.getElementById('root')||window).scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 14 20" aria-hidden="true"><path d="M7 19V1M1 7l6-6 6 6"/></svg>TOP</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.18});
+  document.querySelectorAll('.in,.p-hero').forEach(function(el){io.observe(el)});
+  // mobile menu
+  var btn=document.getElementById('burger'),menu=document.getElementById('menu');
+  btn.addEventListener('click',function(){var o=menu.hidden;menu.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+  // floating figures react to pointer (label story)
+  var area=document.getElementById('gravity');
+  var figs=[].slice.call(document.querySelectorAll('#figs .fig'));
+  if(!figs.length||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var mx=-9999,my=-9999,px=0,py=0,t0=performance.now();
+  var st=figs.map(function(el,i){return{el:el,d:parseFloat(el.dataset.depth)||.5,x:0,y:0,vx:0,vy:0,r:0,vr:0,ph:i*1.7}});
+  function setPt(cx,cy){var b=area.getBoundingClientRect();mx=cx-b.left;my=cy-b.top;px=(mx/b.width-.5)*2;py=(my/b.height-.5)*2}
+  area.addEventListener('mousemove',function(e){setPt(e.clientX,e.clientY)});
+  area.addEventListener('touchmove',function(e){var t=e.touches[0];setPt(t.clientX,t.clientY)},{passive:true});
+  area.addEventListener('mouseleave',function(){mx=my=-9999;px=py=0});
+  var R=170;
+  (function tick(now){
+    var b=area.getBoundingClientRect();
+    if(b.bottom>0&&b.top<innerHeight){
+      var tt=(now-t0)/1000;
+      st.forEach(function(s){
+        var bob=Math.sin(tt*.6+s.ph)*14*s.d, sway=Math.cos(tt*.4+s.ph)*8*s.d;
+        var tx=-px*50*s.d+sway, ty=-py*34*s.d+bob;
+        var r=s.el.getBoundingClientRect(),cx=r.left+r.width/2-b.left,cy=r.top+r.height/2-b.top;
+        var dx=cx-mx,dy=cy-my,dist=Math.sqrt(dx*dx+dy*dy)||1;
+        var ax=(tx-s.x)*.035,ay=(ty-s.y)*.035;
+        if(dist<R){var f=(1-dist/R)*(1-dist/R)*28/dist*(.6+s.d);ax+=dx*f;ay+=dy*f;s.vr+=(dx>0?1:-1)*(1-dist/R)*1.6}
+        s.vx=(s.vx+ax)*.88;s.vy=(s.vy+ay)*.88;s.x+=s.vx;s.y+=s.vy;
+        s.vr=(s.vr-s.r*.02)*.93;s.r+=s.vr;
+        s.el.style.transform='translate3d('+s.x.toFixed(2)+'px,'+s.y.toFixed(2)+'px,0) rotate('+s.r.toFixed(2)+'deg)';
+      });
+    }
+    requestAnimationFrame(tick);
+  })(t0);
+})();
+</script>
+</body>
+</html>
