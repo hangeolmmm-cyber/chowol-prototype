@@ -102,7 +102,7 @@ img{display:block;max-width:100%}
 .hero-title{position:absolute;left:0;right:0;top:0;bottom:130px;display:flex;align-items:center;justify-content:center;gap:26px;pointer-events:none;z-index:3}
 .hero-title h1{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:clamp(34px,3.7vw,54px);letter-spacing:.16em;line-height:1}
 .hero-title p{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.4em;color:var(--ink-2)}
-.hero-cap{position:absolute;left:0;right:0;bottom:calc(4vh + 92px);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:11px;letter-spacing:.3em;color:var(--ink-2)}
+.hero-cap{position:absolute;z-index:3;pointer-events:none;left:0;right:0;bottom:calc(4vh + 92px);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:11px;letter-spacing:.3em;color:var(--ink-2)}
 .cue{position:absolute;left:50%;bottom:4vh;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.4em;color:var(--ink-2);min-width:44px}
 .cue .track{display:block;width:1px;height:56px;background:var(--line);position:relative;overflow:hidden}
 .cue .run{position:absolute;inset:0;background:var(--ink);display:block;animation:cwLine 2.6s ease-in-out infinite}
@@ -165,7 +165,9 @@ img{display:block;max-width:100%}
   .hero-veil{display:block;position:absolute;inset:0;background:linear-gradient(to left,rgba(255,255,255,.88) 0,rgba(255,255,255,.55) 38%,rgba(255,255,255,0) 62%)}
   #s1 .cover{object-position:46% 60%!important}
   .hero-title{left:0;right:0;align-items:center;justify-content:center;padding-top:0;flex-direction:row-reverse;gap:18px}
-  .hero-title h1{font-size:38px}
+  .hero-title h1{font-size:min(38px,5.4svh)}
+  .hero-title{top:84px;bottom:110px}
+  .hero-title p{font-size:min(15px,2.1svh)}
   .hero-cap{left:0;right:0;bottom:48px;text-align:center}
   /* 섹션: 사진 원본 비율 그대로 위에, 글은 아래 */
   .row{grid-template-columns:1fr}
@@ -229,7 +231,7 @@ p,li,dd,td,.body{text-wrap:pretty}
 
 /* 첫 화면: 흰 바탕 위에 떠 있는 사람들 (마우스를 피함, 스크롤하면 위로 떠나감) */
 .people{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
-.people .pp{position:absolute;left:0;top:0;will-change:transform;transform-origin:50% 50%;background-image:url(img/v4-gravity.jpg);background-repeat:no-repeat;filter:grayscale(1) brightness(1.36) contrast(1.12);mix-blend-mode:multiply}
+.people .pp{position:absolute;left:0;top:0;will-change:transform;transform-origin:50% 50%;background-repeat:no-repeat;background-size:100% 100%}
 .drop{position:relative;background:#D6CDBE;overflow:hidden;height:100vh;min-height:560px;cursor:crosshair}
 .drop canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .drop .rip-sim{image-rendering:auto}
@@ -315,12 +317,12 @@ html,body{background:#FFFFFF}
   <!-- 01 HERO -->
   <section id="s1" class="sec" style="background:#FFFFFF">
     <div class="people" id="flyer" aria-hidden="true">
-      <div class="pp" data-box="200,108,395,330" data-x="0.77" data-y="0.33" data-w="0.28" data-z="1.0"></div>
-      <div class="pp" data-box="512,182,558,272" data-x="0.66" data-y="0.8" data-w="0.066" data-z="0.55"></div>
-      <div class="pp" data-box="212,326,266,390" data-x="0.31" data-y="0.21" data-w="0.077" data-z="0.6"></div>
-      <div class="pp" data-box="478,348,594,476" data-x="0.87" data-y="0.7" data-w="0.166" data-z="0.8"></div>
-      <div class="pp" data-box="254,450,310,518" data-x="0.12" data-y="0.32" data-w="0.08" data-z="0.65"></div>
-      <div class="pp" data-box="68,434,212,740" data-x="0.22" data-y="0.66" data-w="0.206" data-z="0.9"></div>
+      <div class="pp" style="background-image:url(img/pp1.png)" data-box="200,108,395,330" data-mx="0.76" data-my="0.36" data-x="0.77" data-y="0.33" data-w="0.28" data-z="1.0"></div>
+      <div class="pp" style="background-image:url(img/pp2.png)" data-box="512,182,558,272" data-mx="0.16" data-my="0.21" data-x="0.66" data-y="0.8" data-w="0.066" data-z="0.55"></div>
+      <div class="pp" style="background-image:url(img/pp3.png)" data-box="212,326,266,390" data-mx="0.84" data-my="0.6" data-x="0.31" data-y="0.21" data-w="0.077" data-z="0.6"></div>
+      <div class="pp" style="background-image:url(img/pp4.png)" data-box="478,348,594,476" data-mx="0.78" data-my="0.74" data-x="0.87" data-y="0.7" data-w="0.166" data-z="0.8"></div>
+      <div class="pp" style="background-image:url(img/pp5.png)" data-box="254,450,310,518" data-mx="0.1" data-my="0.44" data-x="0.12" data-y="0.32" data-w="0.08" data-z="0.65"></div>
+      <div class="pp" style="background-image:url(img/pp6.png)" data-box="68,434,212,740" data-mx="0.2" data-my="0.67" data-x="0.22" data-y="0.66" data-w="0.206" data-z="0.9"></div>
     </div>
     <div class="hero-title rise">
       <h1>Beyond<br><em>Makgeolli</em></h1>
@@ -469,12 +471,10 @@ html,body{background:#FFFFFF}
     function layout(){
       var b=hero.getBoundingClientRect(),W=b.width,H=b.height,mob=W<=820;
       F.forEach(function(f){
-        var cx=mob?(0.5+(f.x-0.5)*1.1):f.x, cy=mob?(0.08+f.y*0.86):f.y;
+        var cx=mob?+f.el.dataset.mx:f.x, cy=mob?+f.el.dataset.my:f.y;
         var fw=f.w*(mob?Math.min(W*1.0,H*0.5):Math.min(H*0.95,W*0.55));
         var bx=f.el.dataset.box.split(',').map(Number), bw=bx[2]-bx[0], bh=bx[3]-bx[1], k=fw/bw;
         f.el.style.width=fw.toFixed(1)+'px'; f.el.style.height=(bh*k).toFixed(1)+'px';
-        f.el.style.backgroundSize=(700*k).toFixed(1)+'px auto';
-        f.el.style.backgroundPosition=(-bx[0]*k).toFixed(1)+'px '+(-bx[1]*k).toFixed(1)+'px';
         f.cx=cx*W; f.cy=cy*H; f.fw=fw;
       });
     }
