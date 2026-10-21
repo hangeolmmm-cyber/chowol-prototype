@@ -230,7 +230,7 @@ p,li,dd,td,.body{text-wrap:pretty}
 /* 첫 화면: 흰 바탕 위에 떠 있는 사람들 (마우스를 피함, 스크롤하면 위로 떠나감) */
 .people{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .people .pp{position:absolute;left:0;top:0;will-change:transform;transform-origin:50% 50%;background-image:url(img/v4-gravity.jpg);background-repeat:no-repeat;filter:grayscale(1) brightness(1.36) contrast(1.12);mix-blend-mode:multiply}
-.drop{position:relative;background:#FFFFFF;overflow:hidden;height:100vh;min-height:560px;cursor:crosshair}
+.drop{position:relative;background:#D6CDBE;overflow:hidden;height:100vh;min-height:560px;cursor:crosshair}
 .drop canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .drop .rip-sim{image-rendering:auto}
 .drop .drop-btn{cursor:pointer}
@@ -238,7 +238,7 @@ p,li,dd,td,.body{text-wrap:pretty}
 .drop-over{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:0 24px;text-align:center;z-index:2}
 .drop-over .h2{margin:0}
 .drop-over .body{margin:0;max-width:440px}
-.drop-line{margin:0;font-size:12px;letter-spacing:.24em;color:var(--muted)}
+.drop-line{margin:0;font-size:12px;letter-spacing:.24em;color:#6E675D}
 .drop-btn{margin-top:10px;background:var(--ink);color:#fff;border-color:var(--ink);font-size:12px;letter-spacing:.2em}
 .drop-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 @media (max-width:820px){.drop{height:100svh}.drop-over{gap:16px}}
@@ -514,14 +514,17 @@ html,body{background:#FFFFFF}
     var cv=sec.querySelector('.rip-sim'), dv=sec.querySelector('.rip-drop');
     var ctx=cv.getContext('2d'), dctx=dv.getContext('2d');
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var CELL=5, gw, gh, A, B, img, W, H, dpr;
+    var CELL=5, gw, gh, A, B, V, img, W, H, dpr;
+    var BASE=[218,209,194];                         // 막걸리 표면 색
     function size(){
       var r=sec.getBoundingClientRect(); W=r.width; H=r.height; dpr=Math.min(2,devicePixelRatio||1);
       CELL=W<=820?4:5;
       gw=Math.max(40,Math.round(W/CELL)); gh=Math.max(40,Math.round(H/CELL));
       cv.width=gw; cv.height=gh; A=new Float32Array(gw*gh); B=new Float32Array(gw*gh);
       img=ctx.createImageData(gw,gh);
-      for(var i=0;i<gw*gh;i++){img.data[i*4]=255;img.data[i*4+1]=255;img.data[i*4+2]=255;img.data[i*4+3]=255}
+      V=new Float32Array(gw*gh);                     // 가운데가 조금 더 밝은 은은한 비네트
+      for(var y=0;y<gh;y++)for(var x=0;x<gw;x++){var ux=x/gw-0.5,uy=y/gh-0.5,j=y*gw+x;V[j]=10-34*(ux*ux*1.2+uy*uy*1.6);
+        img.data[j*4]=BASE[0]+V[j];img.data[j*4+1]=BASE[1]+V[j];img.data[j*4+2]=BASE[2]+V[j];img.data[j*4+3]=255}
       dv.width=Math.round(W*dpr); dv.height=Math.round(H*dpr);
       paint();
     }
@@ -545,8 +548,8 @@ html,body{background:#FFFFFF}
         for(var x=1;x<gw-1;x++){var i=o+x;
           var nx=A[i-1]-A[i+1], ny=A[i-gw]-A[i+gw];
           var l=(nx*0.55+ny*0.8)*8;                 // 왼쪽 위에서 오는 빛
-          var c=254+l; c=c<205?205:(c>255?255:c);
-          var p=i*4; d[p]=c; d[p+1]=c-0.6; d[p+2]=c-2;
+          l=l<-55?-55:(l>34?34:l); l+=V[i];
+          var p=i*4; d[p]=BASE[0]+l; d[p+1]=BASE[1]+l; d[p+2]=BASE[2]+l*0.95;
         }}
       ctx.putImageData(img,0,0);
     }
@@ -559,11 +562,11 @@ html,body{background:#FFFFFF}
         var T=0.32, k=Math.min(1,d.t/T);
         if(k>=1){impulse(d.x,d.y,3.6*d.s,7*d.s); drops.splice(i,1); continue}
         var r=(2+5*k)*d.s, yoff=-(1-k)*(1-k)*70;   // 위에서 다가오며 커짐
-        dctx.globalAlpha=0.35*k; dctx.fillStyle='#8a847b';
+        dctx.globalAlpha=0.35*k; dctx.fillStyle='#6f6658';
         dctx.beginPath(); dctx.ellipse(d.x+3,d.y+3,r*0.9,r*0.5,0,0,Math.PI*2); dctx.fill();   // 표면 그림자
         dctx.globalAlpha=0.25+0.6*k;
         var g=dctx.createRadialGradient(d.x-r*0.35,d.y+yoff-r*0.4,r*0.1,d.x,d.y+yoff,r);
-        g.addColorStop(0,'#ffffff'); g.addColorStop(0.55,'#efebe4'); g.addColorStop(1,'#bdb6ab');
+        g.addColorStop(0,'#f6f1e8'); g.addColorStop(0.55,'#ddd4c5'); g.addColorStop(1,'#a59a89');
         dctx.fillStyle=g; dctx.beginPath(); dctx.ellipse(d.x,d.y+yoff,r*0.85,r,0,0,Math.PI*2); dctx.fill();
       }
       dctx.globalAlpha=1;
