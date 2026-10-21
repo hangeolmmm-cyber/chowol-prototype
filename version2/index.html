@@ -488,7 +488,7 @@ html,body{background:#FFFFFF}
     var cv=sec.querySelector('.rip-sim'), dv=sec.querySelector('.rip-drop');
     var ctx=cv.getContext('2d'), dctx=dv.getContext('2d');
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var CELL=5, gw, gh, A, B, V, img, W, H, dpr;
+    var CELL=5, gw, gh, A, B, V, D, img, W, H, dpr;
     var BASE=[218,209,194];                         // 막걸리 표면 색
     function size(){
       var r=sec.getBoundingClientRect(); W=r.width; H=r.height; dpr=Math.min(2,devicePixelRatio||1);
@@ -496,6 +496,8 @@ html,body{background:#FFFFFF}
       gw=Math.max(40,Math.round(W/CELL)); gh=Math.max(40,Math.round(H/CELL));
       cv.width=gw; cv.height=gh; A=new Float32Array(gw*gh); B=new Float32Array(gw*gh);
       img=ctx.createImageData(gw,gh);
+      D=new Float32Array(gw*gh);                     // 가장자리는 파동을 흡수 (반사 없이 사라지게)
+      for(var y=0;y<gh;y++)for(var x=0;x<gw;x++){var e=Math.min(x,y,gw-1-x,gh-1-y),q=Math.min(1,e/18);D[y*gw+x]=0.9935-(1-q)*(1-q)*0.09}
       V=new Float32Array(gw*gh);                     // 가운데가 조금 더 밝은 은은한 비네트
       for(var y=0;y<gh;y++)for(var x=0;x<gw;x++){var ux=x/gw-0.5,uy=y/gh-0.5,j=y*gw+x;V[j]=10-34*(ux*ux*1.2+uy*uy*1.6);
         img.data[j*4]=BASE[0]+V[j];img.data[j*4+1]=BASE[1]+V[j];img.data[j*4+2]=BASE[2]+V[j];img.data[j*4+3]=255}
@@ -512,17 +514,20 @@ html,body{background:#FFFFFF}
     function step(){
       for(var y=1;y<gh-1;y++){var o=y*gw;
         for(var x=1;x<gw-1;x++){var i=o+x;
-          var v=(A[i-1]+A[i+1]+A[i-gw]+A[i+gw])*0.5-B[i]; B[i]=v*0.986;
+          var v=(A[i-1]+A[i+1]+A[i-gw]+A[i+gw])*0.5-B[i]; B[i]=v*D[i];
         }}
       var t=A;A=B;B=t;
     }
     function paint(){
       var d=img.data;
-      for(var y=1;y<gh-1;y++){var o=y*gw;
-        for(var x=1;x<gw-1;x++){var i=o+x;
-          var nx=A[i-1]-A[i+1], ny=A[i-gw]-A[i+gw];
-          var l=(nx*0.55+ny*0.8)*8;                 // 왼쪽 위에서 오는 빛
-          l=l<-55?-55:(l>34?34:l); l+=V[i];
+      var g2=gw*2;
+      for(var y=2;y<gh-2;y++){var o=y*gw;
+        for(var x=2;x<gw-2;x++){var i=o+x;
+          var nx=A[i-2]+A[i-1]-A[i+1]-A[i+2], ny=A[i-g2]+A[i-gw]-A[i+gw]-A[i+g2];   // 넓은 경사 → 부드럽고 굵은 물결
+          var l=(nx*0.55+ny*0.8)*4.2;               // 왼쪽 위에서 오는 빛
+          if(l>0)l+=l*l*0.025;                      // 물결 마루의 반짝임
+          l+=A[i]*0.9;                              // 골은 어둡게 → 깊이감
+          l=l<-80?-80:(l>48?48:l); l+=V[i];
           var p=i*4; d[p]=BASE[0]+l; d[p+1]=BASE[1]+l; d[p+2]=BASE[2]+l*0.95;
         }}
       ctx.putImageData(img,0,0);
@@ -534,7 +539,7 @@ html,body{background:#FFFFFF}
       dctx.setTransform(dpr,0,0,dpr,0,0); dctx.clearRect(0,0,W,H);
       for(var i=drops.length-1;i>=0;i--){var d=drops[i]; d.t+=dt;
         var T=0.32, k=Math.min(1,d.t/T);
-        if(k>=1){impulse(d.x,d.y,3.6*d.s,7*d.s); drops.splice(i,1); continue}
+        if(k>=1){impulse(d.x,d.y,6*d.s,11*d.s); drops.splice(i,1); continue}
         var r=(2+5*k)*d.s, yoff=-(1-k)*(1-k)*70;   // 위에서 다가오며 커짐
         dctx.globalAlpha=0.35*k; dctx.fillStyle='#6f6658';
         dctx.beginPath(); dctx.ellipse(d.x+3,d.y+3,r*0.9,r*0.5,0,0,Math.PI*2); dctx.fill();   // 표면 그림자
@@ -551,7 +556,7 @@ html,body{background:#FFFFFF}
       var r=sec.getBoundingClientRect(), x=cx-r.left, y=cy-r.top, now=performance.now();
       if(x<0||y<0||x>W||y>H)return;
       var dx=x-lx,dy=y-ly;
-      if(force||(dx*dx+dy*dy>70*70&&now-lt>110)){addDrop(x,y,force);lx=x;ly=y;lt=now}
+      if(force||(dx*dx+dy*dy>120*120&&now-lt>160)){addDrop(x,y,force);lx=x;ly=y;lt=now}
     }
     sec.addEventListener('mousemove',function(e){at(e.clientX,e.clientY)});
     sec.addEventListener('mousedown',function(e){if(e.target.closest('a'))return;at(e.clientX,e.clientY,true)});
@@ -564,8 +569,8 @@ html,body{background:#FFFFFF}
     (function loop(now){
       var dt=Math.min(0.05,(now-last)/1000); last=now;
       if(vis){
-        idle-=dt; if(idle<=0){addDrop(W*(0.15+Math.random()*0.7),H*(0.15+Math.random()*0.7));idle=1.8+Math.random()*2.2}
-        step(); step(); paint(); drawDrops(dt);
+        idle-=dt; if(idle<=0){addDrop(W*(0.15+Math.random()*0.7),H*(0.15+Math.random()*0.7));idle=2.6+Math.random()*2.4}
+        step(); paint(); drawDrops(dt);
       }
       requestAnimationFrame(loop);
     })(last);
