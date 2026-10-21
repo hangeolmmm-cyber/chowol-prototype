@@ -562,7 +562,8 @@ html,body{background:#FFFFFF}
     sec.addEventListener('mousedown',function(e){if(e.target.closest('a'))return;at(e.clientX,e.clientY,true)});
     sec.addEventListener('touchstart',function(e){var t=e.touches[0];at(t.clientX,t.clientY,true)},{passive:true});
     sec.addEventListener('touchmove',function(e){var t=e.touches[0];at(t.clientX,t.clientY)},{passive:true});
-    size(); var rt; addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(size,150)});
+    size(); var rt; addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){   // 모바일 주소창이 접히고 펴질 때(높이만 변함)는 물결을 유지
+      if(Math.abs(sec.getBoundingClientRect().width-W)<2)return; size()},150)});
     if(reduce){impulse(W*0.5,H*0.5,4,40);for(var n=0;n<60;n++)step();paint();return}
     var vis=false, idle=0, last=performance.now();
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting},{threshold:0.01}).observe(sec); else vis=true;
