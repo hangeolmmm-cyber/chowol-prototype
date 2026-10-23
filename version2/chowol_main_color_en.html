@@ -99,9 +99,10 @@ img{display:block;max-width:100%}
 .meter i.f{background:var(--accent)}
 
 /* hero */
-.hero-title{position:absolute;left:0;right:0;top:0;bottom:130px;display:flex;align-items:center;justify-content:center;gap:26px;pointer-events:none;z-index:3}
-.hero-title h1{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:clamp(34px,3.7vw,54px);letter-spacing:.16em;line-height:1}
-.hero-title p{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.4em;color:var(--ink-2)}
+/* 세로 제목은 헤더(위)와 캡션(아래) 사이 안전 영역 안에서만, 화면 높이에 맞춰 크기가 줄어듦 */
+.hero-title{position:absolute;left:0;right:0;top:104px;bottom:calc(4vh + 150px);display:flex;align-items:center;justify-content:center;gap:26px;pointer-events:none;z-index:3}
+.hero-title h1{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:clamp(22px,min(3.7vw,calc((96vh - 254px) / 11.6)),54px);letter-spacing:.16em;line-height:1}
+.hero-title p{margin:0;writing-mode:vertical-rl;font-family:'Cormorant Garamond','Noto Serif KR',serif;font-weight:300;font-size:clamp(11px,calc((96vh - 254px) / 26),15px);letter-spacing:.4em;color:var(--ink-2)}
 .hero-cap{position:absolute;z-index:3;pointer-events:none;left:0;right:0;bottom:calc(4vh + 92px);display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:11px;letter-spacing:.3em;color:var(--ink-2)}
 .cue{position:absolute;left:50%;bottom:4vh;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font-size:10px;letter-spacing:.4em;color:var(--ink-2);min-width:44px}
 .cue .track{display:block;width:1px;height:56px;background:var(--line);position:relative;overflow:hidden}
@@ -165,9 +166,9 @@ img{display:block;max-width:100%}
   .hero-veil{display:block;position:absolute;inset:0;background:linear-gradient(to left,rgba(255,255,255,.88) 0,rgba(255,255,255,.55) 38%,rgba(255,255,255,0) 62%)}
   #s1 .cover{object-position:46% 60%!important}
   .hero-title{left:0;right:0;align-items:center;justify-content:center;padding-top:0;flex-direction:row-reverse;gap:18px}
-  .hero-title h1{font-size:min(38px,5.4svh)}
+  .hero-title h1{font-size:clamp(22px,calc((100svh - 210px) / 11.6),38px)}
   .hero-title{top:84px;bottom:110px}
-  .hero-title p{font-size:min(15px,2.1svh)}
+  .hero-title p{font-size:clamp(10px,calc((100svh - 210px) / 26),15px)}
   .hero-cap{left:0;right:0;bottom:48px;text-align:center}
   /* 섹션: 사진 원본 비율 그대로 위에, 글은 아래 */
   .row{grid-template-columns:1fr}
