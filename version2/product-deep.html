@@ -463,6 +463,12 @@ html,body{background:#FFFFFF}
 .menu{background:#FFFFFF}
 @media (max-width:820px){.head .util{margin-left:auto}}
 </style>
+<style>
+.site-foot .sf-grid{grid-template-columns:repeat(3,minmax(0,1fr)) minmax(220px,auto);border-top:0}
+.site-foot .sf-act .sf-cta{flex-direction:column;align-items:stretch}
+.site-foot .sf-act .sf-btn{justify-content:space-between}
+@media (max-width:820px){.site-foot .sf-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -513,7 +519,7 @@ html,body{background:#FFFFFF}
       <div class="dp-info">
         <span class="eyebrow in" style="color:#A39C91"><b style="color:#D9B36C">18%</b> — 375 / 750ml · 소비기한 5개월</span>
         <h2 class="dp-name in d1">DEEP</h2>
-        <p class="dp-hook in d1">“이게 막걸리 맞나요?”</p>
+        <p class="dp-hook in d1">막걸리를 초월하는 경험</p>
         <p class="body in d2">56일 이상 완전 발효가 끝난 뒤, 원주의 윗술만 엄선해 완성합니다. 그래서 소량으로만 생산되며, 일반적인 막걸리보다 훨씬 맑고 깊은 구조에 프루티함과 복합적인 아로마를 지녔습니다. 도수 18%, 하지만 강한 술이라는 느낌보다 풍미의 구조가 먼저 느껴집니다.</p>
 
         <div class="taste in d2" style="color:#D9B36C" role="img" aria-label="DEEP 맛 지표: 바디 64%, 당도 18%, 산미 32%"><span>바디</span><i><b style="width:64%"></b></i><span>당도</span><i><b style="width:18%"></b></i><span>산미</span><i><b style="width:32%"></b></i></div><ol class="flow in d2" aria-label="DEEP의 맛 흐름">
@@ -564,20 +570,13 @@ html,body{background:#FFFFFF}
         <div style="display:flex;flex-direction:column;gap:18px"><span class="eyebrow in">MORE</span><h3 class="h2 in d1">다른 초월</h3></div>
         <a class="more in" href="products.html">전체 라인업 보기</a>
       </div>
-      <div class="others-row"><a class="mini in" href="product-69.html"><div class="img"><img src="img/p69_single.jpg" alt="초월 6.9" loading="lazy" style="object-position:50% 55%"></div><b>초월 6.9</b><span>6.9% · 가볍지 않은 가벼움</span></a><a class="mini in" href="product-deepdown.html"><div class="img"><img src="img/down_p.jpg" alt="DEEP Down" loading="lazy" style="object-position:50% 50%"></div><b>DEEP Down</b><span>12% · 깊이는 그대로, 도수는 가볍게</span></a><a class="mini in" href="product-spkl.html"><div class="img"><img src="img/c_spkl.jpg" alt="SPKL" loading="lazy" style="object-position:50% 60%"></div><b>SPKL</b><span>15.6% · 와인 잔에 따르게 되는 술</span></a></div>
+      <div class="others-row"><a class="mini in" href="product-69.html"><div class="img"><img src="img/mood_69.jpg" alt="초월 6.9" loading="lazy" style="object-position:30% 45%"></div><b>초월 6.9</b><span>6.9% · 가볍지 않은 가벼움</span></a><a class="mini in" href="product-deepdown.html"><div class="img"><img src="img/mood_down.jpg" alt="DEEP Down" loading="lazy" style="object-position:45% 45%"></div><b>DEEP Down</b><span>12% · 깊이는 그대로, 도수는 가볍게</span></a><a class="mini in" href="product-spkl.html"><div class="img"><img src="img/mood_spkl.jpg" alt="SPKL" loading="lazy" style="object-position:40% 40%"></div><b>SPKL</b><span>15.6% · 와인 잔에 따르게 되는 술</span></a></div>
     </div>
   </section>
 </main>
 
 
 <footer class="site-foot" id="site-foot">
-  <div class="sf-top">
-    <p class="sf-line">막걸리를<br><em>초월</em>하다</p>
-    <div class="sf-cta">
-      <a class="sf-btn fill" href="brewery.html"><span>방문 예약</span><span aria-hidden="true">→</span></a>
-      <a class="sf-btn" href="contact.html"><span>입점 문의</span><span aria-hidden="true">→</span></a>
-    </div>
-  </div>
 
   <div class="sf-grid">
     <div>
@@ -587,8 +586,8 @@ html,body{background:#FFFFFF}
     </div>
     <div>
       <h5>HOURS</h5>
-      <p>평일 11:30 – 19:30<br>주말 · 공휴일 12:00 – 18:30</p>
-      <p style="margin-top:6px;color:#8F887D">연중무휴</p>
+      <p>평일 11:30 – 19:30<br>주말 12:00 – 18:30</p>
+      <p style="margin-top:6px;color:#8F887D">공휴일 영업시간 주말 동일<br>설날 · 추석 당일 휴무</p>
     </div>
     <div>
       <h5>CONTACT</h5>
@@ -599,6 +598,10 @@ html,body{background:#FFFFFF}
         <a href="https://blog.naver.com/chowolhan" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h10.5a3.5 3.5 0 0 1 3.5 3.5v6.5a3.5 3.5 0 0 1-3.5 3.5H12l-3.5 2.5V18H8.5A3.5 3.5 0 0 1 5 14.5z"/><path d="M9 9h6M9 12.5h4"/></svg></a>
       </div>
     </div>
+    <div class="sf-act"><div class="sf-cta">
+      <a class="sf-btn fill" href="brewery.html"><span>방문 예약</span><span aria-hidden="true">→</span></a>
+      <a class="sf-btn" href="contact.html"><span>입점 문의</span><span aria-hidden="true">→</span></a>
+    </div></div>
   </div>
 
   <div class="sf-bot">
