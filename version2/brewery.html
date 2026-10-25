@@ -141,6 +141,11 @@ p,li,dd,td,.body{text-wrap:pretty}
 .hbtn.fill{background:#FFFFFF;color:var(--ink);border-color:#FFFFFF}
 .hbtn:hover{background:#FFFFFF;color:var(--ink)}
 .hbtn.fill:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
+/* 세션 카드의 예약 버튼: 눈에 띄는 채운 버튼 */
+.book-cta{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:60px;padding:0 26px;background:var(--ink);color:#FFFFFF;border:1px solid var(--ink);font-size:15px;letter-spacing:.14em;transition:background .3s,border-color .3s}
+.book-cta span{transition:transform .4s}
+.book-cta:hover,.book-cta:focus-visible{background:var(--accent);border-color:var(--accent)}
+.book-cta:hover span{transform:translateX(6px)}
 
 /* 소개 */
 .b-intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
@@ -377,7 +382,7 @@ html,body{background:#FFFFFF}
       <div>
         <span class="eyebrow">CHOWOL BREWERY TASTING</span>
         <h1>서울 도심 속 양조장에서 경험하는<br>한국 전통 막걸리</h1>
-        <p>초월은 해남의 쌀과 누룩, 물, 시간만으로 막걸리를 빚는 서울의 작은 양조장입니다.</p>
+        <p>초월은 해남의 쌀과 누룩, 물, 시간만으로 막걸리를 빚는<br>서울의 작은 양조장입니다.</p>
       </div>
       <div class="hero-btns">
         <a class="hbtn fill" href="#booking">테이스팅 예약 <span aria-hidden="true">→</span></a>
@@ -437,7 +442,7 @@ html,body{background:#FFFFFF}
             <dl>
               <dt>진행 요일</dt><dd>매일 (예약 가능 일정에 따라 변동)</dd><dt>진행 시간</dt><dd>12:30 / 13:30 / 14:30 / 15:30 / 16:30 / 17:30</dd><dt>소요 시간</dt><dd>약 45~60분</dd><dt>참여 인원</dt><dd>회당 최대 7명</dd><dt>참가 비용</dt><dd>1인 16,000원 / 사전 예약 14,000원</dd><dt>진행 언어</dt><dd>한국어 / 영어</dd><dt>제공 사항</dt><dd>막걸리 4종 시음, 페어링 스낵, 전통 발효 및 양조 과정 소개</dd>
             </dl>
-            <a class="more" href="#booking" style="margin-top:8px">이 세션 예약하기</a>
+            <a class="book-cta" href="#booking">이 세션 예약하기<span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -485,7 +490,7 @@ html,body{background:#FFFFFF}
             <header><span class="n">4</span><h3>인원</h3><span class="val" data-v="ppl"></span></header>
             <div class="bd ppl">
               <div class="stepper"><button type="button" id="pMinus" aria-label="인원 줄이기">−</button><output id="pOut" aria-live="polite">2명</output><button type="button" id="pPlus" aria-label="인원 늘리기">+</button></div>
-              <span class="hint">한 회차 최대 7명. 8명 이상 단체는 <a href="contact.html">별도 문의</a>로 도와드려요.</span>
+              <span class="hint">한 회차 최대 7명까지 예약할 수 있어요.</span>
             </div>
           </div>
 
@@ -557,7 +562,7 @@ html,body{background:#FFFFFF}
           <div class="maplinks">
             <a href="https://maps.app.goo.gl/Yny7ArJu2ZSTRH5dA" target="_blank" rel="noopener">구글 지도에서 길찾기 ↗</a>
             <a href="https://naver.me/x1VqqtM3" target="_blank" rel="noopener">네이버 지도</a>
-            <a href="https://map.kakao.com/?q=%EC%B4%88%EC%9B%94%20%EC%96%91%EC%A1%B0%EC%9E%A5">카카오맵</a>
+            <a href="https://place.map.kakao.com/330375951">카카오맵</a>
           </div>
         </div>
         <dl class="info in d1">

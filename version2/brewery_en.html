@@ -141,6 +141,11 @@ p,li,dd,td,.body{text-wrap:pretty}
 .hbtn.fill{background:#FFFFFF;color:var(--ink);border-color:#FFFFFF}
 .hbtn:hover{background:#FFFFFF;color:var(--ink)}
 .hbtn.fill:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
+/* 세션 카드의 예약 버튼: 눈에 띄는 채운 버튼 */
+.book-cta{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:60px;padding:0 26px;background:var(--ink);color:#FFFFFF;border:1px solid var(--ink);font-size:15px;letter-spacing:.14em;transition:background .3s,border-color .3s}
+.book-cta span{transition:transform .4s}
+.book-cta:hover,.book-cta:focus-visible{background:var(--accent);border-color:var(--accent)}
+.book-cta:hover span{transform:translateX(6px)}
 
 /* 소개 */
 .b-intro{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(40px,6vw,96px);align-items:center}
@@ -437,7 +442,7 @@ html,body{background:#FFFFFF}
             <dl>
               <dt>Days</dt><dd>Daily (subject to availability)</dd><dt>Times</dt><dd>12:30 / 13:30 / 14:30 / 15:30 / 16:30 / 17:30</dd><dt>Duration</dt><dd>About 45–60 min</dd><dt>Group size</dt><dd>Up to 7 guests per session</dd><dt>Price</dt><dd>₩16,000 per person / ₩14,000 when booked in advance</dd><dt>Language</dt><dd>Korean / English</dd><dt>Includes</dt><dd>Tasting of 4 makgeolli, pairing snacks, intro to traditional fermentation &amp; brewing</dd>
             </dl>
-            <a class="more" href="#booking" style="margin-top:8px">Book this session</a>
+            <a class="book-cta" href="#booking">Book this session<span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -485,7 +490,7 @@ html,body{background:#FFFFFF}
             <header><span class="n">4</span><h3>Guests</h3><span class="val" data-v="ppl"></span></header>
             <div class="bd ppl">
               <div class="stepper"><button type="button" id="pMinus" aria-label="Fewer guests">−</button><output id="pOut" aria-live="polite">2 guests</output><button type="button" id="pPlus" aria-label="More guests">+</button></div>
-              <span class="hint">Up to 7 guests per session. For groups of 8 or more, please <a href="contact.html">contact us</a>.</span>
+              <span class="hint">Up to 7 guests per session.</span>
             </div>
           </div>
 
@@ -557,7 +562,7 @@ html,body{background:#FFFFFF}
           <div class="maplinks">
             <a href="https://maps.app.goo.gl/Yny7ArJu2ZSTRH5dA" target="_blank" rel="noopener">Directions on Google Maps ↗</a>
             <a href="https://naver.me/x1VqqtM3" target="_blank" rel="noopener">Naver Map</a>
-            <a href="https://map.kakao.com/?q=%EC%B4%88%EC%9B%94%20%EC%96%91%EC%A1%B0%EC%9E%A5">Kakao Map</a>
+            <a href="https://place.map.kakao.com/330375951">Kakao Map</a>
           </div>
         </div>
         <dl class="info in d1">
