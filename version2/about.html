@@ -58,9 +58,9 @@ img{display:block;max-width:100%}
 /* 01 page hero */
 .p-hero{min-height:100vh;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);align-items:stretch}
 .p-hero .copy{display:flex;flex-direction:column;justify-content:flex-end;gap:36px;padding:160px var(--gut) 12vh}
-.p-hero .hanja{display:flex;gap:28px;align-items:flex-start}
+.p-hero .hanja{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
 .p-hero h1{margin:0;display:flex;flex-direction:column;gap:.08em;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(72px,9vw,150px);line-height:1;letter-spacing:.08em}
-.p-hero .gloss{writing-mode:vertical-rl;display:flex;gap:16px;font-family:'Noto Serif KR',serif;font-size:15px;letter-spacing:.4em;color:var(--ink-2)}
+.p-hero .gloss{margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 22px;font-family:'Noto Serif KR',serif;font-size:15px;letter-spacing:.3em;color:var(--ink-2)}
 .p-hero .gloss span:last-child{color:var(--muted);font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.3em}
 .p-hero .media{position:relative;overflow:hidden}
 .p-hero .media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.06);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
@@ -69,8 +69,8 @@ img{display:block;max-width:100%}
 
 /* 02 manifesto */
 .manifesto{text-align:center;background:var(--cream)}
-.manifesto p.big{margin:0 auto;max-width:980px;font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(26px,3vw,44px);line-height:1.8;letter-spacing:.04em}
-.manifesto p.big em{font-style:normal;color:var(--accent)}
+.manifesto p.big{margin:0 auto;max-width:980px;font-family:'Noto Serif KR',serif;font-weight:200;-webkit-font-smoothing:antialiased;font-size:clamp(26px,3vw,44px);line-height:1.8;letter-spacing:.04em}
+.manifesto p.big em{font-style:normal;color:var(--accent);font-weight:400}
 .manifesto .sig{margin-top:48px;font-size:12px;letter-spacing:.3em;color:var(--muted)}
 
 /* 03 three beyonds */
@@ -91,6 +91,7 @@ img{display:block;max-width:100%}
 .days{background:var(--cream)}
 .days-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end;margin-bottom:88px}
 .big48{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(120px,16vw,240px);line-height:.85;letter-spacing:-.02em}
+.big48 .cnt{font-weight:inherit;display:inline-block;min-width:1.12em;text-align:right;font-variant-numeric:tabular-nums}
 .big48 span{font-size:.18em;letter-spacing:.2em;margin-left:12px;color:var(--muted)}
 .timeline{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;padding-top:40px}
 .timeline::before{content:"";position:absolute;left:0;right:0;top:6px;height:1px;background:var(--line)}
@@ -142,10 +143,8 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
 .space-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .space-grid figure:hover img{transform:scale(1.03)}
 .space-grid figcaption{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.24em;color:#FFFFFF;text-shadow:0 1px 8px rgba(0,0,0,.35)}
-.g1{grid-column:1/8;aspect-ratio:3/2}
-.g2{grid-column:8/13;aspect-ratio:4/5;align-self:end}
-.g3{grid-column:3/7;aspect-ratio:3/2}
-.g4{grid-column:7/12;aspect-ratio:3/2;margin-top:-12vh!important}
+.space-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g1,.g2,.g3,.g4{grid-column:auto;aspect-ratio:3/2}
 .space-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end}
 
 /* 09 CTA */
@@ -155,6 +154,8 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
 .cta a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.72),rgba(20,18,15,.05) 60%)}
 .cta a>*:not(img){position:relative;z-index:1}
 .cta a:hover img{transform:scale(1.04)}
+.cta a img.zoom{transform:scale(1.6);transform-origin:52% 52%}
+.cta a:hover img.zoom{transform:scale(1.66)}
 .cta .t{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(28px,3vw,44px);letter-spacing:.06em}
 .cta .s{font-size:12px;letter-spacing:.24em;opacity:.85}
 .cta .arrow{display:inline-block;transition:transform .5s}
@@ -198,7 +199,7 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
   .p-hero .media::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(255,255,255,.9) 0,rgba(255,255,255,.6) 34%,rgba(255,255,255,0) 60%),linear-gradient(to top,var(--cream) 0,rgba(255,255,255,.92) 26%,rgba(255,255,255,0) 48%)}
   .p-hero .copy{position:absolute;inset:0;padding:0 24px 56px;gap:20px;z-index:1}
   .p-hero .crumb{order:2}
-  .p-hero .hanja{position:absolute;top:16vh;right:24px;flex-direction:row-reverse;gap:18px}
+  .p-hero .hanja{position:static;gap:16px}
   .p-hero h1{font-size:64px}
   .p-hero .body{order:3}
   .beyond-grid{grid-template-columns:1fr;gap:56px}
@@ -214,7 +215,7 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
   .gravity .copy{padding:64px 24px 88px}
   .space-grid{grid-template-columns:1fr 1fr}
   .g1,.g2,.g3,.g4{grid-column:auto;margin-top:0!important}
-  .g1{grid-column:1/3}
+  .g1,.g2,.g3,.g4{aspect-ratio:3/2}
   .cta{grid-template-columns:1fr}
   .foot-top{grid-template-columns:1fr 1fr}
 }
@@ -265,8 +266,8 @@ p,li,dd,td,.body{text-wrap:pretty}
 /*@@/KRFOOT*/
 
 .hanja h1.kr-h1{display:block}
-.hanja h1.kr-h1 img{display:block;height:clamp(220px,34vh,380px);width:auto}
-@media (max-width:960px){.hanja h1.kr-h1 img{height:200px}}
+.hanja h1.kr-h1 img{display:block;height:clamp(120px,19vh,200px);width:auto}
+@media (max-width:960px){.hanja h1.kr-h1 img{height:120px}}
 
 /* ===== REV5 공통: 흰 배경 · 메뉴 오른쪽 · 심볼 로고 ===== */
 :root{--cream:#FFFFFF;--paper:#FFFFFF;--rice:#FFFFFF;--blush:#FFFFFF;--bg:#FFFFFF}
@@ -315,10 +316,10 @@ html,body{background:#FFFFFF}
   <!-- 01 PAGE HERO -->
   <section class="p-hero" id="hero">
     <div class="copy">
-      <span class="crumb">BRAND — 브랜드 소개</span>
+      <span class="crumb">CHOWOL — 소개</span>
       <div class="hanja">
-        <h1 aria-label="초월" class="kr-h1"><img src="img/kr_v_k.svg" alt="초월"></h1>
-        <p class="gloss"><span>超越 · 넘어서다</span><span>TRANSCENDENCE</span></p>
+        <h1 aria-label="초월" class="kr-h1"><img src="img/kr_h_k.svg" alt="초월"></h1>
+        <p class="gloss"><span>넘어서다</span><span lang="zh">超越</span><span lang="en">TRANSCENDENCE</span></p>
       </div>
       <p class="body" style="max-width:420px">대한민국 최남단, 너른 평야에서 해풍이 기른<br>전라남도 해남쌀, 누룩, 물만을 이용한<br>크래프트 막걸리</p>
     </div>
@@ -328,8 +329,7 @@ html,body{background:#FFFFFF}
   <!-- 02 MANIFESTO -->
   <section class="sec manifesto">
     <div class="wrap">
-      <p class="big in">감미료 없이, 첨가물 없이.<br>오직 <em>쌀과 누룩과 물</em>, 그리고 기다림으로.<br>막걸리 한 잔이 <em>미식</em>이 되는 순간을 빚습니다.</p>
-      <p class="sig in d1">막걸리를 초월하다 · Beyond Makgeolli</p>
+      <p class="big in">감미료 없이, 첨가물 없이.<br>오직 <em>쌀과 누룩과 물</em>, 그리고 <em>기다림</em>으로.<br>막걸리 한 잔이 <em>미식</em>이 되는 순간을 빚습니다.</p>
     </div>
   </section>
 
@@ -370,7 +370,7 @@ html,body{background:#FFFFFF}
   <section class="sec days">
     <div class="wrap">
       <div class="days-top">
-        <div class="big48 in" aria-label="48일">48<span>DAYS</span></div>
+        <div class="big48 in" aria-label="48일"><b class="cnt" data-to="48" aria-hidden="true">48</b><span>DAYS</span></div>
         <div style="display:flex;flex-direction:column;gap:22px">
           <span class="eyebrow in"><b>02</b> — Process</span>
           <h2 class="h2 in d1">서두르지 않는<br>48일의 기다림</h2>
@@ -405,31 +405,12 @@ html,body{background:#FFFFFF}
     </div>
   </section>
 
-  <!-- 06 GRAVITY / LABEL -->
-  <section class="gravity" id="gravity">
-    <div class="media">
-      <img src="img/c_p69.jpg" alt="떠다니는 사람들이 그려진 초월 6.9 라벨" loading="lazy">
-      <div class="figs" id="figs" aria-hidden="true">
-        <span class="fig" data-depth="0.9" style="left:12%;top:18%"><img src="img/d1.png" alt="" style="width:56px;opacity:.5"></span>
-        <span class="fig" data-depth="0.5" style="left:70%;top:12%"><img src="img/d2.png" alt="" style="width:20px;opacity:.45"></span>
-        <span class="fig" data-depth="0.7" style="left:76%;top:70%"><img src="img/d3.png" alt="" style="width:48px;opacity:.45"></span>
-        <span class="fig" data-depth="0.4" style="left:18%;top:76%"><img src="img/d7.png" alt="" style="width:30px;opacity:.4"></span>
-      </div>
-    </div>
-    <div class="copy">
-      <span class="eyebrow in"><b>04</b> — Label Story</span>
-      <h2 class="h2 in d1">한 모금,<br>중력을 잊다</h2>
-      <p class="body in d2" style="max-width:420px">라벨 속 사람들은 모두 떠 있습니다. 한 잔을 기울이는 순간 일상의 무게가 조금 가벼워지는 감각, 초월이 병 위에 그려 넣은 것은 바로 그 순간입니다.</p>
-      <p class="body in d3" style="font-size:13px;color:var(--muted)">세로로 내려 쓴 '초월' 로고와 원 안에 갈래가 나뉜 심볼은, 한 곳에 머무르지 않고 여러 방향으로 넘어가는 브랜드의 태도를 담았습니다. <i class="ph">[로고 의도 클라이언트 확인]</i></p>
-    </div>
-  </section>
-
   <!-- 07 BREWER -->
   <section class="sec brewer">
     <div class="wrap brewer-grid">
       <div class="img in"><img src="img/a_brewer.jpg" alt="초월 양조장 바에 앉아 있는 양조사" loading="lazy"></div>
       <div style="display:flex;flex-direction:column;gap:26px">
-        <span class="eyebrow in"><b>05</b> — Brewer</span>
+        <span class="eyebrow in"><b>04</b> — Brewer</span>
         <h2 class="h2 in d1">막걸리를 초월한다는<br>목표 하나로</h2>
         <p class="body in d2">오랜 기간 가양주 연구를 통해 초월의 막걸리를 완성했으며, 한국의 전통주 소믈리에 자격을 가진 대표이자 양조사로써 초월 막걸리의 탄생 배경과 양조, 더불어 한국의 전통주에 관한 이야기를 직접 들을 수 있습니다.</p>
         <ul class="creds in d3">
@@ -446,16 +427,16 @@ html,body{background:#FFFFFF}
     <div class="wrap">
       <div class="space-head">
         <div style="display:flex;flex-direction:column;gap:20px">
-          <span class="eyebrow in"><b>06</b> — Space</span>
+          <span class="eyebrow in"><b>05</b> — Space</span>
           <h2 class="h2 in d1">도심 속 양조장</h2>
         </div>
         <p class="body in d2" style="max-width:460px">서울의 중심인 마포, 공덕에 위치한 양조장은 매일 열려 있으며, 직접 시음, 구매 가능합니다. 한국의 전통, 현대적인 해석으로 탄생한 초월의 마포 양조장은 현장주의 건축을 추구하며 한국적인 디테일 묘사로 주목받고 있는 인테리어 그룹 'Morpho'와 함께 만든 공간입니다. 한국에서 전통적으로 사용되어 온 건축 소재들과 고재 기둥, 병풍을 형상화 한 벽 뒤로는 초월적인 막걸리가 만들어지고 있습니다.</p>
       </div>
       <div class="space-grid">
-        <figure class="g1 in"><img src="img/a_space.jpg" alt="나무 벽과 고재 기둥이 있는 양조장 내부" loading="lazy"><figcaption>BAR & BREWERY</figcaption></figure>
-        <figure class="g2 in d1"><img src="img/a_pillar.jpg" alt="고재 기둥과 펜던트 조명" loading="lazy" style="object-position:30% 50%"><figcaption>OLD TIMBER</figcaption></figure>
-        <figure class="g3 in"><img src="img/a_jar.jpg" alt="선반 위 산수화 백자 항아리" loading="lazy"><figcaption>OBJET</figcaption></figure>
-        <figure class="g4 in d1"><img src="img/c_bar.jpg" alt="바에서 초월을 시음하는 손님들" loading="lazy"><figcaption>TASTING</figcaption></figure>
+        <figure class="g1 in"><img src="img/a_space.jpg" alt="나무 벽과 고재 기둥이 있는 양조장 내부" loading="lazy"></figure>
+        <figure class="g2 in d1"><img src="img/a_pillar.jpg" alt="고재 기둥과 펜던트 조명" loading="lazy" style="object-position:30% 50%"></figure>
+        <figure class="g3 in"><img src="img/a_jar.jpg" alt="선반 위 산수화 백자 항아리" loading="lazy"></figure>
+        <figure class="g4 in d1"><img src="img/c_bar.jpg" alt="바에서 초월을 시음하는 손님들" loading="lazy"></figure>
       </div>
     </div>
   </section>
@@ -463,16 +444,16 @@ html,body{background:#FFFFFF}
   <!-- 09 CTA -->
   <section class="cta" aria-label="다음 이야기">
     <a href="products.html">
-      <img src="img/c_hero.jpg" alt="" loading="lazy" style="object-position:55% 50%">
+      <img class="zoom" src="img/c_hero.jpg" alt="" loading="lazy" style="object-position:52% 52%">
       <span class="s">PRODUCTS</span>
       <span class="t">초월의 막걸리 <span class="arrow">→</span></span>
       <span class="s">6.9 · DEEP · DEEP Down · SPKL</span>
     </a>
     <a href="brewery.html">
       <img src="img/a_tasting.jpg" alt="" loading="lazy">
-      <span class="s">BREWERY · BOOKING</span>
+      <span class="s">BREWERY</span>
       <span class="t">양조장 방문 예약 <span class="arrow">→</span></span>
-      <span class="s">테이스팅 세션 · 온라인 결제</span>
+      <span class="s">테이스팅 세션</span>
     </a>
   </section>
 </main>
@@ -530,6 +511,13 @@ html,body{background:#FFFFFF}
   // mobile menu
   var btn=document.getElementById('burger'),menu=document.getElementById('menu');
   btn.addEventListener('click',function(){var o=menu.hidden;menu.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.setAttribute('aria-label',o?'메뉴 닫기':'메뉴 열기')});
+  // 48 DAYS: 화면에 들어오며 페이드인과 함께 0 → 48 카운트업
+  (function(){var el=document.querySelector('.big48 .cnt');if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    var to=+el.dataset.to||48;el.textContent='0';
+    var co=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;co.disconnect();
+      var t0=performance.now(),D=1900;
+      (function f(now){var k=Math.min(1,(now-t0)/D),e=1-Math.pow(1-k,3);el.textContent=Math.round(to*e);if(k<1)requestAnimationFrame(f)})(t0);
+    },{threshold:.45});co.observe(el)})();
   // floating figures react to pointer (label story)
   var area=document.getElementById('gravity');
   var figs=[].slice.call(document.querySelectorAll('#figs .fig'));
