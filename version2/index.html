@@ -45,6 +45,10 @@ img{display:block;max-width:100%}
 /* 어두운 섹션 (브랜드 이야기 · 양조장): 웜톤 다크 그레이 + 흰 글씨 */
 .sec.dark{background:#26221E;color:#F6F3EE}
 #s2 .h2{font-size:clamp(30px,2.7vw,44px);word-break:keep-all}
+#s6 .media{min-height:clamp(420px,44vw,680px)}
+#s6 .media img{position:absolute;inset:0;width:100%;height:100%!important;min-height:0!important;object-fit:cover;object-position:50% 42%}
+@media (max-width:1200px){#s6 .media{min-height:0;aspect-ratio:4/3}}
+#s6 .body{max-width:none}
 .sec.dark .eyebrow,.sec.dark dt.eyebrow{color:#A49C90}
 .sec.dark .body,.sec.dark dd{color:#DCD6CC!important}
 .sec.dark .more{color:#F6F3EE}
@@ -314,17 +318,16 @@ html,body{background:#FFFFFF}
       <div class="pp" style="background-image:url(img/pp5.png)" data-box="254,450,310,518" data-mx="0.8" data-my="0.52" data-x="0.75" data-y="0.3" data-w="0.08" data-z="0.65"></div>
       <div class="pp" style="background-image:url(img/pp6.png)" data-box="68,434,212,740" data-mx="0.36" data-my="0.6" data-x="0.43" data-y="0.58" data-w="0.206" data-z="0.9"></div>
     </div>
-    <a class="cue" href="#s2" aria-label="다음 섹션으로"><span>SCROLL</span><span class="track"><span class="run"></span></span></a>
+    <a class="cue" href="#s2" aria-label="다음 섹션으로"><span class="track"><span class="run"></span></span></a>
   </section>
 
   <!-- 01-B DROP : 사람들이 위로 떠난 자리에 한 방울 -->
   <section id="s1b" class="sec drop">
     <canvas class="rip-sim" aria-hidden="true"></canvas><canvas class="rip-drop" aria-hidden="true"></canvas>
     <div class="drop-over">
-      <span class="eyebrow">BEYOND MAKGEOLLI</span>
       <h2 class="h2">막걸리를 초월하다</h2>
       <p class="body">쌀, 누룩, 물 그리고 시간</p>
-      <p class="drop-line">초월 6.9 · DEEP · DEEP Down · SPKL</p>
+      
       <a class="btn-line drop-btn" href="products.html">제품 보러가기</a>
     </div>
   </section>
@@ -332,7 +335,7 @@ html,body{background:#FFFFFF}
   
   <!-- 02 ORIGIN : 가로 사진 -->
   <section id="s2" class="sec row land dark" style="--cols:58fr 42fr">
-    <div class="media"><img src="img/c_rice.jpg" alt="시험관에 담긴 해남쌀과 누룩" width="2000" height="1333" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_haenam.jpg" alt="해남 대섬 바닷길 풍경" width="2200" height="1464" loading="lazy" decoding="async"></div>
     <div class="copy in">
       <span class="eyebrow">BEYOND TRADITION</span>
       <h2 class="h2">자연에서 온 재료,<br>그 외에는 아무것도.</h2>
@@ -343,11 +346,11 @@ html,body{background:#FFFFFF}
 
   <!-- 06 BEYOND LIMITS : 가로 사진 -->
   <section id="s6" class="sec row rev land" style="background:var(--cream);--cols:42fr 58fr">
-    <div class="media"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌" width="2000" height="1333" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_studiowon.jpg" alt="검은 잔 위로 떨어지는 초월 한 방울" width="1613" height="2200" loading="lazy" decoding="async"></div>
     <div class="copy in">
       <span class="eyebrow">BEYOND LIMITS</span>
       <h2 class="h2">막걸리 한 잔,<br>미식이 되다</h2>
-      <p class="body">초월은 전통에서 가능성을 발견하고, 맛의 균형과 새로운 해석을 통하여 막걸리의 경계를 넘어섭니다. 초월 가이드맵에서 다양한 공간의 초월을 만나보세요.</p>
+      <p class="body">초월은 전통에서 가능성을 발견하고,<br>맛의 균형과 새로운 해석을 통하여 막걸리의 경계를 넘어섭니다.<br>초월 가이드를 통해 다양한 장소에서 초월을 만나보세요.</p>
       <p style="margin:0;font-size:13px;letter-spacing:.16em;color:var(--muted)">다이닝 · 바 · 라운지 · 전시장 · 편집샵</p>
       <a class="more" href="stockists.html">초월 가이드</a>
     </div>
@@ -355,7 +358,7 @@ html,body{background:#FFFFFF}
 
   <!-- 07 BREWERY : 가로 사진 -->
   <section id="s7" class="sec row land dark" style="--cols:58fr 42fr">
-    <div class="media"><img src="img/c_bar.jpg" alt="양조장 바에서 초월을 시음하는 손님들" width="2200" height="1551" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_img1562.jpg" alt="양조장 바에서 초월을 시음하는 손님들" width="2200" height="1440" loading="lazy" decoding="async"></div>
     <div class="copy s7c in">
       <div style="display:flex;flex-direction:column;gap:20px">
         <span class="eyebrow">BREWERY</span>

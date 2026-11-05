@@ -46,6 +46,10 @@ img{display:block;max-width:100%}
 /* 어두운 섹션 (브랜드 이야기 · 양조장): 웜톤 다크 그레이 + 흰 글씨 */
 .sec.dark{background:#26221E;color:#F6F3EE}
 #s2 .h2{font-size:clamp(30px,2.7vw,44px);word-break:keep-all}
+#s6 .media{min-height:clamp(420px,44vw,680px)}
+#s6 .media img{position:absolute;inset:0;width:100%;height:100%!important;min-height:0!important;object-fit:cover;object-position:50% 42%}
+@media (max-width:1200px){#s6 .media{min-height:0;aspect-ratio:4/3}}
+#s6 .body{max-width:none}
 .sec.dark .eyebrow,.sec.dark dt.eyebrow{color:#A49C90}
 .sec.dark .body,.sec.dark dd{color:#DCD6CC!important}
 .sec.dark .more{color:#F6F3EE}
@@ -340,17 +344,16 @@ html,body{background:#FFFFFF}
       <div class="pp" style="background-image:url(img/pp5.png)" data-box="254,450,310,518" data-mx="0.8" data-my="0.52" data-x="0.75" data-y="0.3" data-w="0.08" data-z="0.65"></div>
       <div class="pp" style="background-image:url(img/pp6.png)" data-box="68,434,212,740" data-mx="0.36" data-my="0.6" data-x="0.43" data-y="0.58" data-w="0.206" data-z="0.9"></div>
     </div>
-    <a class="cue" href="#s2" aria-label="Next section"><span>SCROLL</span><span class="track"><span class="run"></span></span></a>
+    <a class="cue" href="#s2" aria-label="Next section"><span class="track"><span class="run"></span></span></a>
   </section>
 
   <!-- 01-B DROP : 사람들이 위로 떠난 자리에 한 방울 -->
   <section id="s1b" class="sec drop">
     <canvas class="rip-sim" aria-hidden="true"></canvas><canvas class="rip-drop" aria-hidden="true"></canvas>
     <div class="drop-over">
-      <span class="eyebrow">BEYOND MAKGEOLLI</span>
       <h2 class="h2">Beyond<br><em>makgeolli</em></h2>
       <p class="body">Rice, nuruk, water — and time.</p>
-      <p class="drop-line">Chowol 6.9 · DEEP · DEEP Down · SPKL</p>
+      
       <a class="btn-line drop-btn" href="products.html">View products</a>
     </div>
   </section>
@@ -358,7 +361,7 @@ html,body{background:#FFFFFF}
   
   <!-- 02 ORIGIN : 가로 사진 -->
   <section id="s2" class="sec row land dark" style="--cols:58fr 42fr">
-    <div class="media"><img src="img/c_rice.jpg" alt="Haenam rice and nuruk in glass test tubes" width="2000" height="1333" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_haenam.jpg" alt="The coastal path to Daeseom island, Haenam" width="2200" height="1464" loading="lazy" decoding="async"></div>
     <div class="copy in">
       <span class="eyebrow">BEYOND TRADITION</span>
       <h2 class="h2">Natural ingredients.<br><em>Nothing else.</em></h2>
@@ -369,11 +372,11 @@ html,body{background:#FFFFFF}
 
   <!-- 06 BEYOND LIMITS : 가로 사진 -->
   <section id="s6" class="sec row rev land" style="background:var(--cream);--cols:42fr 58fr">
-    <div class="media"><img src="img/c_objet.jpg" alt="A metal object and pebbles on a wooden shelf" width="2000" height="1333" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_studiowon.jpg" alt="A drop of Chowol falling into a dark cup" width="1613" height="2200" loading="lazy" decoding="async"></div>
     <div class="copy in">
       <span class="eyebrow">BEYOND LIMITS</span>
       <h2 class="h2">A glass of makgeolli,<br><em>at the fine table</em></h2>
-      <p class="body">Chowol finds possibility in tradition and, through balance and fresh interpretation, moves beyond the limits of makgeolli. Find Chowol in places across the city on our guide map.</p>
+      <p class="body">Chowol finds possibility in tradition<br>and, through balance and fresh interpretation, moves beyond the limits of makgeolli.<br>Discover Chowol in places across the city through the Chowol guide.</p>
       <p style="margin:0;font-size:13px;letter-spacing:.16em;color:var(--muted)">Dining · Bars · Lounges · Galleries · Concept stores</p>
       <a class="more" href="stockists.html">Chowol guide</a>
     </div>
@@ -381,7 +384,7 @@ html,body{background:#FFFFFF}
 
   <!-- 07 BREWERY : 가로 사진 -->
   <section id="s7" class="sec row land dark" style="--cols:58fr 42fr">
-    <div class="media"><img src="img/c_bar.jpg" alt="Guests tasting Chowol at the brewery bar" width="2200" height="1551" loading="lazy" decoding="async"></div>
+    <div class="media"><img src="img/n_img1562.jpg" alt="Guests tasting Chowol at the brewery bar" width="2200" height="1440" loading="lazy" decoding="async"></div>
     <div class="copy s7c in">
       <div style="display:flex;flex-direction:column;gap:20px">
         <span class="eyebrow">BREWERY</span>

@@ -76,16 +76,18 @@ img{display:block;max-width:100%}
 /* 03 three beyonds */
 .beyond{background:var(--rice)}
 .beyond-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:72px}
-.beyond-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,3vw,48px)}
-.b-card{display:flex;flex-direction:column;gap:22px}
-.b-card .img{aspect-ratio:4/5;overflow:hidden;background:var(--wood)}
+.beyond-grid{display:grid;grid-template-columns:1fr;gap:clamp(48px,7vw,96px)}
+.b-card{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);grid-template-rows:auto auto 1fr;column-gap:clamp(32px,5vw,80px);row-gap:18px;align-items:start}
+.b-card .img{grid-row:1/4;aspect-ratio:3/2;overflow:hidden;background:var(--wood)}
+.b-card .num{align-self:end}
+.b-card .body{margin:0;font-size:15.5px;line-height:2;word-break:keep-all}
 .b-card .img img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
 .b-card:hover .img img{transform:scale(1.04)}
 .b-card .num{font-family:'Noto Serif KR',serif;font-size:13px;letter-spacing:.3em;color:var(--accent)}
 .b-card h3{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:24px;letter-spacing:.06em}
 .b-card h3 small{display:block;margin-top:8px;font-family:'IBM Plex Sans KR',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--muted);font-weight:300}
-.b-card:nth-child(2){margin-top:80px}
-.b-card:nth-child(3){margin-top:160px}
+.b-card:nth-child(2){margin-top:0}
+.b-card:nth-child(3){margin-top:0}
 
 /* 04 48 days */
 .days{background:var(--cream)}
@@ -154,8 +156,8 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
 .cta a::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,18,15,.72),rgba(20,18,15,.05) 60%)}
 .cta a>*:not(img){position:relative;z-index:1}
 .cta a:hover img{transform:scale(1.04)}
-.cta a img.zoom{transform:scale(1.6);transform-origin:52% 52%}
-.cta a:hover img.zoom{transform:scale(1.66)}
+.cta a img.zoom{transform:scale(2.15);transform-origin:52% 50%}
+.cta a:hover img.zoom{transform:scale(2.22)}
 .cta .t{font-family:'Noto Serif KR',serif;font-weight:200;font-size:clamp(28px,3vw,44px);letter-spacing:.06em}
 .cta .s{font-size:12px;letter-spacing:.24em;opacity:.85}
 .cta .arrow{display:inline-block;transition:transform .5s}
@@ -204,7 +206,8 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
   .p-hero .body{order:3}
   .beyond-grid{grid-template-columns:1fr;gap:56px}
   .b-card:nth-child(n){margin-top:0}
-  .b-card .img{aspect-ratio:4/3}
+  .b-card{grid-template-columns:1fr;grid-template-rows:none}
+  .b-card .img{grid-row:auto;aspect-ratio:4/3}
   .days-top,.taste-grid,.brewer-grid,.space-head{grid-template-columns:1fr;gap:40px}
   .timeline{grid-template-columns:1fr;gap:36px;padding-top:0;padding-left:36px}
   .timeline::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
@@ -325,7 +328,6 @@ html,body{background:#FFFFFF}
       <span class="crumb">CHOWOL — 소개</span>
       <div class="hanja">
         <h1 aria-label="초월" class="kr-h1"><img src="img/kr_h_k.svg" alt="초월"></h1>
-        <p class="gloss"><span>넘어서다</span><span lang="zh">超越</span><span lang="en">TRANSCENDENCE</span></p>
       </div>
       <p class="body" style="max-width:none">대한민국 최남단, 너른 평야에서 해풍이 기른<br>전라남도 해남쌀, 누룩, 물만을 이용한 크래프트 막걸리</p>
     </div>
@@ -354,19 +356,19 @@ html,body{background:#FFFFFF}
           <div class="img"><img src="img/c_rice.jpg" alt="시험관에 담긴 해남쌀과 누룩" loading="lazy"></div>
           <span class="num">I</span>
           <h3>재료를 넘어<small>BEYOND MAKGEOLLI</small></h3>
-          <p class="body">맛의 본질은 좋은 재료 입니다. 초월은 풍부한 햇살과 해풍 속에서 자란 저단백 품종으로 양조에 적합한 땅끝 해남의 떼루아가 담긴 쌀이 막걸리의 깊은 감칠맛을 완성합니다.</p>
+          <p class="body">맛의 본질은 좋은 재료입니다.<br>초월은 땅끝해남에서 풍부한 햇살과 해풍으로 자란 저단백 품종을 사용해<br>막걸리의 깊은 맛을 완성하였습니다.</p>
         </article>
         <article class="b-card in d1">
           <div class="img"><img src="img/a_tasting.jpg" alt="전용잔과 나무 트레이에 차려진 초월 시음 세트" loading="lazy"></div>
           <span class="num">II</span>
           <h3>전통을 넘어<small>BEYOND TRADITION</small></h3>
-          <p class="body">경험되지 않은 전통, 오래됨이 아닌 새로움. 감미료나 첨가제를 전혀 사용하지 않은 전통방식 제조법에 초월만의 발효, 숙성 방법을 통하여 전에 없던 막걸리의 균형을 찾아 막걸리를 미식의 경험으로 승화시켰습니다.</p>
+          <p class="body">경험되지 않은 전통은 단지 오래된 것이 아닙니다.<br>감미료와 발효첨가제를 전혀 사용하지 않는 전통 방식에<br>초월만의 발효/숙성 방법으로 전에 없던 막걸리의 균형을 찾아<br>막걸리를 미식의 경험으로 승화시켰습니다.</p>
         </article>
         <article class="b-card in d2">
           <div class="img"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌" loading="lazy"></div>
           <span class="num">III</span>
           <h3>경계를 넘어<small>BEYOND LIMITS</small></h3>
-          <p class="body">막걸리의 한계를 초월하여 미식의 경험이 되고, 막걸리 경험을 초월하여 한식 뿐만 아니라 양식, 다이닝, 전시장, 공연장, 디저트, 바, 라운지, 편집샵, 클럽 등 다양한 공간에서 만나보실 수 있습니다. 좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
+          <p class="body">초월은 막걸리의 경험을 확장하여 주점 뿐만 아니라<br>다이닝, 전시, 공연, 디저트, 바, 편집샵, 클럽 등 다양한 장소에서 만나보실 수 있습니다.<br>좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
         </article>
       </div>
     </div>
@@ -414,7 +416,7 @@ html,body{background:#FFFFFF}
   <!-- 07 BREWER -->
   <section class="sec brewer">
     <div class="wrap brewer-grid">
-      <div class="img in"><img src="img/a_brewer.jpg" alt="초월 양조장 바에 앉아 있는 양조사" loading="lazy"></div>
+      <div class="img in"><img src="img/n_img1543.jpg" alt="양조장 바에서 이야기하는 초월의 양조사" loading="lazy"></div>
       <div style="display:flex;flex-direction:column;gap:26px">
         <span class="eyebrow in"><b>04</b> — Brewer</span>
         <h2 class="h2 in d1">막걸리를 초월한다는<br>목표 하나로</h2>
@@ -508,6 +510,8 @@ html,body{background:#FFFFFF}
 
 <script>
 (function(){
+  // 스크롤하면 상단 메뉴 흰 배경 (다른 페이지와 동일)
+  var hd=document.querySelector('.head');function onS(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onS,{passive:true});onS();
   // reveal on scroll
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.18});
   document.querySelectorAll('.in,.p-hero').forEach(function(el){io.observe(el)});
