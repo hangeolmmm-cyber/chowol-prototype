@@ -150,7 +150,7 @@ blockquote{margin:0;font-family:'Noto Serif KR',serif;font-weight:300;font-size:
 .space-grid figcaption{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.24em;color:#FFFFFF;text-shadow:0 1px 8px rgba(0,0,0,.35)}
 .space-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .g1,.g2,.g3,.g4{grid-column:auto;aspect-ratio:3/2}
-.space-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:end}
+.space-head{display:block}.space-copy{max-width:720px;margin-top:8px}.space-grid{margin-top:56px}
 
 /* 09 CTA */
 .cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));min-height:70vh}
@@ -295,6 +295,7 @@ html,body{background:#FFFFFF}
 .site-foot .sf-act .sf-btn{justify-content:space-between}
 @media (max-width:820px){.site-foot .sf-grid{grid-template-columns:1fr}}
 </style>
+<style>br.mb{display:none}@media (max-width:760px){br.mb{display:inline}br.dk{display:none}}p,h1,h2,h3,li,dd{word-break:keep-all;overflow-wrap:break-word}p{text-wrap:pretty}</style>
 </head>
 <body>
 
@@ -310,7 +311,7 @@ html,body{background:#FFFFFF}
     </div>
     <a href="brewery.html">양조장 · 예약</a>
     <a href="stockists.html">초월 가이드</a>
-    <a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+    <a href="archive.html">아카이브</a><a href="contact.html">Contact</a>
   </nav>
   <div class="util">
     <span class="lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></span>
@@ -321,7 +322,7 @@ html,body{background:#FFFFFF}
   </div>
 </header>
 <div class="menu" id="menu" hidden>
-  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">콘택트</a>
+  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">Contact</a>
 </div>
 
 <main>
@@ -353,26 +354,26 @@ html,body{background:#FFFFFF}
           <span class="eyebrow in"><b>01</b> — Philosophy</span>
           <h2 class="h2 in d1">세 가지를 넘어섭니다</h2>
         </div>
-        <p class="body in d2" style="max-width:380px">재료와 방식, 그리고 막걸리가 놓이는 자리까지. 초월이 넘어서려는 세 개의 경계입니다.</p>
+        <p class="body in d2" style="max-width:460px">재료와 방식, 그리고 막걸리가 놓이는 자리까지.<br>초월이 넘어서려는 세 개의 경계입니다.</p>
       </div>
       <div class="beyond-grid">
         <article class="b-card in">
-          <div class="img"><img src="img/c_rice.jpg" alt="시험관에 담긴 해남쌀과 누룩" loading="lazy"></div>
+          <div class="img"><img src="img/n_img1515b.jpg" alt="시험관에 담긴 해남쌀과 누룩" loading="lazy"></div>
           <span class="num">I</span>
           <h3>재료를 넘어<small>BEYOND MAKGEOLLI</small></h3>
-          <p class="body">맛의 본질은 좋은 재료입니다.<br>초월은 땅끝해남에서 풍부한 햇살과 해풍으로 자란 저단백 품종을 사용해<br>막걸리의 깊은 맛을 완성하였습니다.</p>
+          <p class="body">맛의 본질은 좋은 재료입니다.<br>초월은 땅끝해남에서 풍부한 햇살과 해풍으로 자란 저단백 품종을 사용해 <br class="dk">막걸리의 깊은 맛을 완성하였습니다.</p>
         </article>
         <article class="b-card in d1">
           <div class="img"><img src="img/a_tasting.jpg" alt="전용잔과 나무 트레이에 차려진 초월 시음 세트" loading="lazy"></div>
           <span class="num">II</span>
           <h3>전통을 넘어<small>BEYOND TRADITION</small></h3>
-          <p class="body">경험되지 않은 전통은 단지 오래된 것이 아닙니다.<br>감미료와 발효첨가제를 전혀 사용하지 않는 전통 방식에<br>초월만의 발효/숙성 방법으로 전에 없던 막걸리의 균형을 찾아<br>막걸리를 미식의 경험으로 승화시켰습니다.</p>
+          <p class="body">경험되지 않은 전통은 단지 오래된 것이 아닙니다.<br>감미료와 발효첨가제를 전혀 사용하지 않는 전통 방식에 <br class="dk">초월만의 발효/숙성 방법으로 전에 없던 막걸리의 균형을 찾아 <br class="dk">막걸리를 미식의 경험으로 승화시켰습니다.</p>
         </article>
         <article class="b-card in d2">
           <div class="img"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌" loading="lazy"></div>
           <span class="num">III</span>
           <h3>경계를 넘어<small>BEYOND LIMITS</small></h3>
-          <p class="body">초월은 막걸리의 경험을 확장하여 주점 뿐만 아니라<br>다이닝, 전시, 공연, 디저트, 바, 편집샵, 클럽 등 다양한 장소에서 만나보실 수 있습니다.<br>좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
+          <p class="body">초월은 막걸리의 경험을 확장하여 주점 뿐만 아니라 <br class="dk">다이닝, 전시, 공연, 디저트, 바, 편집샵, 클럽 등 다양한 장소에서 만나보실 수 있습니다.<br>좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
         </article>
       </div>
     </div>
@@ -386,7 +387,7 @@ html,body{background:#FFFFFF}
         <div style="display:flex;flex-direction:column;gap:22px">
           <span class="eyebrow in"><b>02</b> — Process</span>
           <h2 class="h2 in d1">서두르지 않는<br>48일의 기다림</h2>
-          <p class="body in d2" style="max-width:440px">세 번에 걸쳐 술을 빚는 전통 삼양주. 밑술에 두 번 덧술을 더하고, 48일 동안 발효와 숙성을 거쳐 비로소 초월이 됩니다. DEEP 시리즈는 56일 이상 완전 발효합니다.</p>
+          <p class="body in d2" style="max-width:440px">세 번에 걸쳐 술을 빚는 전통 삼양주.<br>밑술에 두 번 덧술을 더하고, <br class="mb">48일 동안 발효와 숙성을 거쳐 비로소 초월이 됩니다.<br>DEEP 시리즈는 56일 이상 완전 발효합니다.</p>
         </div>
       </div>
       <ol class="timeline in" style="list-style:none;margin:0">
@@ -441,8 +442,8 @@ html,body{background:#FFFFFF}
         <div style="display:flex;flex-direction:column;gap:20px">
           <span class="eyebrow in"><b>05</b> — Space</span>
           <h2 class="h2 in d1">도심 속 양조장</h2>
+        <p class="body in d2 space-copy">서울의 중심인 마포, 공덕에 위치한 양조장은 매일 열려 있으며, 직접 시음, 구매 가능합니다. 한국의 전통, 현대적인 해석으로 탄생한 초월의 마포 양조장은 현장주의 건축을 추구하며 한국적인 디테일 묘사로 주목받고 있는 인테리어 그룹 'Morpho'와 함께 만든 공간입니다. 한국에서 전통적으로 사용되어 온 건축 소재들과 고재 기둥, 병풍을 형상화 한 벽 뒤로는 초월적인 막걸리가 만들어지고 있습니다.</p>
         </div>
-        <p class="body in d2" style="max-width:460px">서울의 중심인 마포, 공덕에 위치한 양조장은 매일 열려 있으며, 직접 시음, 구매 가능합니다. 한국의 전통, 현대적인 해석으로 탄생한 초월의 마포 양조장은 현장주의 건축을 추구하며 한국적인 디테일 묘사로 주목받고 있는 인테리어 그룹 'Morpho'와 함께 만든 공간입니다. 한국에서 전통적으로 사용되어 온 건축 소재들과 고재 기둥, 병풍을 형상화 한 벽 뒤로는 초월적인 막걸리가 만들어지고 있습니다.</p>
       </div>
       <div class="space-grid">
         <figure class="g1 in"><img src="img/a_space.jpg" alt="나무 벽과 고재 기둥이 있는 양조장 내부" loading="lazy"></figure>
