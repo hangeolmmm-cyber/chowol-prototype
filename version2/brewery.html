@@ -250,7 +250,7 @@ p,li,dd,td,.body{text-wrap:pretty}
 /* 결제 수단 */
 .pay{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .pay label{display:flex;align-items:center;justify-content:center;min-height:56px;border:1px solid var(--line);cursor:pointer;font-size:14px;letter-spacing:.04em;position:relative;transition:border-color .2s,background .2s}
-.pay input{position:absolute;opacity:0}
+.pay input{position:absolute;opacity:0}.pay-note{margin:0;font-size:14px;line-height:1.9;color:var(--muted)}
 .pay label:has(input:checked){border-color:var(--ink);background:var(--ink);color:var(--cream)}
 .pay label:has(input:focus-visible){outline:1px solid var(--accent);outline-offset:3px}
 
@@ -352,6 +352,7 @@ html,body{background:#FFFFFF}
 </style>
 <style>br.mb{display:none}@media (max-width:760px){br.mb{display:inline}br.dk{display:none}}p,h1,h2,h3,li,dd{word-break:keep-all;overflow-wrap:break-word}p{text-wrap:pretty}</style>
 <style>.menu .m-lang{margin-top:12px;padding-top:24px;border-top:1px solid #E4DED4;font-family:inherit;font-size:14px;letter-spacing:.24em;color:#857D72}.menu .m-lang b{font-weight:500;color:var(--ink,#1E1A16)}.menu .m-lang a{color:#857D72}@media (max-height:740px){.menu{gap:18px;font-size:22px;padding-top:72px}.menu .m-sub{margin-top:-8px;font-size:14px}.menu .m-lang{padding-top:16px;margin-top:4px}}</style>
+<!--REV16--><style>html,body{overflow-x:clip;max-width:100%}@supports not (overflow:clip){html,body{overflow-x:hidden}}.book-grid>*,.steps,.step-card,.step-card .bd,.prog label,.prog span,.step-card header,.form>*,.field,input,select,textarea{min-width:0}input,select,textarea{max-width:100%}.prog span,.prog b{overflow-wrap:anywhere}.cta-row{grid-template-columns:minmax(300px,auto) 1fr}.btn.kakao{white-space:nowrap;padding:0 32px}@media (max-width:760px){.cta-row{grid-template-columns:1fr}.btn.kakao{width:100%;padding:0 16px;letter-spacing:.12em}}</style>
 </head>
 <body>
 
@@ -391,12 +392,11 @@ html,body{background:#FFFFFF}
       <div>
         <span class="eyebrow">CHOWOL BREWERY TASTING</span>
         <h1>서울 도심 속 양조장에서 경험하는<br>한국 전통 막걸리</h1>
-        <p>초월은 해남의 쌀과 누룩, 물, 시간만으로 막걸리를 빚는<br>서울의 작은 양조장입니다.</p>
+        <p>초월은 해남의 쌀과 누룩, 물, 시간만으로 막걸리를 빚는 <br class="dk">서울의 작은 양조장입니다.</p>
       </div>
       <div class="hero-btns">
         <a class="hbtn fill" href="#booking">테이스팅 예약 <span aria-hidden="true">→</span></a>
         <a class="hbtn" href="#visit">오시는 길</a>
-        <a class="hbtn" href="brewery_en.html" lang="en">English</a>
       </div>
     </div>
   </section>
@@ -521,13 +521,8 @@ html,body{background:#FFFFFF}
           </div>
 
           <div class="step-card" data-step="6">
-            <header><span class="n">6</span><h3>결제 수단</h3><span class="val" data-v="pay"></span></header>
-            <div class="bd pay" role="radiogroup" aria-label="결제 수단">
-              <label><input type="radio" name="pay" value="카드">신용 · 체크카드</label>
-              <label><input type="radio" name="pay" value="네이버페이">네이버페이</label>
-              <label><input type="radio" name="pay" value="카카오페이">카카오페이</label>
-              <label><input type="radio" name="pay" value="토스페이">토스페이</label>
-            </div>
+            <header><span class="n">6</span><h3>결제</h3><span class="val" data-v="pay"></span></header>
+            <div class="bd"><p class="pay-note">‘결제하고 예약하기’를 누르면 결제창이 열립니다.<br>결제창에서 신용 · 체크카드, 네이버페이, 카카오페이, 삼성페이, 애플페이, 페이코 중 원하는 결제 수단을 선택하실 수 있습니다.</p></div>
           </div>
 
           <div class="done-panel" id="donePanel" role="status" aria-live="polite" tabindex="-1">
@@ -660,7 +655,7 @@ html,body{background:#FFFFFF}
   var hd=document.querySelector('.head');function onS(){hd.classList.toggle('solid',scrollY>40)}addEventListener('scroll',onS,{passive:true});onS();
 
   /* ===== 예약 상태 ===== */
-  var S={prog:'tasting',price:14000,progName:'테이스팅 세션',date:null,time:null,ppl:2,pay:null};
+  var S={prog:'tasting',price:14000,progName:'테이스팅 세션',date:null,time:null,ppl:2,pay:'ok'};
   var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
   var won=function(n){return n.toLocaleString('ko-KR')+'원'};
   var DOW=['일','월','화','수','목','금','토'];
@@ -751,7 +746,7 @@ html,body{background:#FFFFFF}
   function render(){
     var infoOk=validInfo(false),agOk=ags.every(function(a){return a.checked});
     setVal('prog',S.progName);setVal('date',S.date?fmtDate(S.date):'');setVal('time',S.time?S.time+' – '+S.timeEnd:'');setVal('ppl',S.ppl+'명');
-    setVal('info',infoOk&&agOk?fName.value.trim()+' 님':'');setVal('pay',S.pay||'');
+    setVal('info',infoOk&&agOk?fName.value.trim()+' 님':'');setVal('pay','');
     $$('.step-card').forEach(function(c){var n=+c.dataset.step;var done=[true,!!S.date,!!S.time,true,infoOk&&agOk,!!S.pay][n-1];c.classList.toggle('done',done)});
     setSum('prog',S.progName);setSum('date',S.date?fmtDate(S.date):'');setSum('time',S.time?S.time+' – '+S.timeEnd:'');setSum('ppl',S.ppl+'명 × '+won(S.price));
     $('#sumTotal').textContent=won(S.price*S.ppl);
@@ -764,7 +759,7 @@ html,body{background:#FFFFFF}
     var d=S.date,code='CW-'+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase();
     $$('.step-card').forEach(function(c){c.style.display='none'});
     var p=$('#donePanel');p.classList.add('show');
-    $('#doneText').textContent=fmtDate(d)+' '+S.time+' · '+S.progName+' '+S.ppl+'명 · '+won(S.price*S.ppl)+' ('+S.pay+')';
+    $('#doneText').textContent=fmtDate(d)+' '+S.time+' · '+S.progName+' '+S.ppl+'명 · '+won(S.price*S.ppl);
     $('#doneCode').textContent='예약번호 '+code;
     this.textContent='예약 완료';this.disabled=true;
     p.focus({preventScroll:true});scrollTo({top:$('#booking').offsetTop-60,behavior:'smooth'});
