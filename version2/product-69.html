@@ -599,7 +599,7 @@ html,body{background:#FFFFFF}
         <div class="buy in d3" data-name="6.9">
           <div class="opt" role="group" aria-label="용량 선택">
             <button type="button" aria-pressed="true" data-price="9600" data-label="600ml" data-img="img/p69_single.jpg" data-alt="크림색 배경 위의 6.9 600ml 한 병">600ml</button>
-            <button type="button" aria-pressed="false" data-price="19600" data-label="750ml" data-img="img/n_69_750.jpg" data-alt="크림색 배경 위의 6.9 750ml 한 병">750ml</button>
+            <button type="button" aria-pressed="false" data-price="19600" data-label="750ml" data-img="img/n_69_750.jpg" data-fit="contain" data-bg="linear-gradient(#EBDECE 0%,#F4EADE 25%,#F8EEE4 50%,#F8EFE6 75%,#F7EDE3 100%)" data-alt="크림색 배경 위의 6.9 750ml 한 병">750ml</button>
           </div>
           <div class="qty-row">
             <div class="qty"><button type="button" data-q="-1" aria-label="수량 빼기">−</button><output aria-live="polite">1</output><button type="button" data-q="1" aria-label="수량 더하기">+</button></div>
@@ -852,7 +852,7 @@ html,body{background:#FFFFFF}
   document.querySelectorAll('.opt button[data-img]').forEach(function(b){
     b.addEventListener('click',function(){
       var img=document.querySelector('.phero .pimg'); if(!img||img.getAttribute('src')===b.dataset.img) return;
-      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
+      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.style.objectFit=b.dataset.fit||''; img.parentNode.style.background=b.dataset.bg||''; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
     });
   });
 })();

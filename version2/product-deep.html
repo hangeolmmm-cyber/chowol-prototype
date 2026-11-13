@@ -731,7 +731,7 @@ html,body{background:#FFFFFF}
   document.querySelectorAll('.opt button[data-img]').forEach(function(b){
     b.addEventListener('click',function(){
       var img=document.querySelector('.phero .pimg'); if(!img||img.getAttribute('src')===b.dataset.img) return;
-      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
+      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.style.objectFit=b.dataset.fit||''; img.parentNode.style.background=b.dataset.bg||''; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
     });
   });
 })();
