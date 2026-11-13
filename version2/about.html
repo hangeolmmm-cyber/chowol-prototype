@@ -299,6 +299,31 @@ html,body{background:#FFFFFF}
 <style>.menu .m-lang{margin-top:12px;padding-top:24px;border-top:1px solid #E4DED4;font-family:inherit;font-size:14px;letter-spacing:.24em;color:#857D72}.menu .m-lang b{font-weight:500;color:var(--ink,#1E1A16)}.menu .m-lang a{color:#857D72}@media (max-height:740px){.menu{gap:18px;font-size:22px;padding-top:72px}.menu .m-sub{margin-top:-8px;font-size:14px}.menu .m-lang{padding-top:16px;margin-top:4px}}</style>
 <!--REV16--><style>html,body{overflow-x:clip;max-width:100%}@supports not (overflow:clip){html,body{overflow-x:hidden}}.book-grid>*,.steps,.step-card,.step-card .bd,.prog label,.prog span,.step-card header,.form>*,.field,input,select,textarea{min-width:0}input,select,textarea{max-width:100%}.prog span,.prog b{overflow-wrap:anywhere}.cta-row{grid-template-columns:minmax(300px,auto) 1fr}.btn.kakao{white-space:nowrap;padding:0 32px}@media (max-width:760px){.cta-row{grid-template-columns:1fr}.btn.kakao{width:100%;padding:0 16px;letter-spacing:.12em}}</style>
 <!--REV17--><style>.field select{width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231E1A16' stroke-width='1.2'/%3E%3C/svg%3E") no-repeat right 16px center;border:1px solid var(--line);padding:14px 44px 14px 14px;min-height:50px;border-radius:0;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer}.field select:focus{border-color:var(--ink)}.guide-btns{display:grid;grid-template-columns:repeat(2,250px);gap:10px}.guide-btns a{justify-content:space-between}@media (max-width:600px){.guide-btns{grid-template-columns:1fr}}@media (max-width:820px){header .brand{margin-left:11px}}</style>
+<!--R18G--><style>@media (min-width:821px){.head .util{margin-left:36px!important}.head .nav{margin-left:auto!important}}</style>
+<!--R18ABOUT--><style>
+@media (min-width:901px){.p-hero .copy{justify-content:flex-start!important;padding-top:22vh!important}}
+.h2{font-weight:500!important;font-size:clamp(26px,2.4vw,38px)!important;line-height:1.45!important;letter-spacing:.03em!important}
+.manifesto p.big{font-weight:500!important;font-size:clamp(22px,2.1vw,32px)!important;line-height:1.9!important}
+.manifesto p.big em{font-weight:600!important}
+.b-lead{margin:0;max-width:none!important}
+.beyond-head{display:block!important;margin-bottom:48px!important}
+.b-card .img{aspect-ratio:4/5!important}
+.b-card h3{font-weight:500!important;font-size:22px!important}
+.body{line-height:2}
+@media (min-width:901px){
+  html{scroll-snap-type:y proximity}
+  .manifesto,.days,.taste,.brewer,.space,.b-card,.beyond-head{scroll-snap-align:start}
+  .manifesto,.days,.taste,.brewer{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+  .manifesto>.wrap,.days>.wrap,.taste>.wrap,.brewer>.wrap{width:100%}
+  .beyond{padding-top:120px}
+  .b-card{grid-template-columns:minmax(0,5fr) minmax(0,7fr)!important;align-items:center}
+  .b-card .img{width:100%;max-width:min(400px,calc((100vh - 200px) * .8));justify-self:start}
+  .b-card:nth-child(n+2){min-height:100vh;align-content:center}
+  .beyond{padding-top:110px!important}
+  .beyond-grid{gap:0!important}
+  .beyond-head{margin-bottom:36px!important}
+}
+</style>
 </head>
 <body>
 
@@ -309,7 +334,7 @@ html,body{background:#FFFFFF}
     <div class="has-sub">
       <a href="products.html" aria-haspopup="true">제품</a>
       <div class="sub" role="menu" aria-label="제품">
-        <a class="sub-all" href="products.html">전체 라인업</a><a href="product-69.html"><b>초월 6.9</b><span>6.9%</span></a><a href="product-deep.html"><b>DEEP</b><span>18%</span></a><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a>
+        <a class="sub-all" href="products.html">전체 라인업</a><a href="product-69.html"><b>6.9</b><span>6.9%</span></a><a href="product-deep.html"><b>DEEP</b><span>18%</span></a><a href="product-deepdown.html"><b>DEEP Down</b><span>12%</span></a><a href="product-spkl.html"><b>SPKL</b><span>15.6%</span></a>
       </div>
     </div>
     <a href="brewery.html">양조장 · 예약</a>
@@ -318,14 +343,13 @@ html,body{background:#FFFFFF}
   </nav>
   <div class="util">
     <span class="lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></span>
-    <a class="btn-line" href="brewery.html">방문 예약</a>
     <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="메뉴 열기">
       <svg width="22" height="10" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 1h22M0 9h22" stroke="currentColor" stroke-width="1"/></svg>
     </button>
   </div>
 </header>
 <div class="menu" id="menu" hidden>
-  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">초월 6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">Contact</a>
+  <a href="about.html">Chowol</a><a href="products.html">제품</a><a class="m-sub" href="product-69.html">6.9</a><a class="m-sub" href="product-deep.html">DEEP</a><a class="m-sub" href="product-deepdown.html">DEEP Down</a><a class="m-sub" href="product-spkl.html">SPKL</a><a href="brewery.html">양조장 · 예약</a><a href="stockists.html">초월 가이드</a><a href="archive.html">아카이브</a><a href="contact.html">Contact</a>
   <div class="m-lang"><b>KO</b> / <a href="chowol_main_color_en.html" lang="en" hreflang="en">EN</a></div>
 </div>
 
@@ -357,24 +381,24 @@ html,body{background:#FFFFFF}
         <div style="display:flex;flex-direction:column;gap:20px">
           <span class="eyebrow in"><b>01</b> — Philosophy</span>
           <h2 class="h2 in d1">세 가지를 넘어섭니다</h2>
+          <p class="body in d2 b-lead">재료와 방식, 그리고 막걸리가 놓이는 자리까지. 초월이 넘어서려는 세 개의 경계입니다.</p>
         </div>
-        <p class="body in d2" style="max-width:460px">재료와 방식, 그리고 막걸리가 놓이는 자리까지.<br>초월이 넘어서려는 세 개의 경계입니다.</p>
       </div>
       <div class="beyond-grid">
         <article class="b-card in">
-          <div class="img"><img src="img/n_img1515b.jpg" alt="시험관에 담긴 해남쌀과 누룩" loading="lazy"></div>
+          <div class="img"><img src="img/n_beyond1.jpg" alt="키에 담긴 벼를 바람에 날리는 모습" loading="lazy"></div>
           <span class="num">I</span>
           <h3>재료를 넘어<small>BEYOND MAKGEOLLI</small></h3>
           <p class="body">맛의 본질은 좋은 재료입니다.<br>초월은 땅끝해남에서 풍부한 햇살과 해풍으로 자란 저단백 품종을 사용해 <br class="dk">막걸리의 깊은 맛을 완성하였습니다.</p>
         </article>
         <article class="b-card in d1">
-          <div class="img"><img src="img/a_tasting.jpg" alt="전용잔과 나무 트레이에 차려진 초월 시음 세트" loading="lazy"></div>
+          <div class="img"><img src="img/n_beyond2.jpg" alt="옹기에서 쏟아지는 고두밥" loading="lazy"></div>
           <span class="num">II</span>
           <h3>전통을 넘어<small>BEYOND TRADITION</small></h3>
           <p class="body">경험되지 않은 전통은 단지 오래된 것이 아닙니다.<br>감미료와 발효첨가제를 전혀 사용하지 않는 전통 방식에 <br class="dk">초월만의 발효/숙성 방법으로 전에 없던 막걸리의 균형을 찾아 <br class="dk">막걸리를 미식의 경험으로 승화시켰습니다.</p>
         </article>
         <article class="b-card in d2">
-          <div class="img"><img src="img/c_objet.jpg" alt="나무 선반 위의 금속 오브제와 조약돌" loading="lazy"></div>
+          <div class="img"><img src="img/n_beyond3.jpg" alt="두 손으로 감싼 초월 전용잔" loading="lazy"></div>
           <span class="num">III</span>
           <h3>경계를 넘어<small>BEYOND LIMITS</small></h3>
           <p class="body">초월은 막걸리의 경험을 확장하여 주점 뿐만 아니라 <br class="dk">다이닝, 전시, 공연, 디저트, 바, 편집샵, 클럽 등 다양한 장소에서 만나보실 수 있습니다.<br>좋은 시간, 좋은 공간, 초월이 함께합니다.</p>
@@ -391,7 +415,7 @@ html,body{background:#FFFFFF}
         <div style="display:flex;flex-direction:column;gap:22px">
           <span class="eyebrow in"><b>02</b> — Process</span>
           <h2 class="h2 in d1">서두르지 않는<br>48일의 기다림</h2>
-          <p class="body in d2" style="max-width:440px">세 번에 걸쳐 술을 빚는 전통 삼양주.<br>밑술에 두 번 덧술을 더하고, <br class="mb">48일 동안 발효와 숙성을 거쳐 비로소 초월이 됩니다.<br>DEEP 시리즈는 56일 이상 완전 발효합니다.</p>
+          <p class="body in d2" style="max-width:none">세 번에 걸쳐 술을 빚는 전통 삼양주.<br>밑술에 두 번 덧술을 더하고, <br class="mb">48일 동안 발효와 숙성을 거쳐<br>비로소 초월이 됩니다.<br>DEEP 시리즈는 56일 이상 완전 발효합니다.</p>
         </div>
       </div>
       <ol class="timeline in" style="list-style:none;margin:0">
@@ -415,9 +439,9 @@ html,body{background:#FFFFFF}
       </svg>
       <div style="display:flex;flex-direction:column;gap:22px">
         <span class="eyebrow in"><b style="color:#D9B36C">03</b> — Taste</span>
-        <h2 class="h2 in d1">다채로운 풍미, 섬세한 단맛과<br>새초롬한 산미의 삼박자</h2>
-        <p class="body in d2" style="max-width:460px">전에 없던 막걸리의 균형을 찾아 막걸리를 미식의 경험으로 승화시켰습니다.</p>
-        <ul class="taste-list in d3"><li><b>해남</b><span>저단백쌀</span></li><li><b>전통방식</b><span>자연효모</span></li><li><b>장기발효</b><span>저온숙성</span></li><li><b>섬세한</b><span>미각설계</span></li></ul>
+        <h2 class="h2 in d1">막걸리의 균형</h2>
+        <p class="body in d2" style="max-width:none">다층적인 풍미, 섬세한 단맛과 산뜻한 산미의 조화로<br>막걸리를 미식의 경험으로 승화시켰습니다.</p>
+        
       </div>
     </div>
   </section>
@@ -429,7 +453,7 @@ html,body{background:#FFFFFF}
       <div style="display:flex;flex-direction:column;gap:26px">
         <span class="eyebrow in"><b>04</b> — Brewer</span>
         <h2 class="h2 in d1">막걸리를 초월한다는<br>목표 하나로</h2>
-        <p class="body in d2">오랜 기간 가양주 연구를 통해 초월의 막걸리를 완성했으며, 한국의 전통주 소믈리에 자격을 가진 대표이자 양조사로써 초월 막걸리의 탄생 배경과 양조, 더불어 한국의 전통주에 관한 이야기를 직접 들을 수 있습니다.</p>
+        <p class="body in d2">막걸리에 대한 애정으로 시작해 오랜 기간 가양주를 연구하며 초월의 막걸리를 완성했습니다.<br>현재도 전통 발효의 가치를 현대적으로 재해석하며<br>막걸리의 새로운 가능성을 끊임없이 연구하고 있습니다.</p>
         <ul class="creds in d3">
           <li><span>CEO · BREWER</span><span>최요섭</span></li>
           <li><span>CERTIFIED</span><span>전통주 소믈리에</span></li>
