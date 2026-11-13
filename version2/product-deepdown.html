@@ -519,8 +519,6 @@ html,body{background:#FFFFFF}
 .pdp-common .spec-grid{align-items:start}
 .pdp-common .serve div{min-height:150px}
 @media (min-width:901px){
-  html{scroll-snap-type:y proximity}
-  .phero,.pf,main>.sec,article>.sec,article>section,.moments,.pdp-common{scroll-snap-align:start}
   article>.sec{min-height:100vh;display:flex;flex-direction:column;justify-content:center}
   article>.sec>.wrap{width:100%}
 }
@@ -574,8 +572,8 @@ html,body{background:#FFFFFF}
       <p class="body in d2">같은 원주에 가수를 더해 12도로 낮췄습니다.<br>같은 원주에서 출발하기에 풍미의 구조는 그대로 이어집니다.</p>
       <div class="buy dark in d3" data-name="초월 DEEP Down">
           <div class="opt" role="group" aria-label="DEEP Down 용량 선택">
-            <button type="button" aria-pressed="true" data-price="19000" data-label="375ml">375ml · 19,000원</button>
-            <button type="button" aria-pressed="false" data-price="36000" data-label="750ml">750ml · 36,000원</button>
+            <button type="button" aria-pressed="true" data-price="19000" data-label="375ml" data-img="img/down_p.jpg" data-alt="은색 라벨의 초월 DEEP Down 375ml">375ml · 19,000원</button>
+            <button type="button" aria-pressed="false" data-price="36000" data-label="750ml" data-img="img/down_tilt.jpg" data-alt="검은 천 위에 비스듬히 놓인 초월 DEEP Down 750ml" data-pos="63% 50%">750ml · 36,000원</button>
           </div>
           <div class="qty-row">
             <div class="qty"><button type="button" data-q="-1" aria-label="수량 빼기">−</button><output aria-live="polite">1</output><button type="button" data-q="1" aria-label="수량 더하기">+</button></div>
@@ -587,15 +585,14 @@ html,body{background:#FFFFFF}
     </div>
   </section>
     <section class="pf dark">
-      <div class="pf-media"><img src="img/down_tilt.jpg" alt="검은 천 위에 비스듬히 놓인 초월 DEEP Down" loading="lazy" style="object-position:50% 50%"></div>
+      <div class="pf-media"><img src="img/mood_down.jpg" alt="초월 DEEP Down" loading="lazy" style="object-position:45% 45%"></div>
       <div class="pf-copy">
         <span class="eyebrow in"><b>01</b> — Deep Series</span>
         <h3 class="pf-h in d1">깊이는 그대로,<br>도수는 가볍게</h3>
         <p class="body in d2">최소 56일 이상의 장기 발효.<br>긴 시간 동안 쌀과 누룩이 만들어내는 향과 풍미가 천천히 쌓입니다.<br>그 원주에서 DEEP과 DEEP Down이 태어납니다.</p>
       </div>
     </section>
-    <section class="pf dark rev">
-      <div class="pf-media"><img src="img/mood_down.jpg" alt="초월 DEEP Down" loading="lazy" style="object-position:45% 45%"></div>
+    <section class="pf dark textonly">
       <div class="pf-copy">
         <span class="eyebrow in"><b>02</b> — Taste</span>
         <h3 class="pf-h in d1">가볍게 넘어가지만<br>풀바디로 묵직하게</h3>
@@ -732,7 +729,7 @@ html,body{background:#FFFFFF}
   document.querySelectorAll('.opt button[data-img]').forEach(function(b){
     b.addEventListener('click',function(){
       var img=document.querySelector('.phero .pimg'); if(!img||img.getAttribute('src')===b.dataset.img) return;
-      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.style.objectFit=b.dataset.fit||''; img.parentNode.style.background=b.dataset.bg||''; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
+      img.style.opacity=0; setTimeout(function(){img.src=b.dataset.img; if(b.dataset.alt) img.alt=b.dataset.alt; img.style.objectFit=b.dataset.fit||''; img.style.objectPosition=b.dataset.pos||''; img.parentNode.style.background=b.dataset.bg||''; img.onload=function(){img.style.opacity=1}; setTimeout(function(){img.style.opacity=1},400)},220);
     });
   });
 })();
