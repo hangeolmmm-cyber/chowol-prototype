@@ -312,9 +312,6 @@ html,body{background:#FFFFFF}
 <!--R18G--><style>@media (min-width:821px){.head .util{margin-left:36px!important}.head .nav{margin-left:auto!important}}</style>
 <!--R18HOME--><style>
 @media (min-width:901px){
-  html{scroll-snap-type:y mandatory}
-  #s1,#s1b,#s2,#s6,#s7{scroll-snap-align:start;scroll-snap-stop:always}
-  .site-foot{scroll-snap-align:end}
   #s2,#s6,#s7{height:100vh;min-height:620px;grid-template-columns:var(--cols,1fr 1fr)!important;align-items:stretch!important}
   #s2 .media,#s6 .media,#s7 .media{height:100vh;min-height:620px}
   #s2 .media img,#s6 .media img,#s7 .media img{position:absolute;inset:0;width:100%;height:100%!important;min-height:0!important;object-fit:cover!important}
@@ -636,6 +633,40 @@ html,body{background:#FFFFFF}
     })(last);
     sec.addEventListener('mousemove',function(){idle=Math.max(idle,2.5)});
   })();
+})();
+</script>
+<script>
+/* 섹션 단위 부드러운 스크롤: 휠 한 번에 다음 섹션까지 천천히 내려감 (데스크톱) */
+(function(){
+  var mq=window.matchMedia('(min-width:901px)'), reduce=window.matchMedia('(prefers-reduced-motion: reduce)');
+  var ids=['#s1','#s1b','#s2','#s6','#s7'], busy=false, acc=0, lastWheel=0, DUR=1100;
+  function secs(){return ids.map(function(s){return document.querySelector(s)}).filter(Boolean)}
+  function tops(){var t=secs().map(function(e){return Math.round(e.getBoundingClientRect().top+scrollY)});t.push(document.documentElement.scrollHeight-innerHeight);return t}
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  function go(y){
+    var from=scrollY, d=y-from; if(Math.abs(d)<2){return}
+    busy=true; var t0=performance.now(), dur=reduce.matches?1:DUR;
+    (function step(now){var p=Math.min(1,(now-t0)/dur); window.scrollTo(0,from+d*ease(p));
+      if(p<1) requestAnimationFrame(step); else setTimeout(function(){busy=false;acc=0},350);})(t0);
+  }
+  function current(T){var y=scrollY+4,i=0;for(var k=0;k<T.length;k++){if(T[k]<=y)i=k}return i}
+  function move(dir){var T=tops(), i=current(T), y=scrollY;
+    if(dir>0){ if(Math.abs(T[i]-y)>4 && T[i]>y){go(T[i]);return} if(i<T.length-1) go(T[i+1]); }
+    else { if(y-T[i]>4){go(T[i]);return} if(i>0) go(T[i-1]); }
+  }
+  function active(){var m=document.getElementById('menu');return mq.matches && !(m && !m.hidden)}
+  window.addEventListener('wheel',function(e){
+    if(!active()||e.ctrlKey) return;
+    e.preventDefault(); var now=performance.now();
+    if(busy){lastWheel=now;return}
+    if(now-lastWheel>250) acc=0; lastWheel=now; acc+=e.deltaY;
+    if(Math.abs(acc)>=24){var dir=acc>0?1:-1; acc=0; move(dir);}
+  },{passive:false});
+  window.addEventListener('keydown',function(e){
+    if(!active()) return; var t=e.target; if(t&&/INPUT|TEXTAREA|SELECT/.test(t.tagName)) return;
+    var k=e.key, dir=(k==='ArrowDown'||k==='PageDown'||(k===' '&&!e.shiftKey))?1:(k==='ArrowUp'||k==='PageUp'||(k===' '&&e.shiftKey))?-1:0;
+    if(!dir) return; e.preventDefault(); if(!busy) move(dir);
+  });
 })();
 </script>
 </body>
