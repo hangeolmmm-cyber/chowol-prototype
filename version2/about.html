@@ -352,7 +352,7 @@ html,body{background:#FFFFFF}
 }
 /* 48 days: centered, balanced */
 @media (min-width:901px){
-  .days-top{display:grid!important;grid-template-columns:1fr 1fr!important;justify-items:center;align-items:start;gap:0!important}
+  .days-top{display:flex!important;justify-content:center;align-items:flex-start;gap:clamp(64px,8vw,140px)!important}.days-top>*{flex:none}
   .days-top>div:last-child{padding-top:0}
   .big48{margin-top:23px}
 }
@@ -394,6 +394,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <!--R30SPACE--><style>@media (min-width:901px){.space-copy{white-space:nowrap;font-size:clamp(13px,0.95vw,15.5px)!important}}</style>
 <!--R31D48--><style>@media (min-width:901px){.big48{font-size:clamp(120px,12.5vw,240px)!important}}</style>
 <!--R34TASTE--><style>@media (min-width:901px){.taste-grid{position:relative;left:-8px}}</style>
+<!--R35DAYS--><style>@media (min-width:901px){.days-top{position:relative;left:-11px}}</style>
 </head>
 <body>
 
