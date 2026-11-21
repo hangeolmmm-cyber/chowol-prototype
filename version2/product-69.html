@@ -556,6 +556,36 @@ html,body{background:#FFFFFF}
 .tdown img{height:clamp(46px,4.2vw,64px)}
 .tspkl img{height:clamp(50px,4.6vw,68px)}
 </style>
+<!--R29P69--><style>
+/* notes: equal line spacing */
+.notes-grid .note-card .body,.notes-grid .note-card li{font-size:14.5px!important;line-height:2!important;color:var(--ink-2)}
+.notes-grid .note-card ul{gap:0!important;margin-top:0!important}
+@media (min-width:901px){.notes-grid{grid-template-columns:1.22fr 1fr 1fr}.note-card{padding-right:28px!important;margin-right:28px!important}}
+/* number: text bottom aligned with 6.9 */
+@media (min-width:901px){.meaning{align-items:end!important}.meaning>div:last-child{padding-bottom:var(--n69pad,0px)}}
+/* balance: table & gauge lower, bottoms aligned, text centred between */
+@media (min-width:901px){
+  .bal-grid{align-items:stretch!important}
+  .bal-grid>div:first-child{gap:0!important;height:100%}
+  .bal-grid>div:first-child .h2{margin-top:22px!important}
+  .bal-grid>div:first-child .body{margin:auto 0!important;padding:36px 0}
+  .bal-grid .bal-words{margin-top:0!important}
+  .bal-side{height:100%}
+  .bal-side .bars{margin-top:auto}
+}
+/* for you: tighter heading gap, columns aligned with heading */
+.foryou-grid{margin-top:40px!important;gap:clamp(24px,3vw,48px)!important}
+.fy{padding-left:0!important;background:none!important}
+</style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -624,7 +654,7 @@ html,body{background:#FFFFFF}
       <div class="wrap">
         <span class="eyebrow in" style="display:block;margin-bottom:40px"><b>01</b> — Story</span>
         <p class="q in">막걸리를 떠올리면<br>어떤 이미지가 먼저 <br class="mb">떠오르시나요?</p>
-        <p class="body sub in d1">초월은 단순히 막걸리를 만드는 것이 아니라, 막걸리라는 카테고리 자체를 새롭게 바라보는 시도에서 시작되었습니다.</p>
+        <p class="body sub in d1">초월은 단순히 막걸리를 만드는 것이 아니라, 막걸리라는 카테고리 자체를<br>새롭게 바라보는 시도에서 시작되었습니다.</p>
       </div>
     </section>
 
@@ -651,7 +681,7 @@ html,body{background:#FFFFFF}
           <div class="note-card in">
             <span class="k">FIRST — 첫인상</span>
             <h3>부드러움</h3>
-            <p class="body">잔에 따르는 순간 느껴지는 질감. 전통 막걸리 특유의 거칠음보다는 정제된 느낌에 가깝습니다. 입안의 촉감은 매끄럽고, 과도한 산미나 자극 없이 안정적으로 펼쳐집니다.</p>
+            <p class="body">잔에 따르는 순간부터 느껴지는 섬세한 질감.<br>입안을 부드럽게 감싸는 밀도감이 자연스럽게 어우러집니다.<br>균형 잡힌 풍미는 과도한 자극 없이 편안하게 이어지며,<br>마시는 순간부터 마지막 여운까지 부드러운 감각을 남깁니다.</p>
           </div>
           <div class="note-card in d1">
             <span class="k">BODY — 바디감</span>
@@ -662,7 +692,7 @@ html,body{background:#FFFFFF}
           <div class="note-card in d2">
             <span class="k">STRUCTURE — 맛의 구조</span>
             <h3>균형</h3>
-            <p class="body">어느 하나가 튀지 않으면서 전체적인 조화를 이루는 방향. 마실수록 편안하고, 자연스럽게 다음 잔으로 이어집니다.</p>
+            <p class="body">각각의 풍미가 과하지 않고, 자연스레 조화를 이룹니다.<br>섬세한 단맛과 은은한 산미가 균형을 유지하며,<br>깊이 있으면서도 부담스럽지 않은 맛을 완성합니다.<br>마실수록 편안하고 자연스럽게 다음 잔이 이어집니다.</p>
           </div>
         </div>
       </div>
@@ -717,7 +747,7 @@ html,body{background:#FFFFFF}
         <ul class="m-list in d2">
           <li><span>01</span>가볍게 한 잔 하고 싶은 저녁</li>
           <li><span>02</span>음식과 함께하는 편안한 자리</li>
-          <li><span>03</span>분위기를 해치지 않는 술이 필요할 때</li>
+          <li><span>03</span>서두르지 않고 천천히 술을 즐기고 싶을 때</li>
           <li><span>04</span>누군가에게 막걸리를 소개하고 싶은 순간</li>
         </ul>
         <p class="closing in d3"><em>일상의 밀도를 조금 바꿔주는 술</em></p>
@@ -735,7 +765,7 @@ html,body{background:#FFFFFF}
             <dt>용량 · 가격</dt><dd>600ml 9,600원 · 750ml 19,600원</dd>
             <dt>원재료</dt><dd>정제수, 쌀(해남산), 찹쌀(해남산), 누룩(국내산)</dd>
             <dt>발효 · 숙성</dt><dd>48일, 전통 삼양주</dd>
-            <dt>소비기한</dt><dd>600ml 45일 · 750ml 70일</dd>
+            <dt>소비기한</dt><dd>600ml 60일 · 750ml 90일</dd>
             <dt>보관</dt><dd>냉장 보관 0–10℃</dd>
           </dl>
         </div>
@@ -862,6 +892,19 @@ html,body{background:#FFFFFF}
     });
   });
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>

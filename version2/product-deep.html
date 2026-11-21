@@ -539,6 +539,15 @@ html,body{background:#FFFFFF}
 .tdown img{height:clamp(46px,4.2vw,64px)}
 .tspkl img{height:clamp(50px,4.6vw,68px)}
 </style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -605,7 +614,7 @@ html,body{background:#FFFFFF}
       <div class="pf-copy">
         <span class="eyebrow in"><b>02</b> — Taste</span>
         <h3 class="pf-h in d1">맑고 깊은 구조에<br>프루티함과 복합적인 아로마</h3>
-        <p class="body in d2">일반적인 막걸리보다 훨씬 맑고 깊은 구조에 프루티함과 복합적인 아로마를 지녔습니다.<br>도수 18%, 하지만 강한 술이라는 느낌보다 풍미의 구조가 먼저 느껴집니다.</p><ol class="flow in d3"><li><span>NOSE</span><b>핵과실류의 과육 향</b><em>곡물만 썼지만 잔에 따르는 순간 올라오는 향</em></li><li><span>PALATE</span><b>과하지 않은 단맛, 이어지는 드라이</b><em>달지 않게, 담백하게 이어지는 흐름</em></li><li><span>FINISH</span><b>산뜻한 산미, 은은한 스파이시</b><em>위스키나 증류식 소주를 닮은 여운</em></li></ol>
+        <p class="body in d2">일반적인 막걸리보다 훨씬 맑고 깊은 구조에<br>프루티함과 복합적인 아로마를 지녔습니다.<br>도수 18%, 하지만 강한 술이라는 느낌보다 풍미의 구조가 먼저 느껴집니다.</p><ol class="flow in d3"><li><span>NOSE</span><b>핵과실류의 과육 향</b><em>곡물만 썼지만 잔에 따르는 순간 올라오는 향</em></li><li><span>PALATE</span><b>과하지 않은 단맛, 이어지는 드라이</b><em>달지 않게, 담백하게 이어지는 흐름</em></li><li><span>FINISH</span><b>산뜻한 산미, 은은한 스파이시</b><em>위스키나 증류식 소주를 닮은 여운</em></li></ol>
       </div>
     </section>
     <section class="pf dark">
@@ -742,6 +751,19 @@ html,body{background:#FFFFFF}
     });
   });
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>

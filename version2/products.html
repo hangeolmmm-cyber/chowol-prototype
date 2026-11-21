@@ -494,6 +494,16 @@ html,body{background:#FFFFFF}
   .card .meta{padding-top:12px!important}
 }
 </style>
+<!--R29PROD--><style>@media (min-width:901px){.card .img{height:max(300px,calc(100vh - 470px))!important}}</style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -549,7 +559,7 @@ html,body{background:#FFFFFF}
       <div class="meta"><span>27,000원부터</span><span class="go">자세히 보기 →</span></div>
     </a>
     <a class="card in" href="product-deepdown.html">
-      <div class="img"><img src="img/mood_down.jpg" alt="DEEP Down" loading="lazy" style="object-position:45% 45%"></div>
+      <div class="img"><img src="img/mood_down_h.jpg" alt="DEEP Down" loading="lazy" style="object-position:50% 50%"></div>
       <span class="eyebrow">PREMIUM — DEEP SERIES</span>
       <div class="row"><h2>DEEP Down</h2><span class="abv">12% · 375 / 750ml</span></div>
       <p class="tag">깊이는 그대로, 도수는 가볍게</p>
@@ -655,6 +665,19 @@ html,body{background:#FFFFFF}
     if(m==='shake'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){glass.classList.remove('wobble');void glass.getBoundingClientRect();glass.classList.add('wobble')}
   })});
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>

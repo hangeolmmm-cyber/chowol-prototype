@@ -539,6 +539,15 @@ html,body{background:#FFFFFF}
 .tdown img{height:clamp(46px,4.2vw,64px)}
 .tspkl img{height:clamp(50px,4.6vw,68px)}
 </style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -601,15 +610,15 @@ html,body{background:#FFFFFF}
       </div>
     </section>
     <section class="pf dark rev">
-      <div class="pf-media"><img src="img/down_tilt.jpg" alt="검은 천 위에 비스듬히 놓인 초월 DEEP Down" loading="lazy" style="object-position:63% 50%"></div>
+      <div class="pf-media"><img src="img/down_water.jpg" alt="물결 위에 놓인 초월 DEEP Down" loading="lazy" style="object-position:55% 50%"></div>
       <div class="pf-copy">
         <span class="eyebrow in"><b>02</b> — Taste</span>
         <h3 class="pf-h in d1">가볍게 넘어가지만<br>풀바디로 묵직하게</h3>
         <ol class="flow in d3"><li><span>NOSE</span><b>곡물과 핵과실류의 풍미</b><em>DEEP의 구조가 그대로 따라옵니다</em></li><li><span>PALATE</span><b>과하지 않은 단맛</b><em>가볍게 넘어가지만 풀바디로 묵직하게</em></li><li><span>FINISH</span><b>플랫한 드라이</b><em>깔끔하게 떨어져, 마시고 난 뒤가 산뜻합니다</em></li></ol>
       </div>
     </section>
-    <section class="pf dark textonly">
-      
+    <section class="pf dark">
+      <div class="pf-media"><img src="img/down_glass.jpg" alt="전용잔 두 개와 나란히 선 초월 DEEP Down" loading="lazy" style="object-position:58% 60%"></div>
       <div class="pf-copy">
         <span class="eyebrow in"><b>03</b> — Texture</span>
         <h3 class="pf-h in d1">DEEP을 편하게,<br>더 자주 마실 수 있는 균형</h3>
@@ -742,6 +751,19 @@ html,body{background:#FFFFFF}
     });
   });
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>

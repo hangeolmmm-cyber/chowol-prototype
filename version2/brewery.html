@@ -382,6 +382,16 @@ html,body{background:#FFFFFF}
 .book-faq{margin-top:72px;padding-top:56px;border-top:1px solid var(--line)}
 @media (max-width:900px){.ways.solo .way{grid-template-columns:1fr}.ways.solo .way .img{min-height:0;aspect-ratio:16/10}.b-hero .copy{padding:0 24px!important}}
 </style>
+<!--R29BREW--><style>.rv-head{display:flex;flex-direction:column;gap:18px;margin-bottom:6px}.ways.solo{margin-top:0!important}</style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -449,22 +459,16 @@ html,body{background:#FFFFFF}
   <!-- RESERVE -->
   <section class="sec reserve" id="reserve" style="background:var(--rice)">
     <div class="wrap">
-      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap">
-        <div style="display:flex;flex-direction:column;gap:20px">
-          <span class="eyebrow in"><b>02</b> — Booking</span>
-          <h2 class="h2 in d1">예약하기</h2>
-        </div>
-      </div>
       <div class="ways solo">
           <article class="way in">
           <div class="img"><img src="img/a_tasting.jpg" alt="나무 트레이 위 전용잔 세 개" loading="lazy"></div>
           <div class="txt">
-            <h3>테이스팅 세션</h3>
+            <div class="rv-head"><span class="eyebrow"><b>02</b> — Booking</span><h2 class="h2">예약하기</h2></div>
             <p class="body">한국의 전통 발효 문화와 막걸리 제조 과정을 소개하고, <br class="dk">막걸리 4종을 직접 비교하며 시음합니다.</p>
             <dl>
               <dt>진행 요일</dt><dd>매일 (예약 가능 일정에 따라 변동)</dd><dt>진행 시간</dt><dd>12:30 / 13:30 / 14:30 / 15:30 / 16:30 / 17:30</dd><dt>소요 시간</dt><dd>약 45~60분</dd><dt>참여 인원</dt><dd>회당 최대 7명</dd><dt>참가 비용</dt><dd class="price-dd"><span class="p-list"><s>정가 18,000원</s></span><span class="p-arrow" aria-hidden="true">→</span><span class="p-sale">예약가 <b>16,000원</b></span></dd><dt>진행 언어</dt><dd>한국어 / 영어</dd><dt>제공 사항</dt><dd>막걸리 4종 시음, 페어링 스낵, 전통 발효 및 양조 과정 소개</dd>
             </dl>
-            <a class="book-cta" href="#booking" aria-controls="booking" aria-expanded="false">이 세션 예약하기<span aria-hidden="true">→</span></a>
+            <a class="book-cta" href="#booking" aria-controls="booking" aria-expanded="false">지금 예약하기<span aria-hidden="true">→</span></a>
           </div>
         </article>
       </div>
@@ -772,6 +776,19 @@ html,body{background:#FFFFFF}
   document.querySelectorAll('a[href="#booking"]').forEach(function(a){ if(a!==cta) a.addEventListener('click',function(e){e.preventDefault();open(true)}) });
   if(location.hash==='#booking'||location.hash==='#faq') open(true);
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>

@@ -538,6 +538,15 @@ html,body{background:#FFFFFF}
 .tdown img{height:clamp(46px,4.2vw,64px)}
 .tspkl img{height:clamp(50px,4.6vw,68px)}
 </style>
+<!--R29KEEP--><style>
+html{-webkit-text-size-adjust:100%}
+body{word-break:keep-all;overflow-wrap:break-word;line-break:strict}
+h1,h2,h3,h4,.h2,.pf-h,blockquote,.q{text-wrap:balance}
+p,li,dd,figcaption,.body,small{text-wrap:pretty}
+</style>
+<!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
+<!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
+<!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 </head>
 <body>
 
@@ -654,7 +663,7 @@ html,body{background:#FFFFFF}
         <ol class="big-list in d2"><li><span>01</span>와인은 좋아하지만 막걸리는 아직 낯선 분</li><li><span>02</span>한 병으로 서로 다른 무드를 경험하고 싶은 분</li><li><span>03</span>식탁 위에 올릴 새로운 술을 찾는 분</li><li><span>04</span>전통주를 조금 다른 방식으로 즐기고 싶은 분</li></ol>
       </div>
     </section>
-    <section class="pf textonly sp-closing"><div class="pf-copy"><p class="sp-close in">쌀로 빚었지만 와인처럼 즐기는 술.<br>흔들면 <br class="mb">또 다른 한 잔이 되는 술.<br><em>초월 SPKL</em>입니다.</p></div></section>
+    <section class="pf textonly sp-closing"><div class="pf-copy"><p class="sp-close in">쌀로 빚었지만 와인처럼 즐기는 술.<br>흔들면 또 다른 한 잔이 되는 술.<br><em>초월 SPKL</em>입니다.</p></div></section>
     <section class="sec pdp-common" style="background:var(--cream)">
       <div class="wrap spec-grid">
         <div style="display:flex;flex-direction:column;gap:22px">
@@ -772,6 +781,19 @@ html,body{background:#FFFFFF}
     });
   });
 })();
+</script>
+<script>
+/* 모바일 한글 줄바꿈: <br> 구간마다 균형 있게 */
+(function(){if(!matchMedia('(max-width:900px)').matches)return;
+var sel='p,li,dd,dd small,blockquote,h1,h2,h3,h4,.body,.q';
+document.querySelectorAll(sel).forEach(function(el){
+  var brs=[].filter.call(el.querySelectorAll(':scope > br'),function(b){return getComputedStyle(b).display!=='none'});
+  if(!brs.length)return;
+  var groups=[[]];[].slice.call(el.childNodes).forEach(function(n){
+    if(n.nodeName==='BR'){ if(brs.indexOf(n)>-1){groups.push([]);} n.parentNode.removeChild(n); return;}
+    groups[groups.length-1].push(n);});
+  groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
+});})();
 </script>
 </body>
 </html>
