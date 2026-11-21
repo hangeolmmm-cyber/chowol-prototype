@@ -359,7 +359,7 @@ html,body{background:#FFFFFF}
 /* taste: centered composition + new graphic */
 @media (min-width:901px){
   .taste-grid{display:flex!important;justify-content:center;align-items:center;gap:clamp(64px,8vw,140px)!important}
-  .taste-grid .venn{width:min(46vw,520px);flex:none;margin:0}
+  .taste-grid .venn{width:min(40vw,460px);flex:none;margin:0}.taste-grid>div{flex:none;width:max-content;max-width:520px}
 }
 .venn.v2 .vring{fill:none;stroke:#EDE7DC;stroke-width:.8;opacity:.75}
 .venn.v2 .vring-glow{fill:none;stroke:#EDE7DC;stroke-width:5;opacity:.18}
@@ -393,6 +393,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
 <!--R30SPACE--><style>@media (min-width:901px){.space-copy{white-space:nowrap;font-size:clamp(13px,0.95vw,15.5px)!important}}</style>
 <!--R31D48--><style>@media (min-width:901px){.big48{font-size:clamp(120px,12.5vw,240px)!important}}</style>
+<!--R34TASTE--><style>@media (min-width:901px){.taste-grid{position:relative;left:-8px}}</style>
 </head>
 <body>
 
@@ -499,7 +500,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
   <!-- 05 TASTE -->
   <section class="sec taste">
     <div class="wrap taste-grid">
-      <svg class="venn v2 in" viewBox="0 0 520 500" role="img" aria-label="풍미, 단맛, 산미 세 원이 겹치는 가운데에 초월">
+      <svg class="venn v2 in" viewBox="40 40 440 404" role="img" aria-label="풍미, 단맛, 산미 세 원이 겹치는 가운데에 초월">
 <defs>
 <clipPath id="vc0"><circle cx="260" cy="180" r="132"/></clipPath>
 <radialGradient id="vf0" cx="260" cy="180" r="132" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EDE7DC" stop-opacity="0"/><stop offset=".55" stop-color="#EDE7DC" stop-opacity=".05"/><stop offset="1" stop-color="#EDE7DC" stop-opacity=".9"/></radialGradient>
