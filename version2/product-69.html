@@ -586,6 +586,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
 <!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
 <!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
+<!--R33NUM--><style>@media (min-width:901px){.meaning{align-items:center!important}.meaning>div:last-child{transition:none}}</style>
 </head>
 <body>
 
@@ -905,6 +906,19 @@ document.querySelectorAll(sel).forEach(function(el){
     groups[groups.length-1].push(n);});
   groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
 });})();
+</script>
+<script>
+/* 6.9 숫자 아래선에 오른쪽 글 마지막 줄 맞추기 (실제 글꼴 기준 계산) */
+(function(){var n=document.querySelector('.meaning .n69'),box=document.querySelector('.meaning>div:last-child');if(!n||!box)return;
+var p=box.querySelector('p:last-of-type')||box,cv=document.createElement('canvas').getContext('2d');
+function mk(el){var m=document.createElement('span');m.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';el.appendChild(m);return m}
+var m1=mk(n),m2=mk(p);
+function run(){box.style.transform='';if(innerWidth<901)return;
+ var cs=getComputedStyle(n);cv.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+ var d=0;['6','9'].forEach(function(c){d=Math.max(d,cv.measureText(c).actualBoundingBoxDescent)});
+ var glyphBottom=m1.getBoundingClientRect().bottom+d, textBase=m2.getBoundingClientRect().bottom;
+ box.style.transform='translateY('+Math.round(glyphBottom-textBase)+'px)';}
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(run);addEventListener('resize',run);addEventListener('load',run);})();
 </script>
 </body>
 </html>
