@@ -548,6 +548,12 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <!--R29BAL--><style>@media (max-width:900px){p,li,dd,.body,blockquote,figcaption{text-wrap:balance}}</style>
 <!--R29SEG--><style>@media (max-width:900px){.lseg{display:block;text-wrap:balance}}</style>
 <!--R29SMALL--><style>@media (max-width:900px){dd small{text-wrap:balance}}</style>
+
+<!--R37LIST--><style>@media (max-width:900px){
+.pf .pf-copy:has(.big-list){align-items:flex-start!important;text-align:left!important}
+.pf .pf-copy:has(.big-list) .eyebrow,.pf .pf-copy:has(.big-list) .pf-h{text-align:left!important;align-self:flex-start}
+.pf .big-list li{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:baseline;text-align:left;text-wrap:balance;font-size:17px;line-height:1.6;padding:18px 0}
+.pf .big-list span{width:auto!important}}</style>
 </head>
 <body>
 
@@ -638,7 +644,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
         <div style="display:flex;flex-direction:column;gap:22px">
           <span class="eyebrow in">DETAILS</span>
           <h3 class="h2 in d1">제품 정보</h3>
-          <dl class="spec in d2"><dt>알코올</dt><dd>18%</dd><dt>용량 · 가격</dt><dd>375ml 27,000원 · 750ml 52,000원</dd><dt>원료</dt><dd>쌀 · 찹쌀 · 누룩</dd><dt>발효</dt><dd>56일 이상 완전 발효 · 윗술 엄선</dd><dt>소비기한</dt><dd>5개월</dd><dt>추천 잔</dt><dd>전용잔 · 노징글라스</dd></dl>
+          <dl class="spec in d2"><dt>알코올</dt><dd>18%</dd><dt>용량 · 가격</dt><dd><span style="white-space:nowrap">375ml 27,000원 ·</span> <span style="white-space:nowrap">750ml 52,000원</span></dd><dt>원료</dt><dd>쌀 · 찹쌀 · 누룩</dd><dt>발효</dt><dd>56일 이상 완전 발효 · 윗술 엄선</dd><dt>소비기한</dt><dd>5개월</dd><dt>추천 잔</dt><dd>전용잔 · 노징글라스</dd></dl>
         </div>
         <div style="display:flex;flex-direction:column;gap:22px">
           <span class="eyebrow in">HOW TO ENJOY</span>
