@@ -396,6 +396,28 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <!--R39GUT--><style>@media (max-width:900px){:root{--gut:24px!important}}</style>
 <!--R39HEAD--><style>@media (max-width:900px){.head{padding-left:13px!important;padding-right:13px!important}.pf .pf-copy:has(.big-list){margin-left:0!important;margin-right:0!important;padding-left:var(--gut)!important;padding-right:var(--gut)!important;max-width:none!important;width:100%!important;box-sizing:border-box}}</style>
 <!--R48EYE--><style>.eyebrow{position:relative;left:5px}.b-hero .eyebrow{left:0}</style>
+<!--R61TONE--><style>.head.toned{mix-blend-mode:normal}.head.toned .nav>a,.head.toned .has-sub>a,.head.toned .lang,.head.toned .burger{transition:color .35s}</style>
+<!--R66HEAD--><style>@media (max-width:900px){.head,.head.solid,.head:has(.has-sub:hover){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);will-change:transform}.head.solid{background:#FFFFFF!important}}</style>
+<!--R68BREW--><style>.sp-nav{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:28px;font-size:12px;letter-spacing:.2em;color:var(--muted)}
+.sp-nav button{width:44px;height:44px;border:1px solid var(--line);background:none;border-radius:50%;cursor:pointer;color:var(--ink);font-size:15px;transition:background .3s,color .3s}
+.sp-nav button:hover{background:var(--ink);color:var(--cream)}
+.sp-count b{color:var(--ink);font-weight:500}
+@media (min-width:901px){.b-intro{grid-template-columns:minmax(0,520px) max-content!important;justify-content:center;align-items:start!important}
+.b-intro>div:last-child{width:max-content;max-width:100%}.b-intro .offer{width:100%}}
+.rv-wrap{margin-top:clamp(80px,10vw,128px)}
+.rv-top{display:flex;justify-content:space-between;align-items:end;margin-bottom:28px}
+.rv-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rv-track::-webkit-scrollbar{display:none}
+.rv-card{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;margin:0;padding:34px 30px 28px;border:1px solid var(--line);background:rgba(255,255,255,.5);display:flex;flex-direction:column;gap:18px}
+.rv-stars{color:var(--accent);font-size:14px;letter-spacing:.22em}
+.rv-card blockquote{margin:0;flex:1;font-size:14px;line-height:1.95;color:var(--ink-2)}
+.rv-card blockquote p{margin:0}.rv-card blockquote p+p{margin-top:10px}
+.rv-card[lang=en] blockquote{word-break:normal}
+.rv-card figcaption{padding-top:16px;border-top:1px solid var(--line);font-family:'Noto Serif KR',serif;font-weight:300;font-size:15px;letter-spacing:.04em;color:var(--ink)}
+@media (max-width:1100px){.rv-card{flex-basis:calc((100% - 20px)/2)}}
+@media (max-width:900px){.rv-track{gap:12px;margin:0 calc(-1 * var(--gut));padding:0 var(--gut);scroll-padding:0 var(--gut)}.rv-card{flex-basis:82vw;padding:28px 22px 22px}}</style>
+<!--R68BREW2--><style>@media (min-width:901px){.b-intro .offer{contain:inline-size;width:100%}.b-intro .offer b{word-break:keep-all}}</style>
+<!--R68BREW3--><style>@media (min-width:901px){.rv-wrap{max-width:1100px;margin-left:auto;margin-right:auto}}</style>
 </head>
 <body>
 
@@ -450,7 +472,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
       <div style="display:flex;flex-direction:column;gap:24px">
         <span class="eyebrow in"><b>01</b> — INFO</span>
         <h2 class="h2 in d1">테이스팅 세션</h2>
-        <p class="body in d2">테이스팅 세션에서는 한국의 전통 발효 문화와 막걸리 제조 과정을 소개하고, 서로 다른 풍미를 지닌 막걸리 4종을 직접 비교하며 시음합니다. 간단한 페어링 스낵과 함께 막걸리의 다양한 맛과 매력을 발견하는 시간입니다.</p>
+        <p class="body in d2">테이스팅 세션에서는 한국의 전통 발효 문화와 막걸리 제조 과정을 소개하고,<br>서로 다른 풍미를 지닌 막걸리 4종을 직접 비교하며 시음합니다.<br>간단한 페어링 스낵과 함께 막걸리의 다양한 맛과 매력을<br>발견하는 시간입니다.</p>
         <ul class="offer in d3">
           <li><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M9 5h12l-1.5 20h-9z"/><path d="M10 12h10"/></svg><b>막걸리 4종 시음</b></li>
           <li><svg viewBox="0 0 30 30" aria-hidden="true"><path d="M6 10h18l-2 15H8z"/><path d="M11 10V7a4 4 0 0 1 8 0v3"/></svg><b>페어링 스낵</b></li>
@@ -458,6 +480,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
         </ul>
       </div>
     </div>
+    <div class="wrap"><div class="rv-wrap in d2"><div class="rv-top"><span class="eyebrow">REVIEWS — 방문 후기</span></div><div class="rv-slider" aria-roledescription="carousel" aria-label="방문 후기"><div class="rv-track"><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>Such a unique and memorable experience! The makgeolli tasting was fantastic, and our host was incredibly knowledgeable and made the experience both fun and informative. We learned so much and really enjoyed tasting the different varieties. Highly recommend!</p></blockquote><figcaption>Nikki Freeman</figcaption></figure><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>It’s a very nice experience, if you want to learn more about traditional Korean makgeolli , it’s a great drink and part of history so make sure to learn some cool stuff</p></blockquote><figcaption>Marcela Murillo</figcaption></figure><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>We had a great experience and learned a lot tasting high quality makgeolli in this cozy brewery. Highly recommend!</p></blockquote><figcaption>Roberta Reho</figcaption></figure><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>If you want an authentic experience to discover what makgeolli is, this is the place! The guy is super friendly and knows exactly what he&#x27;s doing; his project is authentic!</p><p>A must-see if you want to learn about authentic Korean drinking!</p></blockquote><figcaption>Clyde Fourmau</figcaption></figure><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>Far exceeded my expectation! Each makgeolli leaves a lasting impression, ranging from sweet and smooth, strong and velvety, to tart and sharp. Sampling with snacks was an amazing eye opener and will be sure to visit again to pick up a bottle or two</p></blockquote><figcaption>Cj Jeon</figcaption></figure><figure class="rv-card" lang="en"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>If you want to try traditional makgeolli, this is the place to do it! A delicious, great value tasting of different kinds of makgeolli and Korean snacks. Great flavors and explanations, I learned so much about the brewing process. Highly recommend!</p></blockquote><figcaption>Jason Vadnos</figcaption></figure><figure class="rv-card"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>전문 소믈리에와 초월의 다양한 막걸리를 즐길 수 있었어요.</p><p>한국적인 분위기의 공간에 맛있는 막걸리와 친절한 소믈리에 이자 양조사님 덕분에 즐거운 시간을 보내고 왔습니다!!!</p><p>유명 작가님과 콜라보한 잔 과 다양한 굿즈들도 탐났습니다</p></blockquote><figcaption>정재엽</figcaption></figure><figure class="rv-card"><div class="rv-stars" role="img" aria-label="별점 5점 만점에 5점">★★★★★</div><blockquote><p>프라이빗하게 즐길 수 있는 막걸리 테이스팅룸. 분위기도 너무 좋고 막걸리 맛이 너무 좋아요. 막걸리에 이렇게 다양한 맛이 있는줄 몰랐어요. 재방문의사 100%</p></blockquote><figcaption>최수정</figcaption></figure></div><div class="sp-nav rv-nav"><button type="button" class="rv-prev" aria-label="이전 후기">←</button><span class="sp-count rv-count"><b>1</b> / 8</span><button type="button" class="rv-next" aria-label="다음 후기">→</button></div></div></div></div>
   </section>
 
   <!-- RESERVE -->
@@ -794,5 +817,45 @@ document.querySelectorAll(sel).forEach(function(el){
   groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
 });})();
 </script>
+<script>/*R61TONE*/(function(){
+var hd=document.querySelector('.head');if(!hd)return;
+var cache={},failed=false;
+function grid(src,cb){var c=cache[src];if(c){if(c.d)cb(c);else c.q.push(cb);return}
+ c=cache[src]={q:[cb]};var im=new Image();im.onload=function(){try{var W=96,H=Math.max(1,Math.round(96*im.naturalHeight/im.naturalWidth));var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(im,0,0,W,H);c.d=x.getImageData(0,0,W,H).data;c.W=W;c.H=H;c.nw=im.naturalWidth;c.nh=im.naturalHeight;c.q.forEach(function(f){f(c)});c.q=[];schedule()}catch(e){failed=true;hd.classList.remove('toned')}};im.onerror=function(){c.d=null;c.bad=1};im.src=src}
+function pos(v,i){var p=(v||'50% 50%').split(' ');var t=p[i]||p[0]||'50%';if(t.indexOf('%')>0)return parseFloat(t)/100;if(t=='left'||t=='top')return 0;if(t=='right'||t=='bottom')return 1;return .5}
+function sampleImg(el,src,fit,op,x,y){var c=cache[src];if(!c||!c.d){grid(src,function(){});return null}
+ var r=el.getBoundingClientRect(),s;if(fit=='contain')s=Math.min(r.width/c.nw,r.height/c.nh);else if(fit=='fill'){var u=(x-r.left)/r.width,v=(y-r.top)/r.height;return px(c,u,v)}else s=Math.max(r.width/c.nw,r.height/c.nh);
+ var ox=(r.width-c.nw*s)*pos(op,0),oy=(r.height-c.nh*s)*pos(op,1);var u=(x-r.left-ox)/(c.nw*s),v=(y-r.top-oy)/(c.nh*s);if(u<0||u>1||v<0||v>1)return {a:0};return px(c,u,v)}
+function px(c,u,v){var i=(Math.min(c.H-1,Math.floor(v*c.H))*c.W+Math.min(c.W-1,Math.floor(u*c.W)))*4,d=c.d;return {l:(.2126*d[i]+.7152*d[i+1]+.0722*d[i+2])/255,a:d[i+3]/255}}
+function rgb(s){var m=s.match(/[\d.]+/g);if(!m)return null;return {l:(.2126*m[0]+.7152*m[1]+.0722*m[2])/255,a:m.length>3?+m[3]:1}}
+function lumAt(x,y){var st=document.elementsFromPoint(x,y);for(var i=0;i<st.length;i++){var e=st[i];if(hd.contains(e))continue;if(e.closest&&e.closest('.menu'))continue;
+  var cs=getComputedStyle(e);if(cs.visibility=='hidden'||+cs.opacity<.3)continue;
+  if(e.tagName=='CANVAS')continue;if(e.tagName=='VIDEO'||e.tagName=='IFRAME')return .2;
+  if(e.tagName=='IMG'&&e.currentSrc){var p=sampleImg(e,e.currentSrc,cs.objectFit,cs.objectPosition,x,y);if(p===null)return null;if(p.a>.5)return p.l;continue}
+  var bi=cs.backgroundImage;if(bi&&bi!='none'){var m=bi.match(/url\(["']?([^"')]+)["']?\)/);if(m){var fit=cs.backgroundSize=='contain'?'contain':(cs.backgroundSize.indexOf('100% 100%')==0?'fill':'cover');var p2=sampleImg(e,m[1],fit,cs.backgroundPosition,x,y);if(p2===null)return null;if(p2.a>.5)return p2.l}}
+  var b=rgb(cs.backgroundColor);if(b&&b.a>.5)return b.l}
+ return 1}
+function items(){var a=[hd.querySelector('.brand')];hd.querySelectorAll('.nav>a,.nav>.has-sub>a').forEach(function(e){a.push(e)});var l=hd.querySelector('.lang');if(l)a.push(l);var bg=hd.querySelector('.burger');if(bg)a.push(bg);return a.filter(function(e){return e&&e.offsetParent!==null||e&&e.getClientRects().length})}
+function clear(){hd.classList.remove('toned');items().forEach(function(e){e.style.color='';var im=e.querySelector&&e.querySelector('img');if(im)im.style.filter=''})}
+var busy=false;function run(){busy=false;if(failed)return;
+ var solid=hd.classList.contains('solid');try{solid=solid||hd.matches(':has(.has-sub:hover),:has(.has-sub:focus-within)')}catch(e){}var bu=hd.querySelector('.burger');if(bu&&bu.getAttribute('aria-expanded')=='true')solid=true;
+ if(solid){clear();return}
+ var its=items(),res=[],pending=false;
+ its.forEach(function(e){var r=e.getBoundingClientRect();if(!r.width)return;var sum=0,n=0;for(var i=0;i<5;i++)for(var j=0;j<3;j++){var x=r.left+r.width*(i+.5)/5,y=r.top+r.height*(j+.5)/3;var L=lumAt(x,y);if(L===null){pending=true;continue}sum+=L;n++}
+  if(n)res.push([e,sum/n])});
+ if(pending&&!res.length)return;
+ hd.classList.add('toned');
+ res.forEach(function(p){var light=p[1]>.5;p[0].style.color=light?'#1F1C18':'#FFFFFF';var im=p[0].querySelector&&p[0].querySelector('img');if(im)im.style.filter=light?'invert(1) brightness(.2)':''})}
+function schedule(){if(!busy){busy=true;requestAnimationFrame(run)}}
+addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('load',schedule);
+new MutationObserver(schedule).observe(hd,{attributes:true,attributeFilter:['class']});
+setInterval(schedule,500);schedule()})();</script>
+
+<script>/*R68RV*/(function(){var w=document.querySelector('.rv-slider');if(!w)return;var t=w.querySelector('.rv-track'),c=w.querySelector('.rv-count b'),sl=t.children;
+function step(){return sl[0].getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||24)}
+function upd(){var i=Math.round(t.scrollLeft/step());if(t.scrollLeft+t.clientWidth>=t.scrollWidth-4)i=sl.length-1;c.textContent=Math.min(sl.length,i+1)}
+t.addEventListener('scroll',function(){requestAnimationFrame(upd)},{passive:true});
+w.querySelector('.rv-prev').onclick=function(){t.scrollBy({left:-step(),behavior:'smooth'})};
+w.querySelector('.rv-next').onclick=function(){t.scrollBy({left:step(),behavior:'smooth'})};})();</script>
 </body>
 </html>

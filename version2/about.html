@@ -412,6 +412,18 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 @keyframes vbreath2{0%,100%{opacity:.85}50%{opacity:1}}
 @media (prefers-reduced-motion:reduce){.venn.v2 .vrays,.venn.v2 .varc,.venn.v2 .vhalo,.venn.v2 .vcore{animation:none}}
 </style>
+<!--R60HERO--><style>.hero-in{display:flex;flex-direction:column}
+@media (min-width:901px){.p-hero .copy{align-items:center}.hero-in{width:max-content;max-width:100%}}
+@media (max-width:900px){.p-hero .copy{padding-bottom:30px!important}.p-hero .hanja{margin-bottom:22px!important}
+.p-hero .media::after{background:linear-gradient(to left,rgba(255,255,255,.9) 0,rgba(255,255,255,.6) 34%,rgba(255,255,255,0) 60%),linear-gradient(to top,var(--cream) 0,var(--cream) 22%,rgba(255,255,255,.9) 36%,rgba(255,255,255,0) 54%)!important}}</style>
+<!--R60HERO2--><style>@media (min-width:901px){.p-hero .copy{justify-content:center!important;padding-top:120px!important;padding-bottom:60px!important}}
+@media (max-width:900px){.p-hero{background:var(--cream)}.p-hero .media{bottom:22%!important}.p-hero .media img{object-position:80% 30%!important}}</style>
+<!--R61TONE--><style>.head.toned{mix-blend-mode:normal}.head.toned .nav>a,.head.toned .has-sub>a,.head.toned .lang,.head.toned .burger{transition:color .35s}</style>
+<!--R66HEAD--><style>@media (max-width:900px){.head,.head.solid,.head:has(.has-sub:hover){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);will-change:transform}.head.solid{background:#FFFFFF!important}}</style>
+<!--R67ARROW--><style>@keyframes ctaNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(10px)}}
+.cta .arrow{animation:ctaNudge 1.6s cubic-bezier(.45,0,.25,1) infinite}
+.cta a:hover .arrow,.cta a:focus-visible .arrow,.cta a:active .arrow{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.cta .arrow{animation:none}}</style>
 </head>
 <body>
 
@@ -445,12 +457,12 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 
   <!-- 01 PAGE HERO -->
   <section class="p-hero" id="hero">
-    <div class="copy">
+    <div class="copy"><div class="hero-in">
             <div class="hanja">
         <h1 aria-label="초월" class="kr-h1"><img src="img/kr_h_k.svg" alt="초월"></h1>
       </div>
       <p class="body hero-lead" style="max-width:none">막걸리를 초월하다, 초월은<br>대한민국 최남단 해남의 쌀과 누룩, 물<br>자연재료만을 활용한 한국의 전통 양조 방식을 바탕으로<br>막걸리의 경계를 넓혀갑니다.</p>
-    </div>
+    </div></div>
     <div class="media"><img src="img/a_label.jpg" alt="나무 테이블 위, 공중을 떠다니는 사람들이 그려진 초월 병"></div>
   </section>
 
@@ -551,9 +563,9 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 <circle class="varc vr2" cx="332" cy="305" r="132" style="transform-origin:332px 305px;fill:none;stroke:#FFF8EC;stroke-width:1.2;stroke-linecap:round;stroke-dasharray:46 784;stroke-dashoffset:-12;opacity:.95"/>
 <g class="vhalo" filter="url(#vblur2)" opacity=".55"><g clip-path="url(#vc0)"><g clip-path="url(#vc1)"><g clip-path="url(#vc2)"><circle cx="260" cy="262" r="140" style="fill:#F3ECDF;stroke:none;opacity:1"/></g></g></g></g>
 <g class="vcore" clip-path="url(#vc0)"><g clip-path="url(#vc1)"><g clip-path="url(#vc2)"><circle cx="260" cy="262" r="140" style="fill:url(#vglow);stroke:none;opacity:1"/><circle cx="260" cy="262" r="140" style="fill:#fff;stroke:none;opacity:.35" filter="url(#vgrain)"/></g></g></g>
-<text x="260" y="96" text-anchor="middle">풍미</text>
-<text x="120" y="368" text-anchor="middle">단맛</text>
-<text x="400" y="368" text-anchor="middle">산미</text>
+<text x="260" y="96" text-anchor="middle">질감</text>
+<text x="120" y="368" text-anchor="middle">드라이</text>
+<text x="400" y="368" text-anchor="middle">풍미</text>
 <text class="c" x="260" y="268" text-anchor="middle">초월</text></svg>
       <div style="display:flex;flex-direction:column;gap:22px">
         <span class="eyebrow in"><b style="color:#D9B36C">03</b> — Taste</span>
@@ -571,7 +583,7 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
       <div style="display:flex;flex-direction:column;gap:26px">
         <span class="eyebrow in"><b>04</b> — Brewer</span>
         <h2 class="h2 in d1">막걸리를 초월한다는<br>목표 하나로</h2>
-        <p class="body in d2">막걸리에 대한 애정으로 시작해 오랜 기간 가양주를 연구하며 초월의 막걸리를 완성했습니다.<br>현재도 전통 발효의 가치를 현대적으로 재해석하며<br>막걸리의 새로운 가능성을 끊임없이 연구하고 있습니다.</p>
+        <p class="body in d2">막걸리에 대한 애정으로 시작해<br>오랜 기간 가양주를 연구하며 초월의 막걸리를 완성했습니다.<br>현재도 전통 발효의 가치를 현대적으로 재해석하며<br>막걸리의 새로운 가능성을 끊임없이 연구하고 있습니다.</p>
         <ul class="creds in d3">
           <li><span>CEO · BREWER</span><span>최요섭</span></li>
           <li><span>CERTIFIED</span><span>전통주 소믈리에</span></li>
@@ -593,13 +605,13 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
       </div>
       <div class="sp-slider in" aria-roledescription="carousel" aria-label="양조장 사진">
         <div class="sp-track" tabindex="0">
+          <figure class="sp-slide"><img src="img/c_bar.jpg" alt="바에서 초월을 시음하는 손님들" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/a_space.jpg" alt="나무 벽과 고재 기둥이 있는 양조장 내부" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/sp_bottle.jpg" alt="나무 선반 위의 초월 6.9" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/a_pillar.jpg" alt="고재 기둥과 펜던트 조명" loading="lazy" style="object-position:30% 50%"></figure>
           <figure class="sp-slide"><img src="img/sp_tubes.jpg" alt="시험관에 담긴 쌀과 누룩" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/a_jar.jpg" alt="선반 위 산수화 백자 항아리" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/sp_stone.jpg" alt="나무 위에 쌓인 조약돌과 금속 오브제" loading="lazy"></figure>
-          <figure class="sp-slide"><img src="img/c_bar.jpg" alt="바에서 초월을 시음하는 손님들" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/sp_wheel.jpg" alt="벽에 걸린 금속 바퀴 오브제" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/sp_cup.jpg" alt="나무 테이블 위 초월 전용잔" loading="lazy"></figure>
           <figure class="sp-slide"><img src="img/sp_objet.jpg" alt="선반 위 조약돌과 금속 오브제" loading="lazy"></figure>
@@ -737,5 +749,39 @@ document.querySelectorAll(sel).forEach(function(el){
   groups.forEach(function(g){var sp=document.createElement('span');sp.className='lseg';g.forEach(function(n){sp.appendChild(n)});el.appendChild(sp)});
 });})();
 </script>
+<script>/*R61TONE*/(function(){
+var hd=document.querySelector('.head');if(!hd)return;
+var cache={},failed=false;
+function grid(src,cb){var c=cache[src];if(c){if(c.d)cb(c);else c.q.push(cb);return}
+ c=cache[src]={q:[cb]};var im=new Image();im.onload=function(){try{var W=96,H=Math.max(1,Math.round(96*im.naturalHeight/im.naturalWidth));var cv=document.createElement('canvas');cv.width=W;cv.height=H;var x=cv.getContext('2d');x.drawImage(im,0,0,W,H);c.d=x.getImageData(0,0,W,H).data;c.W=W;c.H=H;c.nw=im.naturalWidth;c.nh=im.naturalHeight;c.q.forEach(function(f){f(c)});c.q=[];schedule()}catch(e){failed=true;hd.classList.remove('toned')}};im.onerror=function(){c.d=null;c.bad=1};im.src=src}
+function pos(v,i){var p=(v||'50% 50%').split(' ');var t=p[i]||p[0]||'50%';if(t.indexOf('%')>0)return parseFloat(t)/100;if(t=='left'||t=='top')return 0;if(t=='right'||t=='bottom')return 1;return .5}
+function sampleImg(el,src,fit,op,x,y){var c=cache[src];if(!c||!c.d){grid(src,function(){});return null}
+ var r=el.getBoundingClientRect(),s;if(fit=='contain')s=Math.min(r.width/c.nw,r.height/c.nh);else if(fit=='fill'){var u=(x-r.left)/r.width,v=(y-r.top)/r.height;return px(c,u,v)}else s=Math.max(r.width/c.nw,r.height/c.nh);
+ var ox=(r.width-c.nw*s)*pos(op,0),oy=(r.height-c.nh*s)*pos(op,1);var u=(x-r.left-ox)/(c.nw*s),v=(y-r.top-oy)/(c.nh*s);if(u<0||u>1||v<0||v>1)return {a:0};return px(c,u,v)}
+function px(c,u,v){var i=(Math.min(c.H-1,Math.floor(v*c.H))*c.W+Math.min(c.W-1,Math.floor(u*c.W)))*4,d=c.d;return {l:(.2126*d[i]+.7152*d[i+1]+.0722*d[i+2])/255,a:d[i+3]/255}}
+function rgb(s){var m=s.match(/[\d.]+/g);if(!m)return null;return {l:(.2126*m[0]+.7152*m[1]+.0722*m[2])/255,a:m.length>3?+m[3]:1}}
+function lumAt(x,y){var st=document.elementsFromPoint(x,y);for(var i=0;i<st.length;i++){var e=st[i];if(hd.contains(e))continue;if(e.closest&&e.closest('.menu'))continue;
+  var cs=getComputedStyle(e);if(cs.visibility=='hidden'||+cs.opacity<.3)continue;
+  if(e.tagName=='CANVAS')continue;if(e.tagName=='VIDEO'||e.tagName=='IFRAME')return .2;
+  if(e.tagName=='IMG'&&e.currentSrc){var p=sampleImg(e,e.currentSrc,cs.objectFit,cs.objectPosition,x,y);if(p===null)return null;if(p.a>.5)return p.l;continue}
+  var bi=cs.backgroundImage;if(bi&&bi!='none'){var m=bi.match(/url\(["']?([^"')]+)["']?\)/);if(m){var fit=cs.backgroundSize=='contain'?'contain':(cs.backgroundSize.indexOf('100% 100%')==0?'fill':'cover');var p2=sampleImg(e,m[1],fit,cs.backgroundPosition,x,y);if(p2===null)return null;if(p2.a>.5)return p2.l}}
+  var b=rgb(cs.backgroundColor);if(b&&b.a>.5)return b.l}
+ return 1}
+function items(){var a=[hd.querySelector('.brand')];hd.querySelectorAll('.nav>a,.nav>.has-sub>a').forEach(function(e){a.push(e)});var l=hd.querySelector('.lang');if(l)a.push(l);var bg=hd.querySelector('.burger');if(bg)a.push(bg);return a.filter(function(e){return e&&e.offsetParent!==null||e&&e.getClientRects().length})}
+function clear(){hd.classList.remove('toned');items().forEach(function(e){e.style.color='';var im=e.querySelector&&e.querySelector('img');if(im)im.style.filter=''})}
+var busy=false;function run(){busy=false;if(failed)return;
+ var solid=hd.classList.contains('solid');try{solid=solid||hd.matches(':has(.has-sub:hover),:has(.has-sub:focus-within)')}catch(e){}var bu=hd.querySelector('.burger');if(bu&&bu.getAttribute('aria-expanded')=='true')solid=true;
+ if(solid){clear();return}
+ var its=items(),res=[],pending=false;
+ its.forEach(function(e){var r=e.getBoundingClientRect();if(!r.width)return;var sum=0,n=0;for(var i=0;i<5;i++)for(var j=0;j<3;j++){var x=r.left+r.width*(i+.5)/5,y=r.top+r.height*(j+.5)/3;var L=lumAt(x,y);if(L===null){pending=true;continue}sum+=L;n++}
+  if(n)res.push([e,sum/n])});
+ if(pending&&!res.length)return;
+ hd.classList.add('toned');
+ res.forEach(function(p){var light=p[1]>.5;p[0].style.color=light?'#1F1C18':'#FFFFFF';var im=p[0].querySelector&&p[0].querySelector('img');if(im)im.style.filter=light?'invert(1) brightness(.2)':''})}
+function schedule(){if(!busy){busy=true;requestAnimationFrame(run)}}
+addEventListener('scroll',schedule,{passive:true});addEventListener('resize',schedule);addEventListener('load',schedule);
+new MutationObserver(schedule).observe(hd,{attributes:true,attributeFilter:['class']});
+setInterval(schedule,500);schedule()})();</script>
+
 </body>
 </html>
