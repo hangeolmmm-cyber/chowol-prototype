@@ -532,6 +532,51 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){.pc,.pc::before,.pc-go i{transition:none}}</style>
 <!--R64CARD--><style>@media (min-width:901px){.card .img{height:auto!important;aspect-ratio:5/4!important}}.pc dl div{padding:11px 0}.pc dt{margin-bottom:3px}</style>
 <!--R66HEAD--><style>@media (max-width:900px){.head,.head.solid,.head:has(.has-sub:hover){-webkit-backdrop-filter:none!important;backdrop-filter:none!important;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0);will-change:transform}.head.solid{background:#FFFFFF!important}}</style>
+<!--R69SPEC--><style>
+.ts{position:relative;max-width:900px;margin:0 auto}
+.ts-sub{display:block;font-size:11px;letter-spacing:.32em;color:var(--muted);margin:-22px 0 8px}
+.ts-stage{position:relative;aspect-ratio:1/1;container-type:inline-size}
+.ts-circle{position:absolute;inset:11%;border-radius:50%;overflow:hidden;border:1px solid rgba(120,96,120,.25);background:#F2ECEB;isolation:isolate}
+.ts-haze{position:absolute;inset:-10%;background:radial-gradient(circle at 60% 40%,rgba(196,168,196,.55),rgba(240,232,236,.2) 60%,transparent 75%);filter:blur(20px)}
+.ts-blob{position:absolute;mix-blend-mode:multiply;filter:blur(14px);opacity:.88;transition:opacity .6s,transform .8s cubic-bezier(.2,.7,.2,1),filter .6s;animation:tsDrift 14s ease-in-out infinite alternate}
+.b-i69{left:-2%;top:16%;width:54%;height:60%;border-radius:52% 48% 46% 54%/44% 50% 50% 56%;background:radial-gradient(ellipse at 45% 50%,#C47F35 0,#D69A55 40%,rgba(226,170,110,.5) 66%,transparent 80%)}
+.b-idd{left:36%;top:6%;width:62%;height:62%;border-radius:40% 60% 52% 48%/42% 46% 54% 58%;background:radial-gradient(ellipse at 60% 50%,#3E1834 0,#5A2A4E 34%,rgba(140,78,128,.6) 60%,transparent 80%);animation-delay:-4s}
+.b-ideep{left:24%;top:38%;width:60%;height:44%;border-radius:46% 54% 60% 40%/52% 40% 60% 48%;background:radial-gradient(ellipse at 50% 50%,#3A3F6E 0,#565B8C 38%,rgba(120,120,170,.45) 64%,transparent 80%);animation-delay:-8s}
+.b-isp{left:40%;top:58%;width:54%;height:42%;border-radius:58% 42% 48% 52%/50% 52% 48% 50%;background:radial-gradient(ellipse at 50% 45%,#B05A7A 0,#C77C96 40%,rgba(214,150,172,.5) 66%,transparent 82%);animation-delay:-11s}
+@keyframes tsDrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(1.2%,-1.2%) scale(1.03)}}
+.ts-ax{position:absolute;font-family:'Noto Serif KR',serif;font-size:clamp(9px,1.25cqw,12px);letter-spacing:.3em;color:var(--ink-2);text-align:center;line-height:1.7}
+.ax-t{left:50%;top:0;transform:translateX(-50%)}.ax-t::after,.ax-b::before{content:"";display:block;width:1px;height:2.4cqw;background:var(--ink-2);margin:6px auto 0;opacity:.6}
+.ax-b::before{margin:0 auto 6px}
+.ax-b{left:50%;bottom:0;transform:translateX(-50%)}
+.ax-l{left:0;top:50%;transform:translateY(-50%)}.ax-r{right:0;top:50%;transform:translateY(-50%)}
+.ax-l::after,.ax-r::before{content:"";display:inline-block;width:2cqw;height:1px;background:var(--ink-2);vertical-align:middle;margin:0 0 0 8px;opacity:.6}.ax-r::before{margin:0 8px 0 0}
+.ts-item{position:absolute;z-index:2;display:flex;flex-direction:column;color:#FBF6F1;padding:8px 10px;margin:-8px -10px;text-shadow:0 1px 14px rgba(40,20,30,.25)}
+.ts-item b{font-family:'Noto Serif KR',serif;font-weight:300;font-size:clamp(17px,4.4cqw,40px);line-height:1.1;letter-spacing:.02em}
+.ts-spec{margin-top:.6cqw;font-family:'Noto Serif KR',serif;font-size:clamp(10px,1.75cqw,16px);letter-spacing:.06em;padding-bottom:1.2cqw;border-bottom:1px solid rgba(251,246,241,.45);transition:border-color .5s}
+.ts-desc{margin-top:1.3cqw;font-family:'Noto Serif KR',serif;font-size:clamp(11px,1.95cqw,18px);letter-spacing:.04em}
+.ts-when{margin-top:.4cqw;font-size:clamp(10px,1.55cqw,14px);letter-spacing:.06em;opacity:.85}
+.ts-go{margin-top:1cqw;font-size:clamp(9px,1.15cqw,11px);letter-spacing:.24em;opacity:0;transform:translateY(-4px);transition:opacity .45s,transform .45s}
+.t-i69{left:21%;top:36%}.t-idd{left:58.5%;top:27%}.t-ideep{left:49%;top:45%}.t-isp{left:55.5%;top:64.5%}
+.t-idd .ts-spec,.t-idd .ts-desc,.t-idd .ts-when,.t-idd .ts-go{padding-left:3cqw}.t-idd .ts-desc,.t-idd .ts-when,.t-idd .ts-go{padding-left:3cqw}.t-idd .ts-when{padding-left:7cqw}
+.ts:has(.ts-item:hover) .ts-blob{opacity:.42;filter:blur(18px) saturate(.7)}
+.ts:has(.t-i69:hover) .b-i69,.ts:has(.t-idd:hover) .b-idd,.ts:has(.t-ideep:hover) .b-ideep,.ts:has(.t-isp:hover) .b-isp,
+.ts:has(.t-i69:focus-visible) .b-i69,.ts:has(.t-idd:focus-visible) .b-idd,.ts:has(.t-ideep:focus-visible) .b-ideep,.ts:has(.t-isp:focus-visible) .b-isp{opacity:1;filter:blur(10px) saturate(1.25) brightness(.92);transform:scale(1.06);z-index:1}
+.ts:has(.ts-item:hover) .ts-item:not(:hover){opacity:.55}
+.ts-item{transition:opacity .5s,transform .5s}
+.ts-item:hover,.ts-item:focus-visible{transform:translateY(-4px)}
+.ts-item:hover .ts-go,.ts-item:focus-visible .ts-go{opacity:1;transform:none}
+.ts-item:hover .ts-spec{border-color:#FBF6F1}
+@media (max-width:640px){.ts-when,.ts-go{display:none}.ts-desc{font-size:11px}.ts-item{padding:4px;margin:-4px}.t-i69{left:16%}.t-idd{left:52%;top:25%}.t-ideep{left:40%;top:47%}.t-isp{left:48%;top:66%}.t-idd .ts-spec,.t-idd .ts-desc{padding-left:0}.ts-sub{margin-top:-14px}.ts-stage{margin:0 -8px}}
+@media (prefers-reduced-motion:reduce){.ts-blob{animation:none}}</style>
+<!--R69SPEC2--><style>.ts-sub{display:block;margin:0 0 24px!important}
+.ts-blob{mix-blend-mode:normal!important;opacity:.78}
+.b-i69{background:radial-gradient(ellipse at 45% 50%,rgba(196,127,53,.95) 0,rgba(214,154,85,.85) 38%,rgba(226,170,110,.35) 66%,transparent 80%)}
+.b-idd{background:radial-gradient(ellipse at 60% 48%,rgba(62,24,52,.95) 0,rgba(96,48,86,.85) 36%,rgba(160,110,150,.35) 64%,transparent 80%)}
+.b-ideep{background:radial-gradient(ellipse at 50% 50%,rgba(58,63,110,.9) 0,rgba(90,96,146,.75) 38%,rgba(150,150,196,.3) 64%,transparent 80%)}
+.b-isp{background:radial-gradient(ellipse at 50% 45%,rgba(176,90,122,.9) 0,rgba(199,124,150,.78) 40%,rgba(224,170,190,.35) 66%,transparent 82%)}
+@media (max-width:640px){.ts-circle{inset:9%}.ts-desc{display:none}.ts-spec{border-bottom:0;padding-bottom:0}.ts-item b{font-size:17px}.ts-spec{font-size:10px}
+.t-i69{left:15%;top:38%}.t-idd{left:50%;top:22%}.t-ideep{left:38%;top:46%}.t-isp{left:47%;top:66%}.ax-l::after,.ax-r::before{display:none}.ts-ax{letter-spacing:.2em}}</style>
+<!--R69SPEC3--><style>@media (max-width:640px){.ts-stage{margin:0!important}.ts-ax{font-size:8.5px;letter-spacing:.16em}}</style>
 </head>
 <body>
 
@@ -606,8 +651,8 @@ p,li,dd,figcaption,.body,small{text-wrap:pretty}
   <section class="sec" style="background:var(--rice)">
     <div class="wrap">
       <span class="eyebrow in">COMPARE</span>
-      <h3 class="h2 in d1" style="margin:18px 0 40px">나에게 맞는 초월</h3>
-      <div class="pc-grid"><a class="pc in d1" href="product-69.html"><span class="pc-tag">SIGNATURE</span><span class="pc-name">6.9</span><dl><div><dt>도수</dt><dd>6.9%</dd></div><div><dt>소비기한</dt><dd>60일 / 90일</dd></div><div><dt>원료</dt><dd>쌀 · 찹쌀 · 누룩</dd></div><div><dt>발효</dt><dd>48일 · 삼양주</dd></div><div><dt>바디</dt><dd>바디감 있는 담백함</dd></div><div><dt>마무리</dt><dd>부드럽고 균형 잡힌</dd></div><div><dt>추천 잔</dt><dd>전용잔</dd></div><div><dt>이럴 때</dt><dd>일상의 저녁, 식사와</dd></div></dl><span class="pc-go">자세히 보기 <i>→</i></span></a><a class="pc in d2" href="product-deep.html"><span class="pc-tag">PREMIUM</span><span class="pc-name">DEEP</span><dl><div><dt>도수</dt><dd>18%</dd></div><div><dt>소비기한</dt><dd>5개월</dd></div><div><dt>원료</dt><dd>쌀 · 찹쌀 · 누룩</dd></div><div><dt>발효</dt><dd>56일+ 완전 발효 · 윗술 엄선</dd></div><div><dt>바디</dt><dd>6.9보다 가볍게, 밀도 있게</dd></div><div><dt>마무리</dt><dd>산미 · 은은한 스파이시</dd></div><div><dt>추천 잔</dt><dd>전용잔 · 노징글라스</dd></div><div><dt>이럴 때</dt><dd>천천히, 안주 없이도</dd></div></dl><span class="pc-go">자세히 보기 <i>→</i></span></a><a class="pc in d3" href="product-deepdown.html"><span class="pc-tag">PREMIUM</span><span class="pc-name">DEEP Down</span><dl><div><dt>도수</dt><dd>12%</dd></div><div><dt>소비기한</dt><dd>5개월</dd></div><div><dt>원료</dt><dd>쌀 · 찹쌀 · 누룩</dd></div><div><dt>발효</dt><dd>56일+ 완전 발효 · 가수</dd></div><div><dt>바디</dt><dd>풀바디, 묵직하게</dd></div><div><dt>마무리</dt><dd>플랫한 드라이</dd></div><div><dt>추천 잔</dt><dd>전용잔 · 온더락</dd></div><div><dt>이럴 때</dt><dd>식사와 함께, 더 자주</dd></div></dl><span class="pc-go">자세히 보기 <i>→</i></span></a><a class="pc in d3" href="product-spkl.html"><span class="pc-tag">NEW TYPE</span><span class="pc-name">SPKL</span><dl><div><dt>도수</dt><dd>15.6%</dd></div><div><dt>소비기한</dt><dd>3개월</dd></div><div><dt>원료</dt><dd>찹쌀 · 누룩 · 타트체리</dd></div><div><dt>발효</dt><dd>자연 발효 · 천연 미탄산</dd></div><div><dt>바디</dt><dd>가볍고 산뜻하게</dd></div><div><dt>마무리</dt><dd>타트체리 산미 · 미세한 기포</dd></div><div><dt>추천 잔</dt><dd>와인 잔</dd></div><div><dt>이럴 때</dt><dd>치즈 · 튀김 · 파스타와</dd></div></dl><span class="pc-go">자세히 보기 <i>→</i></span></a></div>
+      <h3 class="h2 in d1" style="margin:18px 0 10px">나에게 맞는 초월</h3><span class="ts-sub in d1">CHOWOL — TASTE SPECTRUM</span>
+      <div class="ts in d2" role="group" aria-label="초월 맛 스펙트럼: 위는 묵직한 질감, 아래는 가벼운 질감, 왼쪽은 단맛, 오른쪽은 드라이"><div class="ts-stage"><span class="ts-ax ax-t">RICH<br>TEXTURE</span><span class="ts-ax ax-b">LIGHT<br>TEXTURE</span><span class="ts-ax ax-l">SWEET</span><span class="ts-ax ax-r">DRY</span><div class="ts-circle"><span class="ts-haze" aria-hidden="true"></span><span class="ts-blob b-i69" aria-hidden="true"></span><span class="ts-blob b-idd" aria-hidden="true"></span><span class="ts-blob b-ideep" aria-hidden="true"></span><span class="ts-blob b-isp" aria-hidden="true"></span></div><a class="ts-item t-i69" href="product-69.html" data-k="i69"><b>6.9</b><span class="ts-spec">6.9% · 48일</span><span class="ts-desc">부드럽고 균형 잡힌</span><span class="ts-when">일상의 저녁</span><span class="ts-go">자세히 보기 →</span></a><a class="ts-item t-idd" href="product-deepdown.html" data-k="idd"><b>DEEP Down</b><span class="ts-spec">12% · 56일 이상</span><span class="ts-desc">묵직한 질감, 드라이 피니쉬</span><span class="ts-when">식사와 함께, 더 자주</span><span class="ts-go">자세히 보기 →</span></a><a class="ts-item t-ideep" href="product-deep.html" data-k="ideep"><b>DEEP</b><span class="ts-spec">18% · 완전발효 · 원주</span><span class="ts-desc">다채로운 풍미, 스파이시</span><span class="ts-when">천천히, 안주 없이도</span><span class="ts-go">자세히 보기 →</span></a><a class="ts-item t-isp" href="product-spkl.html" data-k="isp"><b>SPKL</b><span class="ts-spec">15.6% · 천연 미탄산</span><span class="ts-desc">경쾌한 산미, 감칠맛</span><span class="ts-when">치즈 · 튀김 · 파스타와</span><span class="ts-go">자세히 보기 →</span></a></div></div>
     </div>
   </section>
 </main>
